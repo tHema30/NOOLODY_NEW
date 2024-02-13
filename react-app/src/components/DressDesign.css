@@ -1,0 +1,64 @@
+/* DressDesign.css */
+
+.design-form {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* margin-bottom:200px ; */
+  }
+  
+  img {
+    text-align: center;
+    /* color: #333; */
+  }
+ 
+  label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+  }
+  
+  input,
+  textarea,
+  button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 3px;
+
+  }
+  
+  button {
+    background-color:#492E87;
+    color: rgb(245, 234, 234);
+    cursor: pointer;
+    margin-top: 3px;
+  }
+  
+  button:hover {
+    background-color: #ac0ce1;
+  }
+  
+  .error-toast,
+  .success-toast {
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  .error-toast {
+    background-color: #f44336;
+  }
+  
+  .success-toast {
+    background-color: #4caf50;
+  }
+  
