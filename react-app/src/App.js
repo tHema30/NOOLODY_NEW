@@ -27,6 +27,7 @@ import DressDesign from "./components/DressDesign";
 import DressDesignList from "./components/DressDesignList";
 import BookForm from "./components/Booking/BookForm";
 
+import ServiceDetails from './components/ServiceDetails'
 
 
 function App() {
@@ -50,6 +51,8 @@ function App() {
     <Route path="/dresscard" element={<DressDesignList />} />
 
     <Route path="/booking" element={<BookForm />} />
+    <Route path="/service" element={<ServiceDetails />} />
+
 
 
 

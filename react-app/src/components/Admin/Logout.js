@@ -8,6 +8,7 @@ const Logout = () => {
         credentials: 'include', // include cookies in the request
       });
 
+      
       if (response.ok) {
         // You can redirect or perform other actions after successful logout
         console.log('User logged out');

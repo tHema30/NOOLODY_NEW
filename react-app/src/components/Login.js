@@ -158,7 +158,7 @@ setInputValue({
       {isLoggedIn ? "home" : "Login"}
     </button> */}
             <span>
-              Already don't have an account? <a href="/signup">SignUp</a>
+              Already don't have an account? <a href="/signup">Register Now</a>
             </span>
           </form>
           <ToastContainer />

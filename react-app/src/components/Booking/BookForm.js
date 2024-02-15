@@ -70,6 +70,9 @@ const BookForm = () => {
 
         <label htmlFor="preferredTime">Preferred Appointment Time:</label>
         <input type="time" name="preferredTime" value={formData.preferredTime} onChange={handleChange} required />
+        
+        <label htmlFor="image">Upload Image:</label>
+        <input type="file" name="image" onChange={handleChange} accept="image/*" />
 
         {/* Clothing Measurements */}
         <h2>Clothing Measurements</h2>
@@ -113,12 +116,6 @@ const BookForm = () => {
 
         <label htmlFor="fabricPreference">Fabric Preference:</label>
         <input type="text" name="fabricPreference" value={formData.fabricPreference} onChange={handleChange} />
-
-        <label htmlFor="colorPreference">Color Preference:</label>
-        <input type="text" name="colorPreference" value={formData.colorPreference} onChange={handleChange} />
-
-        <label htmlFor="designDetails">Any Specific Design Details:</label>
-        <input type="text" name="designDetails" value={formData.designDetails} onChange={handleChange} />
 
         <label htmlFor="additionalComments">Additional Comments/Requests:</label>
         <textarea name="additionalComments" rows="3" value={formData.additionalComments} onChange={handleChange}></textarea>

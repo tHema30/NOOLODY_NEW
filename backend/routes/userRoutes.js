@@ -9,11 +9,15 @@ import { authUser,
   } 
 from '../controllers/userController.js';
 
-
+// import {service,getservices,getserviceId,deleteserviesId ,UpdateService } from '../controllers/serviceController.js'
 import { protect ,isAdmin } from '../middleware/authMiddleware.js';
 import  {Order} from '../controllers/orderController.js';
 import { tailors } from '../controllers/tailorsControllers.js';
-import nodemailer from 'nodemailer'
+import nodemailer from 'nodemailer';
+// import upload from '../utils/multer.js';
+
+
+
 
 // user Full 
 
@@ -26,6 +30,7 @@ router
 .route('/profile')
 .get(protect, getUserProfile)
 .put(protect, updateUserProfile);
+
 
 
 
@@ -68,9 +73,6 @@ router.post('/email', async (req, res) => {
       res.status(500).json({ error: 'Error sending the email. Please try again.' });
     }
   });
-
-
-
 
 
 

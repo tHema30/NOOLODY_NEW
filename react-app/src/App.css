@@ -269,7 +269,7 @@ border-color: #492E87 !important;
 }
 
 .onefit a{
-    color: #e9e6ef !important;
+    color: #161418 !important;
 }
 
 
@@ -337,9 +337,15 @@ border-color: #492E87 !important;
     font-size: 15px;
     border-top: 1px solid rgba(256, 256, 256, .1);
 }
+/* .footer a{
+    color: white !important;
+}
+.signup a{
+    color: #000 !important;
+} */
 
 .footer .copyright a {
-    color: var(--light);
+    color: white !important;
 }
 
 .footer .copyright a:hover {
@@ -376,7 +382,7 @@ border-color: #492E87 !important;
 
 .section6{ text-align: center;
     background-color: #fff;
-    height: 500px;
+    height: 650px;
 }
  /* .section6 ,h2 ,p{
  color: #0c0c0c;
@@ -479,6 +485,6 @@ border-color: #492E87 !important;
     background-color: rgb(84, 5, 97);
   }
   
-  .design-form{
+  /* .design-form{
     padding-top: 150px;
- } 
+ }  */

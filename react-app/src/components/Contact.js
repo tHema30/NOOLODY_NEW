@@ -68,7 +68,7 @@ return (
       <div className="container ">
           <div className="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style={{maxWidth: '500px' }}>
               <h1 className="display-5 mb-3">Contact Us</h1>
-              <p>Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
+              <p>Contact us – Have any questions or concerns ? We’re always ready to help!.</p>
           </div>
           <div className="row g-5 justify-content-center ">
               <div className="col-lg-5 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -78,7 +78,7 @@ return (
                       <h5 className="text-white">Email Us</h5>
                       <p className="mb-5"><i className="fa fa-envelope me-3"></i>info@example.com</p>
                       <h5 className="text-white">Office Address</h5>
-                      <p className="mb-5"><i className="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
+                      <p className="mb-5"><i className="fa fa-map-marker-alt me-3"></i>123 Street, Jaffna,Sri Lanka </p>
                       <h5 className="text-white">Follow Us</h5>
                       <div className="d-flex pt-2">
                           <a className="btn btn-square btn-outline-light rounded-circle me-1" href=""><i className="fab fa-twitter"></i></a>
@@ -89,7 +89,7 @@ return (
                   </div>
               </div>
               <div className="col-lg-7 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
-  <p className="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code, and you're done.</p>
+  <p className="mb-4">“Don’t go searching for the perfect fit. Our Tailor Designer expert will come to your home for free Pickup and Delivery.”</p>
   <form onSubmit={handleSubmit}>
     <div className="row g-3">
       <div className="col-md-6">

@@ -11,7 +11,7 @@ const router = express.Router();
 // Route for handling dress design upload
 router.post('/upload', upload.single('designImage'), uploadDressDesign);
 
-router.get('/dress-designs',isAdmin, getAllDressDesigns);
+router.get('/dress-designs', getAllDressDesigns);
 router.get('/dress-designs/cat',getDressDesignByCat);
 router.put('/dress-designs/edit',editDesign);
 router.delete('/dress-designs/delete', deleteDesign);

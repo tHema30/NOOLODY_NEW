@@ -6,6 +6,7 @@ import User from '../Admin/User';
 import TailorsDetails from './TailorDetails';
 import DressDesignDetails from './DressDesignDetails';
 import Logout from './Logout';
+import Service from './Service';
 
 function AdminHome (){
   return (
@@ -17,6 +18,8 @@ function AdminHome (){
       <Route path="/tailors" element={<TailorsDetails />} />
       <Route path="/designs" element={<DressDesignDetails />} />
       <Route path="/logout" element={<Logout />} />
+      <Route path="/service" element={<Service />} />
+
 
 
    

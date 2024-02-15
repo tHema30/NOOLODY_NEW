@@ -31,11 +31,11 @@ function Header() {
           Designs
         </a>
         <div className="dropdown-menu m-0">
-          <a href="/dresscard" className="dropdown-item" onClick={() => handleCategoryClick('Gents')}>
-            Gents
-          </a>
           <a href="/dresscard" className="dropdown-item" onClick={() => handleCategoryClick('Ladies')}>
             Ladies
+          </a>
+          <a href="/dresscard" className="dropdown-item" onClick={() => handleCategoryClick('Gents')}>
+           Gents
           </a>
           <a href="1" className="dropdown-item" onClick={() => handleCategoryClick('Kids')}>
             Kids
@@ -76,7 +76,7 @@ function Header() {
           <Link to="/features" className="nav-item nav-link">
             How It's work
           </Link>
-          <Link to="/services" className="nav-item nav-link">
+          <Link to="/service" className="nav-item nav-link">
             Services
           </Link>
           <DropdownMenu />

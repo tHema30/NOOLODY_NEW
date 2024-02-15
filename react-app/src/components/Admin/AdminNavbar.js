@@ -47,6 +47,11 @@ const AdminNavbar = () => {
             </Link>
           </li>
           <li className="nav-item"style={{marginLeft: "10px", marginRight:"10px"}}>
+            <Link to="/admin/service" >
+              Services
+            </Link>
+          </li>
+          <li className="nav-item"style={{marginLeft: "10px", marginRight:"10px"}}>
             <Link to="/admin/logout" >
               Logout
             </Link>
