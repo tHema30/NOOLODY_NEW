@@ -5,6 +5,7 @@ import { authUser,
     logoutUser,
     getUserProfile,
     updateUserProfile,
+    createUser
     
   } 
 from '../controllers/userController.js';
@@ -21,8 +22,6 @@ import nodemailer from 'nodemailer';
 
 // user Full 
 
-
-
 router.post('/', registerUser);
 router.post('/auth', authUser);
 router.post('/logout', logoutUser);
@@ -30,6 +29,7 @@ router
 .route('/profile')
 .get(protect, getUserProfile)
 .put(protect, updateUserProfile);
+router.post('/createuser',createUser)
 
 
 

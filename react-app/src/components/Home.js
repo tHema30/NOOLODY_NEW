@@ -18,14 +18,14 @@ function Home() {
                             <div className="row justify-content-start">
                                 <div className="col-lg-7 home-content">
                                     <h1 className="display-2 mb-5 animated slideInDown">We Stitch Design <br/>FIT YOU PERFECTLY</h1>
-                                    <a href="./formbook" onClick={myFunction} className="btn btn-secondary rounded-pill py-sm-3 px-sm-5 ms-3">Learn More</a>
+                                    <a href="./service" onClick={myFunction} className="btn btn-secondary rounded-pill py-sm-3 px-sm-5 ms-3">Learn More</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="carousel-item">
-                    <img className="w-100" src={require("../assets/img/homenewhema02.png")} alt=""/>
+                    <img className="w-100" src={require("../assets/img/homepinterest1.jpg")} alt=""/>
                     <div className="carousel-caption">
                         <div className="container">
                             <div className="row justify-content-start">
@@ -73,7 +73,7 @@ We understand how important authentic clothing with intricate details is for our
  <div className="container-fluid bg-light bg-icon my-5 py-6 onefit">
  <div className="container">
      <div className="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style={{maxWidth: '500px'}}>
-         <h1 className="display-5 mb-3">Our Features</h1>
+         <h1 className="display-5 mb-3">How it’s Work</h1>
          <p>Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
      </div>
      <div className="row g-4">
@@ -83,7 +83,7 @@ We understand how important authentic clothing with intricate details is for our
                  <i class="fa-solid fa-house"style={{fontSize:"58px"}}></i>
                  <h4 className="mb-3">Home Delivery</h4>
                  <p className="mb-4">We provide doorstep service that means, we’ll come at your place to take measurement and collect your cloth/fabric as per your given time and date.</p>
-                 <a className="btn btn-outline-primary border-2 py-2 px-4 rounded-pill" href="1">Read More</a>
+                 <a className="btn btn-outline-primary border-2 py-2 px-4 rounded-pill" href="/service">Read More</a>
              </div>
          </div>
          <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
@@ -92,7 +92,7 @@ We understand how important authentic clothing with intricate details is for our
                  <i class="fa-solid fa-truck-fast" style={{fontSize:"58px"}}></i>
                  <h4 className="mb-3">Fast Delivery</h4>
                  <p className="mb-4">Post which the stitching happens at our Production House and then we get it delivered to you and if there will be any alteration required, We will redo again and redeliver it at your place.</p>
-                 <a className="btn btn-outline-primary border-2 py-2 px-4 rounded-pill" href="1">Read More</a>
+                 <a className="btn btn-outline-primary border-2 py-2 px-4 rounded-pill" href="/service">Read More</a>
              </div>
          </div>
          <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
@@ -103,7 +103,7 @@ We understand how important authentic clothing with intricate details is for our
                  <p className="mb-4">We have a team of experienced tailors and designers, all outfit will be stitched under experts guidance.Our online tailors for ladies will curate excellent outfits for your formal events.
 
 </p>
-                 <a className="btn btn-outline-primary border-2 py-2 px-4 rounded-pill" href="1">Read More</a>
+                 <a className="btn btn-outline-primary border-2 py-2 px-4 rounded-pill" href="/service">Read More</a>
              </div>
          </div>
      </div>
@@ -116,22 +116,7 @@ We understand how important authentic clothing with intricate details is for our
   {/* <div class="grid-container2"> */}
   {/* <img src={require('..src/assets/img/designpage.webp')} alt="logo" width="350" /> */}
 
-  <div className="design-form">
-      {/* <h1>Dress Design Upload</h1> */}
-      <img src={require('../assets/img/Noolody2.png')} alt="logo" width="350" />
-
-      <label htmlFor="category">Category:</label>
-      <input type="text" id="category"  required />
-
-      <label htmlFor="description">Description:</label>
-      <textarea id="description"  required />
-
-      <label htmlFor="designImage">Design Image:</label>
-      <input type="file" id="designImage" accept="image/*" required />
-
-      <button type="button-form" >Upload</button>
-
-   </div> 
+ 
    {/* </div> */}
 </section>
 

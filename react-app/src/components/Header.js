@@ -1,46 +1,72 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Make sure to import Link from react-router-dom
-import DressDesign from './DressDesign'; // Assuming DressDesign is in the same directory
+import React, { useState } from "react";
+import { Link } from "react-router-dom"; // Make sure to import Link from react-router-dom
+import DressDesign from "./DressDesign"; // Assuming DressDesign is in the same directory
 
 function Header() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const info =JSON.parse(localStorage.getItem("userInfo"));
+
   const DropdownMenu = () => {
     const [selectedCategory, setSelectedCategory] = useState(null);
-
-    const handleCategoryClick = async(category) => {
+    
+    const handleCategoryClick = async (category) => {
       setSelectedCategory(category);
       try {
-        const response = await fetch('http://localhost:7300/api/designs/dress-designs/cat', {
-          method: 'GET',
-          body: {category:selectedCategory},
-        });
+        const response = await fetch(
+          "http://localhost:7300/api/designs/dress-designs/cat",
+          {
+            method: "GET",
+            body: { category: selectedCategory },
+          }
+        );
         if (response.ok) {
           // response.data
-          console.log('Upload successful!');
+          
+          console.log("Upload successful!");
         } else {
-          console.error('Upload failed.');
+          console.error("Upload failed.");
         }
       } catch (error) {
-  
-        console.error('Error uploading:', error);
+        console.error("Error uploading:", error);
       }
     };
 
     return (
       <div className="nav-item dropdown">
-        <a href="1" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+        <a
+          href="1"
+          className="nav-link dropdown-toggle"
+          data-bs-toggle="dropdown"
+        >
           Designs
         </a>
         <div className="dropdown-menu m-0">
-          <a href="/dresscard" className="dropdown-item" onClick={() => handleCategoryClick('Ladies')}>
+          <a
+            href="/dresscard"
+            className="dropdown-item"
+            onClick={() => handleCategoryClick("Ladies")}
+          >
             Ladies
           </a>
-          <a href="/dresscard" className="dropdown-item" onClick={() => handleCategoryClick('Gents')}>
-           Gents
+          <a
+            href="/dresscard"
+            className="dropdown-item"
+            onClick={() => handleCategoryClick("Gents")}
+          >
+            Gents
           </a>
-          <a href="1" className="dropdown-item" onClick={() => handleCategoryClick('Kids')}>
+          <a
+            href="1"
+            className="dropdown-item"
+            onClick={() => handleCategoryClick("Kids")}
+          >
             Kids
           </a>
-          <a href="1" className="dropdown-item" onClick={() => handleCategoryClick('Altering')}>
+          <a
+            href="1"
+            className="dropdown-item"
+            onClick={() => handleCategoryClick("Altering")}
+          >
             Altering
           </a>
         </div>
@@ -49,20 +75,29 @@ function Header() {
     );
   };
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
   const handleLoginClick = () => {
     // Handle the login logic here
     // Once the user has successfully logged in, set the state variable to true
-    setIsLoggedIn(true);
   };
 
   return (
-    <nav className="navbar navbar-expand-lg fixed-top navbar-light py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
+    <nav
+      className="navbar navbar-expand-lg fixed-top navbar-light py-lg-0 px-lg-5 wow fadeIn"
+      data-wow-delay="0.1s"
+    >
       <Link to="/">
-        <img src={require('../assets/img/Noolody2.png')} alt="logo" height="70" />
+        <img
+          src={require("../assets/img/Noolody2.png")}
+          alt="logo"
+          height="70"
+        />
       </Link>
-      <button type="button" className="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+      <button
+        type="button"
+        className="navbar-toggler me-4"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarCollapse"
+      >
         <span className="navbar-toggler-icon"></span>
       </button>
       <div className="collapse navbar-collapse" id="navbarCollapse">
@@ -85,17 +120,26 @@ function Header() {
           </Link>
         </div>
         <div className="d-none d-lg-flex ms-2">
-          <button onClick={handleLoginClick}>
-            {isLoggedIn ? (
-              <Link to="/profile">
-                <a className="-sm-square bg-white rounded- ms-3"></a>
-              </Link>
-            ) : (
-              <Link to="/login" className="btn ml-4" id="login_btn" style={{"color":"#fff"}}>
-                Login
-              </Link>
-            )}
-          </button>
+          {info ? (
+            <Link
+              to="/profile"
+              className="btn  ml-4 "
+              
+              style={{ color: "#fff" ,backgroundColor:"#492E87"}}
+            >{info.name}</Link>
+          ) : (
+            <Link
+              to="/login"
+              
+            ><button
+             className="btn  ml-4 "
+              id="login_btn"
+              style={{ color: "#fff" ,backgroundColor:"#492E87"}}
+            >
+              Login
+              </button>
+            </Link>
+          )}
         </div>
       </div>
     </nav>

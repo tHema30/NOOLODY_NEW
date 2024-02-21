@@ -20,20 +20,20 @@ import {
 
 
 //admin 
-router.get('/all-users' ,getallUser ,isAdmin,protect);
-router.get('/all-users/:id' ,protect, isAdmin, getUserById);
+router.get('/all-users' ,protect,isAdmin,getallUser );
+router.get('/all-users/:id' , getUserById);
 
-router.get("/tailorsProfile" ,getallTailors);
+router.get("/tailorsProfile",protect, isAdmin,getallTailors);
 router.get("/tailorsProfile/:id" ,gettailorById);
 
-router.get('/all-orders' ,protect,getallOrders);
-router.get("all-orders/:id",protect,getallOrdersById);
+router.get('/all-orders' ,protect, isAdmin,getallOrders);
+router.get("all-orders/:id",protect,isAdmin,getallOrdersById);
 
-router.put("/tailorsProfile/:id",protect,updateTailor);
+router.put("/tailorsProfile/:id",protect,isAdmin,updateTailor);
 
 //@route   DELETE api/admin/deleteuser/:id
-router.delete("/all-users/:id" ,protect,deleteUser ,);
-router.delete("/tailorsProfile/:id" ,protect,deleteTailor) 
+router.delete("/all-users/:id" ,protect,isAdmin,deleteUser ,);
+router.delete("/tailorsProfile/:id" ,protect,isAdmin,deleteTailor) 
 
 
 

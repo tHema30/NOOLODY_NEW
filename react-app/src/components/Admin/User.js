@@ -11,7 +11,8 @@ const User = () => {
 
   useEffect(() => {
     // Fetch all users when the component mounts
-    axios.get('http://localhost:7300/api/admin/all-users')
+    axios.get('http://localhost:7300/api/admin/all-users', { withCredentials: true })
+    
       .then(response => setUsers(response.data))
       .catch(error => console.error('Error fetching users:', error));
   }, []);
@@ -143,18 +144,18 @@ const User = () => {
           <Modal.Body>
             <Form>
               <Form.Group controlId="formFirstName">
-                <Form.Label>First Name:</Form.Label>
+                <Form.Label> Name:</Form.Label>
                 <Form.Control
                   type="text"
-                  value={updateData.firstName || ''}
+                  value={updateData.name || ''}
                   onChange={(e) => setUpdateData({ ...updateData, firstName: e.target.value })}
                 />
               </Form.Group>
               <Form.Group controlId="formLastName">
-                <Form.Label>Last Name:</Form.Label>
+                <Form.Label>Password:</Form.Label>
                 <Form.Control
                   type="text"
-                  value={updateData.lastName || ''}
+                  value={updateData.password || ''}
                   onChange={(e) => setUpdateData({ ...updateData, lastName: e.target.value })}
                 />
               </Form.Group>

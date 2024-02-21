@@ -28,6 +28,8 @@ import DressDesignList from "./components/DressDesignList";
 import BookForm from "./components/Booking/BookForm";
 
 import ServiceDetails from './components/ServiceDetails'
+import AdminRoutes from "./components/AdminRoutes";
+import Payment from "./components/Payment/Payment";
 
 
 function App() {
@@ -47,11 +49,13 @@ function App() {
     <Route path="/home" element={<Home/>} />
     <Route path="/tailorregister" element={<TailorRegister/>} />
     <Route path="/dress" element={<DressDesign/>} />
-    <Route path="/admin/*" element={<AdminHome />} />
+    <Route path="/admin/*" element={<AdminRoutes><AdminHome/></AdminRoutes>} />
     <Route path="/dresscard" element={<DressDesignList />} />
 
     <Route path="/booking" element={<BookForm />} />
     <Route path="/service" element={<ServiceDetails />} />
+    <Route path="/payment" element={<Payment />} />
+
 
 
 

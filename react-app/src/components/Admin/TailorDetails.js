@@ -21,7 +21,7 @@ const TailorsDetails = () => {
   const [tailors, setTailors] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost:7300/api/admin/tailorsProfile')
+    axios.get('http://localhost:7300/api/admin/tailorsProfile',{ withCredentials: true })
       .then(response => {
         console.log('Response data:', response.data);
         setTailors(response.data.data);

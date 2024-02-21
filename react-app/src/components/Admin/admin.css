@@ -9,3 +9,56 @@ a.navbar-brand{
   font-weight: 800;
 
 }
+
+/* Add this CSS to your styles */
+.my-5 {
+  margin-top: 5rem;
+}
+
+/* Responsive styles for the table */
+@media (max-width: 767px) {
+  .table-responsive {
+    overflow-x: auto;
+  }
+}
+
+/* Adjust table styles */
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  background-color: transparent;
+}
+
+/* Optional: Add some padding to the table cells */
+.table td,
+.table th {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
+
+/* Optional: Center text in the Actions column */
+td:last-child {
+  text-align: center;
+}
+
+/* Optional: Add some spacing between the buttons */
+button {
+  margin-right: 5px;
+}
+
+/* Optional: Add a little more space between the table rows */
+.table tbody tr {
+  margin-bottom: 10px;
+}
+
+/* Optional: Style the table header background and text color */
+.table thead th {
+  background-color: #f8f9fa;
+}
+
+/* Optional: Style the alternating row background color */
+.table tbody tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}

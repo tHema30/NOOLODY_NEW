@@ -46,7 +46,7 @@ const DressDesignDetails = ({ onEdit, onDelete }) => {
           <tr>
             <th>ID</th>
             <th>Category</th>
-            <th>Description</th>
+            <th style={{"width":"5%"}}>Description</th>
             <th>Image</th>
             <th>Actions</th>
           </tr>
@@ -61,7 +61,7 @@ const DressDesignDetails = ({ onEdit, onDelete }) => {
                 <img
                   src={dressDesign.designImage.url}
                   alt={dressDesign.category}
-                  style={{ maxWidth: '100px', maxHeight: '100px' }}
+                  style={{ maxWidth: '50px', maxHeight: '50px' }}
                 />
               </td>
               <td>

@@ -1,6 +1,6 @@
 import React,{Fragment,useEffect, useState} from "react";
 import { Button,InputGroup } from "@blueprintjs/core";
-import '@blueprintjs/core/lib/css/blueprint.css';
+// import '@blueprintjs/core/lib/css/blueprint.css';
 import Table from 'react-bootstrap/Table';
 
 

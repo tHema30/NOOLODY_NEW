@@ -1,4 +1,5 @@
 import React from 'react';
+import{Link} from 'react-router-dom'
 
 const Logout = () => {
   const handleLogout = async () => {
@@ -21,9 +22,9 @@ const Logout = () => {
   };
 
   return (
-    <button onClick={handleLogout}>
+  <Link to="/home">  <button onClick={handleLogout}>
       Logout
-    </button>
+    </button></Link>
   );
 };
 

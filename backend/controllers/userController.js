@@ -129,9 +129,13 @@ const updateUserProfile = asyncHandler(async (req, res) => {
      const updatedUser = await user.save();
 
      res.status(200).json({
-      _id: updatedUser._id,
-      name: updatedUser.name,
-      email: updatedUser.email,
+       _id: updatedUser._id,
+       name: updatedUser.name,
+       email: updatedUser.email,
+       role: updatedUser.role,
+       token: updatedUser.token,
+
+       success: true,
      });
   } else {
       res.status(404);
@@ -148,15 +152,53 @@ const updateUserProfile = asyncHandler(async (req, res) => {
 
 
 const logoutUser = asyncHandler (async (req, res) =>{
-
-    res.cookie('jwt', '', {
-        httpOnly: true,
-        expires: new Date(0),
-    });
+    console.log("loguot");
+    res.cookie('jwt', 'none', {
+      expires: new Date(Date.now() + 5 * 1000),
+      httpOnly: true,
+  });
 
     res.status(200).json({ message:'User logged out'});
     });
 
+    const createUser = asyncHandler(async (req, res) => {
+      const { name, password, email } = req.body;
+    
+      // Validate request data (you may want to add more validation)
+      if (!name || !password || !email) {
+        return res.status(400).json({ success: false, message: 'Invalid data' });
+      }
+    
+      // Check if the user already exists
+      const userExists = await User.findOne({ email });
+    
+      if (userExists) {
+        return res.status(400).json({ success: false, message: 'User already exists' });
+      }
+    
+      // Hash the password before saving it
+      const hashedPassword = await bcrypt.hash(password, 10);
+    
+      // Create a new user
+      const newUser = new User({
+        name,
+        password: hashedPassword,
+        email,
+      });
+    
+      // Save the user to the database
+      await newUser.save();
+    
+      res.status(201).json({
+        success: true,
+        message: 'User created successfully',
+        user: {
+          _id: newUser._id,
+          name: newUser.name,
+          email: newUser.email,
+        },
+      });
+    });
 
 
 
@@ -166,7 +208,7 @@ const logoutUser = asyncHandler (async (req, res) =>{
         getUserProfile,
         updateUserProfile,
         logoutUser,
-     
+      createUser
 
     };
 

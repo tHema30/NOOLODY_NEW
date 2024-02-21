@@ -81,6 +81,8 @@ const Login = () => {
 
       console.log(data);
    const { success, message, role } = data;
+   localStorage.setItem('userInfo',JSON.stringify(data));
+
 
   if (success) {
     handleSuccess(message);
