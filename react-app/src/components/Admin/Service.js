@@ -29,11 +29,11 @@ const Service= ({ match }) => {
         { console.error('Error fetching data:', error); } };
 
   return(
-    <>
+    <div className="userlist">
 
      
           
-<Table responsive="sm">
+<Table responsive="sm" className="table table-striped">
   
             <thead>
               <tr>
@@ -53,7 +53,7 @@ const Service= ({ match }) => {
                   <td>{ServiceDetails.type}</td>
                   <td>{ServiceDetails.category}</td>
                   <td>{ServiceDetails.description}</td>
-                  <td><img src={ServiceDetails.image.url}></img></td>
+                  <td><img src={ServiceDetails.image.url} style={{ maxWidth: '100px', maxHeight: '100px' }}></img></td>
                   <td>
                     <Button intent='primary'>Update</Button> 
                     <Button  intent="danger"> Delete</Button>
@@ -100,7 +100,7 @@ const Service= ({ match }) => {
   
    
 
-    </>
+    </div>
   )
 }
 

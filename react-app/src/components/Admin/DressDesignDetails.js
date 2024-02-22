@@ -18,14 +18,7 @@ const DressDesignDetails = ({ onEdit, onDelete }) => {
     onDelete(id);
   };
 
-  const buttonStyle = {
-    // Define the button style as needed
-    // For example, you can set backgroundColor, color, padding, etc.
-    backgroundColor: '#492E87',
-    color: 'white',
-    padding: '5px 10px',
-    cursor: 'pointer',
-  };
+  
 
   useEffect(() => {
     // Fetch dress designs from the server
@@ -39,14 +32,14 @@ const DressDesignDetails = ({ onEdit, onDelete }) => {
   }, []);
 
   return (
-    <div className='my-5'>
+    <div className='userlist'>
       <h2>Admin Dress Design List</h2>
-      <Table striped bordered hover>
+      <table className='table table-striped'>
         <thead>
           <tr>
             <th>ID</th>
             <th>Category</th>
-            <th style={{"width":"5%"}}>Description</th>
+            <th>Description</th>
             <th>Image</th>
             <th>Actions</th>
           </tr>
@@ -56,7 +49,9 @@ const DressDesignDetails = ({ onEdit, onDelete }) => {
             <tr key={dressDesign._id}>
               <td>{dressDesign._id}</td>
               <td>{dressDesign.category}</td>
-              <td>{dressDesign.description}</td>
+              <td style={{ maxWidth: '200px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                {dressDesign.description}
+              </td>
               <td>
                 <img
                   src={dressDesign.designImage.url}
@@ -65,13 +60,13 @@ const DressDesignDetails = ({ onEdit, onDelete }) => {
                 />
               </td>
               <td>
-                <button style={buttonStyle} onClick={() => handleEdit(dressDesign._id)}>Edit</button>
-                <button style={buttonStyle} onClick={() => handleDelete(dressDesign._id)}>Delete</button>
+                <button className="editButton" onClick={() => handleEdit(dressDesign._id)}>Edit</button>
+                <button className="deleteButton" onClick={() => handleDelete(dressDesign._id)} >Delete</button>
               </td>
             </tr>
           ))}
         </tbody>
-      </Table>
+      </table>
     </div>
   );
 };

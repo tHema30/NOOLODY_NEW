@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Modal, Button, Form } from 'react-bootstrap';
+import { DataGrid } from '@mui/x-data-grid';
 
 const User = () => {
   const [users, setUsers] = useState([]);
@@ -12,14 +13,13 @@ const User = () => {
   useEffect(() => {
     // Fetch all users when the component mounts
     axios.get('http://localhost:7300/api/admin/all-users', { withCredentials: true })
-    
       .then(response => setUsers(response.data))
       .catch(error => console.error('Error fetching users:', error));
   }, []);
 
   const handleEdit = (user) => {
     setSelectedUser(user);
-    setUpdateData({ name: user.name, email: user.email }); // assuming user has name and email properties
+    setUpdateData({ name: user.name, email: user.email, id: user._id }); // assuming user has name and email properties
     setIsEditMode(true);
   };
 
@@ -28,6 +28,7 @@ const User = () => {
       const newUser = {
         name: updateData.name,
         email: updateData.email,
+        id: updateData.id,
       };
 
       axios.post('http://localhost:7300/api/admin/all-users', newUser)
@@ -48,7 +49,7 @@ const User = () => {
       email: updateData.email,
     };
 
-    axios.put(`http://localhost:7300/api/admin/all-users/${users._id}`, updatedFields)
+    axios.put(`http://localhost:7300/api/admin/profile/${selectedUser._id}`, updatedFields)
       .then(response => {
         const updatedUsers = users.map(u => (u._id === selectedUser._id ? response.data.user : u));
         setUsers(updatedUsers);
@@ -60,7 +61,7 @@ const User = () => {
   };
 
   const handleDelete = (userId) => {
-    axios.delete(`http://localhost:7300/api/admin/all-users/${userId}`)
+    axios.delete(`http://localhost:7300/api/admin/profile${userId}`)
       .then(response => {
         const updatedUsers = users.filter(u => u._id !== userId);
         setUsers(updatedUsers);
@@ -68,39 +69,45 @@ const User = () => {
       .catch(error => console.error('Error deleting user:', error));
   };
 
+  const columns = [
+    { field: 'id', headerName: 'ID', width: 100 },
+    { field: 'name', headerName: 'Name', width: 200 },
+    { field: 'email', headerName: 'Email', width: 300 },
+    {
+      field: 'actions',
+      headerName: 'Actions',
+      width: 200,
+      renderCell: (params) => (
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <button onClick={() => handleEdit(params.row)}>Edit</button>
+          <Button variant="danger" onClick={() => handleDelete(params.row.id)}>
+            Delete
+          </Button>
+        </div>
+      ),
+    },
+  ];
+  
+  // Add a map function to assign the _id property to the id property of each row object
+  const rows = users.map((user) => ({
+    id: user._id,
+    name: user.name,
+    email: user.email,
+    // Add other properties as needed
+  }));
+  
   return (
-    <div>
+    <div className='userlist'>
       <h1>User Details</h1>
-      <table>
-        <thead>
-          <tr>
-           <th>Number</th>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-        {users.map((user, index) => (
-            <tr key={user._id}>
-              <td>{index + 1}</td>
-              <td>{user._id}</td>
-              <td>{user.name}</td>
-              <td>{user.email}</td>
-              <td>
-              <div style={{ display: 'flex', alignItems: 'center' , padding: '5px'}}>
-                <button onClick={() => handleEdit(user)}>Edit</button>
-                {/* <button onClick={() => handleDelete(user._id)}>Delete</button> */}
-                <Button variant="danger" onClick={handleDelete (user._id)}>
-              Delete
-            </Button>
-            </div>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <div style={{ height: 400, width: '100%' }}>
+        <DataGrid
+          rows={rows}
+          columns={columns}
+          pageSize={5}
+          rowsPerPageOptions={[5]}
+          checkboxSelection
+        />
+      </div>
       {isEditMode && (
         <Modal show={isEditMode} onHide={() => setIsEditMode(false)}>
           <Modal.Header closeButton>
@@ -148,7 +155,7 @@ const User = () => {
                 <Form.Control
                   type="text"
                   value={updateData.name || ''}
-                  onChange={(e) => setUpdateData({ ...updateData, firstName: e.target.value })}
+                  onChange={(e) => setUpdateData({ ...updateData, name: e.target.value })}
                 />
               </Form.Group>
               <Form.Group controlId="formLastName">
@@ -156,7 +163,7 @@ const User = () => {
                 <Form.Control
                   type="text"
                   value={updateData.password || ''}
-                  onChange={(e) => setUpdateData({ ...updateData, lastName: e.target.value })}
+                  onChange={(e) => setUpdateData({ ...updateData, password: e.target.value })}
                 />
               </Form.Group>
               <Form.Group controlId="formEmail">

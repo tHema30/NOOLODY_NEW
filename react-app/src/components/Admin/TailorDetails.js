@@ -48,9 +48,9 @@ const TailorsDetails = () => {
   };
 
   return (
-    <div>
+    <div className='userlist'>
       <h1>Tailors Details</h1>
-      <table style={tableStyle}>
+      <table style={tableStyle} className='table table-striped'>
         <thead>
           <tr>
             <th style={thTdStyle}>Name</th>

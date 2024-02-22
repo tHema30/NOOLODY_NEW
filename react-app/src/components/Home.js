@@ -18,7 +18,7 @@ function Home() {
                             <div className="row justify-content-start">
                                 <div className="col-lg-7 home-content">
                                     <h1 className="display-2 mb-5 animated slideInDown">We Stitch Design <br/>FIT YOU PERFECTLY</h1>
-                                    <a href="./service" onClick={myFunction} className="btn btn-secondary rounded-pill py-sm-3 px-sm-5 ms-3">Learn More</a>
+                                    <a href="./service" onClick={myFunction} className="btn btn-secondary rounded-pill py-sm-3 px-sm-5 ms-3">Explore</a>
                                 </div>
                             </div>
                         </div>

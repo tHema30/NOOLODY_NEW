@@ -1,11 +1,12 @@
 import express from 'express';
+// import Transaction from '../models/paymentModel';
 const router = express.Router();
 import stripe from "stripe";
 
 
 import { v4 as uuidv4 } from "uuid";
 
-const stripeClient = stripe("sk_test_51OlnnsSEjiPAppYdPxMWeTN3H9Yg7hLNS9rgbRuzqDh7aX6yX5q9rEnKUZgvIZ0RJKOscSXWELONeVMAeYurvrkx00qh17jqT9");
+const stripeClient = stripe("sk_test_51OmVkmHGq8hdLEpwAmp2gzWQsoHAPexCum5ZYvMU2CuwuQpRyBcip5dw7WQdswnO6bRTlmioH6K69IUbDIKRmvYY00DDCebak3");
 
 router.post("", (req, res) => {
     const { product, token } = req.body;

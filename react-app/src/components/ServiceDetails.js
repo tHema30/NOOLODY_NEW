@@ -2,7 +2,7 @@ import React,{Fragment,useEffect, useState} from "react";
 import { Button } from "@blueprintjs/core";
 import {Link} from "react-router-dom";
 import Header from "./Header";
-// import Footer from "./Footer";
+import Footer from "./Footer";
 
 function ServiceDetails(){
     const [serivce, setserivce] = useState({
@@ -32,7 +32,7 @@ function ServiceDetails(){
         <div className="container">
             <div className="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style={{maxwidth: '500px'}}>
                 <p className="fs-5 fw-bold  name">Our Services</p>
-                <h1 className="display-5 mb-5">Services That We Offer For You</h1>
+                <h1 className="display-5 mb-5">Our Online Tailoring Services help you with</h1>
             </div>
             <div className="row g-4">
             <div className="container" style={{ marginTop: '8%', textAlign: 'start',       fontFamily: 'Raleway,fantasy'
@@ -78,7 +78,7 @@ function ServiceDetails(){
       </div>
             </div>
         </div>
-        {/* <Footer/> */}
+        <Footer/>
     </div>
         </Fragment>
     )

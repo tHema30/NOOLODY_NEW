@@ -41,9 +41,9 @@ const Payment = () => {
       <StripeCheckout
         name={product.name}
         amount={product.price}
-        currency="INR"
+        currency="inr"
         token={makePayment}
-        stripeKey="pk_test_51OlnnsSEjiPAppYderCZdFPNVeph6yAyaxu4ez26VKGjjOxYlxt0NMhD3wEzEH7NREKyMjRPITjZ0ycIwArfY5VT00Y4vsuLKM"
+        stripeKey="pk_test_51OmVkmHGq8hdLEpwCUx8jtkSfhHTkjEM8ASGiTub7o9ntjdjdEOv2MdPSCTwX0No44HmIOx7tf3E7LWb28119hkj004yCpy0HC"
       >
         <button class="nextBtn">Payment</button>
       </StripeCheckout>

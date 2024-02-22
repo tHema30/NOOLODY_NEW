@@ -15,50 +15,59 @@ a.navbar-brand{
   margin-top: 5rem;
 }
 
-/* Responsive styles for the table */
-@media (max-width: 767px) {
-  .table-responsive {
-    overflow-x: auto;
-  }
+.userlist {
+  margin: 20px;
 }
-
-/* Adjust table styles */
 .table {
   width: 100%;
-  max-width: 100%;
-  margin-bottom: 1rem;
-  background-color: transparent;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
-
-/* Optional: Add some padding to the table cells */
-.table td,
 .table th {
-  padding: 0.75rem;
-  vertical-align: top;
-  border-top: 1px solid #dee2e6;
-}
-
-/* Optional: Center text in the Actions column */
-td:last-child {
+  background-color: #F2F2F2;
+  border: 1px solid #ddd;
+  padding: 8px;
   text-align: center;
 }
-
-/* Optional: Add some spacing between the buttons */
-button {
-  margin-right: 5px;
+.table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+.table tr:nth-child(even) {
+  background-color: #F2F2F2;
 }
 
-/* Optional: Add a little more space between the table rows */
-.table tbody tr {
+/* Add these styles to your CSS file or in the same file where your component is */
+
+/* Add these styles to your CSS file or in the same file where your component is */
+
+.editButton {
+  background-color: #492E87; /* Blue color */
+  color: white;
+  padding: 5px 8px; /* Adjusted padding for smaller buttons */
+  cursor: pointer;
+  border: none;
+  border-radius: 4px; /* Optional: Add rounded corners */
+  margin-right: 5px; /* Optional: Add some space between the buttons */
   margin-bottom: 10px;
 }
 
-/* Optional: Style the table header background and text color */
-.table thead th {
-  background-color: #f8f9fa;
+.editButton:hover {
+  background-color: #492E87; /* Darker blue color on hover */
 }
 
-/* Optional: Style the alternating row background color */
-.table tbody tr:nth-child(odd) {
-  background-color: #f2f2f2;
+.deleteButton {
+  background-color: #f62008; /* Red color */
+  color: white;
+  padding: 5px 8px; /* Adjusted padding for smaller buttons */
+  cursor: pointer;
+  border: none;
+  border-radius: 4px; /* Optional: Add rounded corners */
 }
+
+.deleteButton:hover {
+  background-color: #c0392b; /* Darker red color on hover */
+}
+
+
