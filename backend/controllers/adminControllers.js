@@ -84,23 +84,62 @@ const gettailorById = asyncHandler(async (req, res) => {
 
 //update tailors
 
-const updateTailor = asyncHandler(async (req, res) => {
-  const { name, email, contact, location, experience } = req.body;
+// const updateTailor = asyncHandler(async (req, res) => {
+//   const {verified } = req.body;
 
-  const tailor = await tailorsProfile.findById(req.params.id);
+//   const tailor = await tailorsProfile.findById(req.params.id);
 
-  if (tailor) {
-    tailor.name = name || tailor.name;
-    tailor.email = email || tailor.email;
-    tailor.contact = contact || tailor.contact;
-    tailor.location = location || tailor.location;
-    tailor.experience = experience || tailor.experience;
+//   if (tailor) {
+//     tailor.verified = verified || tailor.verified;
 
+
+//     const updatedTailor = await tailor.save();
+//     res.json('Successfully updated');
+//   } else {
+//     res.status(404);
+//     throw new Error('Tailor not found');
+//   }
+// });
+
+// updateTailor function
+
+const updateTailor = asyncHandler(async (req, res, next) => {
+  try {
+    const { verified } = req.body;
+    const tailor = await tailorsProfile.findById(req.params.id);
+
+    if (!tailor) {
+      res.status(404);
+      throw new Error('Tailor not found');
+    }
+
+    tailor.verified = verified || tailor.verified;
     const updatedTailor = await tailor.save();
+
+    // Check if the tailor is now verified and send email if true
+    if (verified) {
+      const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: process.env.GMAIL,
+          pass: process.env.PASS,
+        },
+      });
+
+      const mailOptions = {
+        from: process.env.GMAIL,
+        to: tailor.email,
+        subject: 'Verification Success',
+        text: 'Congratulations! Your tailor account has been verified.',
+      };
+
+      await transporter.sendMail(mailOptions);
+    }
+
     res.json('Successfully updated');
-  } else {
-    res.status(404);
-    throw new Error('Tailor not found');
+  } catch (error) {
+    // Pass the error to the error handling middleware
+    next(error);
   }
 });
 

@@ -9,7 +9,7 @@ function Home() {
       <div>
         <div className="container-fluid p-0 mb-5 wow fadeIn" data-wow-delay="0.1s">
             {/* Section 1 start */}
-        <div id="header-carousel" className="carousel slide" data-bs-ride="carousel">
+         {/* <div id="header-carousel" className="carousel slide" data-bs-ride="carousel"> */}
             <div className="carousel-inner">
                 <div className="carousel-item active">
                     <img className="w-100" src={require("../assets/img/homenew01.jpg")} alt=""/>
@@ -24,29 +24,7 @@ function Home() {
                         </div>
                     </div>
                 </div>
-                <div className="carousel-item">
-                    <img className="w-100" src={require("../assets/img/homepinterest1.jpg")} alt=""/>
-                    <div className="carousel-caption">
-                        <div className="container">
-                            <div className="row justify-content-start">
-                                <div className="col-lg-7 home-content">
-                                    <h1 className="display-2 mb-5 animated slideInDown">Best and Realiable Tailoring service</h1>
-                                    <a href="./tailorregister"  onClick={myFunction}  className="btn btn-primary rounded-pill py-sm-3 px-sm-5">Add Tailors</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <button className="carousel-control-prev" type="button" data-bs-target="#header-carousel" data-bs-slide="prev">
-                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span className="visually-hidden">Previous</span>
-            </button>
-            <button className="carousel-control-next" type="button" data-bs-target="#header-carousel"
-                data-bs-slide="next">
-                <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                <span className="visually-hidden">Next</span>
-            </button>
+            {/* </div> */}
         </div>
         {/* section 2 start  */}
     <div className="container-xxl py-5">

@@ -23,17 +23,17 @@ import {
 router.get('/all-users' ,protect,isAdmin,getallUser );
 router.get('/all-users/:id' , getUserById);
 
-router.get("/tailorsProfile",protect, isAdmin,getallTailors);
+router.get("/tailorsProfile",getallTailors);
 router.get("/tailorsProfile/:id" ,gettailorById);
 
 router.get('/all-orders' ,protect, isAdmin,getallOrders);
 router.get("all-orders/:id",protect,isAdmin,getallOrdersById);
 
-router.put("/tailorsProfile/:id",protect,isAdmin,updateTailor);
+router.put("/tailorsProfile/:id",updateTailor);
 
 //@route   DELETE api/admin/deleteuser/:id
-router.delete("/all-users/:id" ,protect,isAdmin,deleteUser ,);
-router.delete("/tailorsProfile/:id" ,protect,isAdmin,deleteTailor) 
+router.delete("/all-users/:id" ,deleteUser ,);
+router.delete("/tailorsProfile/:id" ,deleteTailor) 
 
 
 

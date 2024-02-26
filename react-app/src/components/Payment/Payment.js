@@ -3,7 +3,7 @@ import StripeCheckout from 'react-stripe-checkout';
 
 const Payment = () => {
   const [product, setProduct] = useState({
-    name: "Post Your Add",
+    name: "Order payment",
     price: 3000 * 100, // convert price to cents as required by Stripe
     productBy: "DirectHire"
   });
@@ -45,7 +45,7 @@ const Payment = () => {
         token={makePayment}
         stripeKey="pk_test_51OmVkmHGq8hdLEpwCUx8jtkSfhHTkjEM8ASGiTub7o9ntjdjdEOv2MdPSCTwX0No44HmIOx7tf3E7LWb28119hkj004yCpy0HC"
       >
-        <button class="nextBtn">Payment</button>
+        <button class="payment-button">Payment</button>
       </StripeCheckout>
     </div>
   );

@@ -59,7 +59,7 @@ router.post('/email', async (req, res) => {
     // Email options
     const mailOptions = {
       from: email,
-      to: 'tkematharsini03@gmail.com',
+      to: 'Noolodyofficial@gmail.com',
       subject: 'NOOLODY Customers',
       text: `Name: ${name}\nEmail: ${email}\nMessage:${message}`,
     };

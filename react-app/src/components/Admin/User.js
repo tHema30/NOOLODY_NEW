@@ -3,6 +3,9 @@ import axios from 'axios';
 import { Modal, Button, Form } from 'react-bootstrap';
 import { DataGrid } from '@mui/x-data-grid';
 
+
+
+
 const User = () => {
   const [users, setUsers] = useState([]);
   const [selectedUser, setSelectedUser] = useState(null);
@@ -99,6 +102,7 @@ const User = () => {
   return (
     <div className='userlist'>
       <h1>User Details</h1>
+      <button  className='create-user'   onClick={() => setIsCreateMode(true)}>Create User</button>
       <div style={{ height: 400, width: '100%' }}>
         <DataGrid
           rows={rows}
@@ -107,6 +111,7 @@ const User = () => {
           rowsPerPageOptions={[5]}
           checkboxSelection
         />
+        
       </div>
       {isEditMode && (
         <Modal show={isEditMode} onHide={() => setIsEditMode(false)}>
@@ -186,7 +191,6 @@ const User = () => {
           </Modal.Footer>
         </Modal>
      )}
-      <button onClick={() => setIsCreateMode(true)}>Create User</button>
     </div>
   );
 };

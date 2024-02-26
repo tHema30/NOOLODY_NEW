@@ -75,8 +75,8 @@ const ProfileUpdate = () => {
         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
       </label>
       <br />
-      <button onClick={handleUpdateProfile}>Update Profile</button>
-      <button  className="mt-5"onClick={handleLogout}>Logout</button>
+      <button className='update-button' onClick={handleUpdateProfile}>Update Profile</button>
+      <button  className="logout-button"onClick={handleLogout}>Logout</button>
     </div>
   );
 };

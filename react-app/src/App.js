@@ -28,8 +28,9 @@ import DressDesignList from "./components/DressDesignList";
 import BookForm from "./components/Booking/BookForm";
 
 import ServiceDetails from './components/ServiceDetails'
-import AdminRoutes from "./components/AdminRoutes";
+import AdminRoutes from "./components/Admin/AdminRoutes";
 import Payment from "./components/Payment/Payment";
+import TailorProfile from "./components/TailorProfile";
 
 
 function App() {
@@ -55,6 +56,9 @@ function App() {
     <Route path="/booking" element={<BookForm />} />
     <Route path="/service" element={<ServiceDetails />} />
     <Route path="/payment" element={<Payment />} />
+    <Route path="/tailorprofile" element={<TailorProfile />} />
+
+
 
 
 

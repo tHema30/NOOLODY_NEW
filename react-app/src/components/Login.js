@@ -99,7 +99,8 @@ const Login = () => {
     handleError(message);
   }
 } catch (error) {
-  // Handle error
+  handleError("Invalid email or password."); // Display error message if there's an exception 
+
 }
 
 setInputValue({

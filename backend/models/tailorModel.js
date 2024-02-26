@@ -34,7 +34,11 @@ const tailorsProfileSchema = mongoose.Schema({
     },
     gender: { type: String, 
     enum: ['Male', 'Female', 'Other'], 
-    required: true }
+    required: true },
+
+    
+    verified: { type: Boolean, default: false },
+
 }, {
     timestamps: true
 });

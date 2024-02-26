@@ -1,5 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+import { DataGrid } from '@mui/x-data-grid';
+import { Button } from '@mui/material';
 
 const tableStyle = {
   width: '100%',
@@ -7,37 +9,26 @@ const tableStyle = {
   marginTop: '20px',
 };
 
-const thTdStyle = {
-  border: '1px solid #dddddd',
-  textAlign: 'left',
-  padding: '8px',
-};
+// const thTdStyle = {
+//   border: '1px solid #dddddd',
+//   textAlign: 'left',
+//   padding: '8px',
+// };
 
 const buttonStyle = {
   marginRight: '5px',
 };
 
 const TailorsDetails = () => {
-  const [tailors, setTailors] = useState(null);
+  const [tailors, setTailors,] = useState([]);
 
-  useEffect(() => {
-    axios.get('http://localhost:7300/api/admin/tailorsProfile',{ withCredentials: true })
-      .then(response => {
-        console.log('Response data:', response.data);
-        setTailors(response.data.data);
-      })
-      .catch(error => {
-        console.error('Error fetching tailor details:', error);
-      });
-  }, []);
-
-  const handleEdit = (tailorId) => {
-    // Add logic to navigate to the edit page or show a modal for editing
-    console.log(`Edit tailor with ID: ${tailorId}`);
+  const handleEdit = (Id) => {
+    console.log(`Edit tailor with ID: ${Id}`);
+    // Add logic for navigation or editing
   };
 
-  const handleDelete = (tailorId) => {
-    axios.delete(`http://localhost:7300/api/admin/tailorsProfile/${tailorId}`)
+  const handleDelete = (Id) => {
+    axios.delete(`http://localhost:7300/api/admin/tailorsProfile/${Id}`)
       .then(response => {
         console.log('Tailor deleted successfully:', response.data);
         // Update the state or fetch data again to reflect the changes
@@ -47,42 +38,110 @@ const TailorsDetails = () => {
       });
   };
 
+  const handleVerify = (Id) => {
+    axios.put(`http://localhost:7300/api/admin/tailorsProfile/${Id}`)
+      .then(response => {
+        console.log('Tailor verified successfully:', response.data);
+        setTailors(prevTailors => {
+          return prevTailors.map(tailor => {
+            if (tailor._id === Id) {
+              return { ...tailor, verified: true };
+            }
+            return tailor;
+          });
+        });
+      })
+      .catch(error => {
+        console.error('Error verifying tailor:', error);
+      });
+  };
+
+  useEffect(() => {
+    axios.get('http://localhost:7300/api/admin/tailorsProfile', 
+    { withCredentials: true })
+      .then(response => {
+        console.log('Response data:', response.data);
+        // Ensure each row has a unique id property
+        const tailorsWithId = response.data.data.map(tailor => ({ ...tailor, id: tailor._id }));
+        setTailors(tailorsWithId);
+      })
+      .catch(error => {
+        console.error('Error fetching tailor details:', error);
+      });
+  }, []);
+
+
+const columns = [
+  { field: 'name', headerName: 'Name', width: 150 },
+  { field: 'email', headerName: 'Email', width: 200 },
+  { field: 'experience', headerName: 'Experience', width: 150 },
+  { field: 'contact', headerName: 'Contact', width: 150 },
+  { field: 'occupation', headerName: 'Occupation', width: 150 },
+  { field: 'idnumber', headerName: 'ID Number', width: 150 },
+  {
+    field: 'dob',
+    headerName: 'DOB',
+    width: 150,
+    valueFormatter: ({ value }) => new Date(value).toLocaleDateString(),
+  },
+  { field: 'gender', headerName: 'Gender', width: 150 },
+  {
+    field: 'verified',
+    headerName: 'Verified',
+    width: 150,
+    valueFormatter: ({ value }) => (value ? 'Yes' : 'No'),
+  },
+  {
+    field: 'actions',
+    headerName: 'Actions',
+    width: 250,
+    renderCell: (params) => (
+      <>
+        <Button
+          variant="contained"
+          color="secondary"
+          style={buttonStyle}
+          onClick={() => handleEdit(params.row._id)} // use arrow function to bind component method
+        >
+          Edit
+        </Button>
+        <Button
+          variant="contained"
+          color="secondary"
+          style={buttonStyle}
+          onClick={() => handleDelete(params.row._id)} // use arrow function to bind component method
+        >
+          Delete
+        </Button>
+        {!params.row.verified && (
+          <Button
+            variant="contained"
+            color="secondary"
+            style={buttonStyle}
+            onClick={() =>handleVerify(params.row._id)} // use arrow function to bind component method
+          >
+            Verify
+          </Button>
+        )}
+ 
+      </>
+    ),
+  },
+];
+
+
   return (
     <div className='userlist'>
       <h1>Tailors Details</h1>
-      <table style={tableStyle} className='table table-striped'>
-        <thead>
-          <tr>
-            <th style={thTdStyle}>Name</th>
-            <th style={thTdStyle}>Email</th>
-            <th style={thTdStyle}>Experience</th>
-            <th style={thTdStyle}>Contact</th>
-            <th style={thTdStyle}>Occupation</th>
-            <th style={thTdStyle}>ID Number</th>
-            <th style={thTdStyle}>DOB</th>
-            <th style={thTdStyle}>Gender</th>
-            <th style={thTdStyle}>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {tailors && tailors.map((tailor) => (
-            <tr key={tailor._id}>
-              <td style={thTdStyle}>{tailor.name}</td>
-              <td style={thTdStyle}>{tailor.email}</td>
-              <td style={thTdStyle}>{tailor.experience}</td>
-              <td style={thTdStyle}>{tailor.contact}</td>
-              <td style={thTdStyle}>{tailor.occupation}</td>
-              <td style={thTdStyle}>{tailor.idnumber}</td>
-              <td style={thTdStyle}>{new Date(tailor.dob).toLocaleDateString()}</td>
-              <td style={thTdStyle}>{tailor.gender}</td>
-              <td style={thTdStyle}>
-                <button style={buttonStyle} onClick={() => handleEdit(tailor._id)}>Edit</button>
-                <button style={buttonStyle} onClick={() => handleDelete(tailor._id)}>Delete</button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <div style={tableStyle}>
+        <DataGrid
+          rows={tailors}
+          columns={columns}
+          pageSize={10}
+          rowsPerPageOptions={[10]}
+          checkboxSelection
+        />
+      </div>
     </div>
   );
 };
