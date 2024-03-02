@@ -9,66 +9,45 @@ function Header() {
   const DropdownMenu = () => {
     const [selectedCategory, setSelectedCategory] = useState(null);
     
-    const handleCategoryClick = async (category) => {
-      setSelectedCategory(category);
-      try {
-        const response = await fetch(
-          "http://localhost:7300/api/designs/dress-designs/cat",
-          {
-            method: "GET",
-            body: { category: selectedCategory },
-          }
-        );
-        if (response.ok) {
-          // response.data
-          
-          console.log("Upload successful!");
-        } else {
-          console.error("Upload failed.");
-        }
-      } catch (error) {
-        console.error("Error uploading:", error);
-      }
-    };
-
+    
     return (
       <div className="nav-item dropdown">
-        <a
+        <Link
           href="1"
           className="nav-link dropdown-toggle"
           data-bs-toggle="dropdown"
         >
           Designs
-        </a>
+        </Link>
         <div className="dropdown-menu m-0">
-          <a
-            href="/dresscard"
+          <Link
+            to={`/dresscard/${"ladies"}`}
             className="dropdown-item"
-            onClick={() => handleCategoryClick("Ladies")}
+            
           >
             Ladies
-          </a>
-          <a
-            href="/dresscard"
+          </Link>
+          <Link
+            to={`/dresscard/${"ladies"}`}
             className="dropdown-item"
-            onClick={() => handleCategoryClick("Gents")}
+            
           >
             Gents
-          </a>
-          <a
-            href="1"
+          </Link>
+          <Link
+            to={`/dresscard/${"ladies"}`}
             className="dropdown-item"
-            onClick={() => handleCategoryClick("Kids")}
+            
           >
             Kids
-          </a>
-          <a
-            href="1"
+          </Link>
+          <Link
+           to={`/dresscard/${"kids"}`}
             className="dropdown-item"
-            onClick={() => handleCategoryClick("Altering")}
+            
           >
             Altering
-          </a>
+          </Link>
         </div>
         {selectedCategory && <DressDesign category={selectedCategory} />}
       </div>

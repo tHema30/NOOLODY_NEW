@@ -181,7 +181,7 @@ const TailorRegister = () => {
                   <div class="input-field">
                     <label>Contact</label>
                     <input
-                      type="number"
+                      // type="number"
                       placeholder="Enter mobile number"
                       required
                       value={contact}
@@ -232,10 +232,10 @@ const TailorRegister = () => {
                     />
                   </div>
                   <div class="input-field">
-                    <label>ID Number</label>
+                    <label>NIC Number</label>
                     <input
-                      type="number"
-                      placeholder="Enter ID number"
+                      // type="number"
+                      placeholder="Enter NIC number"
                       required
                       value={idnumber}
                       onChange={handleOnChange}

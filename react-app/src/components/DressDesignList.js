@@ -5,13 +5,15 @@ import { Container, Row } from 'react-bootstrap';
 import DressDesignCard from './DressDesignCard'; // Create a DressDesignCard component for rendering individual cards
 import Header from "./Header";
 import Footer from "./Footer";
+import { useParams } from 'react-router-dom';
 
 const DressDesignList = () => {
   const [dressDesigns, setDressDesigns] = useState([]);
-
+   const {category}=useParams();
+   console.log(dressDesigns);
   useEffect(() => {
     // Fetch dress designs from the server
-    axios.get('http://localhost:7300/api/designs/dress-designs')
+    axios.get(`http://localhost:7300/api/designs/dress-designs/cat/${category}`)
       .then(response => {
         setDressDesigns(response.data);
       })

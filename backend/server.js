@@ -13,6 +13,7 @@ import adminRoute from './routes/adminRoute.js'
 // import DressDesign from './models/dressDesignModel.js'
 import serviceRoutes from '../backend/routes/serviceRoutes.js'
 import Payment from '../backend/utils/Payment.js';
+import orderRoutes from '../backend/routes/orderRoutes.js'
 
 
 
@@ -38,7 +39,9 @@ app.use('/api/designs', dressDesignRoutes )
 // Use image routes
 app.use('/api/admin', adminRoute );
 app.use ('/api/users', serviceRoutes)
-app.use('/payment' ,Payment)
+app.use('/payment',Payment)
+app.use('/orders',orderRoutes)
+
 
 app.get('/', (req, res) => res.send('Server is ready'));
 app.use(notFound);

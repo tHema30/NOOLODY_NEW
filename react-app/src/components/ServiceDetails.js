@@ -26,6 +26,7 @@ function ServiceDetails(){
             catch (error)
             { console.error('Error fetching data:', error); } };
     return(
+      <>
         <Fragment>
           <Header/>
              <div className="container-xxl py-5">
@@ -69,7 +70,7 @@ function ServiceDetails(){
                   {/* <h5 className="card-title">{serivce.category}</h5> */}
                   <p className="card-text">{serivce.description}</p>
                  
-                 <Link to='/booking'> <Button intent="primary"> Order Now</Button></Link>
+                 <Link to='/dresscard'> <Button intent="primary"> Explore</Button></Link>
                 </div>
               </div>
             </div>
@@ -78,9 +79,11 @@ function ServiceDetails(){
       </div>
             </div>
         </div>
-        <Footer/>
     </div>
         </Fragment>
+                <Footer/>
+                </>
+
     )
 }
 export default ServiceDetails;

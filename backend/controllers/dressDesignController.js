@@ -48,14 +48,15 @@ const getAllDressDesigns = async (req, res) => {
 
 // Controller to get a specific dress design by ID
 const getDressDesignByCat = async (req, res) => {
-  const {category} = req.body;
+  const {category} = req.params;
+  console.log(category);
   try {
-    const dressDesign = await DressDesign.find();
+    const dressDesign = await DressDesign.find({category:category});
 
     if (!dressDesign) {
       return res.status(404).json({ message: 'Dress Design not found' });
     }
-
+    
     res.status(200).json(dressDesign);
   } catch (error) {
     // console.error(error);

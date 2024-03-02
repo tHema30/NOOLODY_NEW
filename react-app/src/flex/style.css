@@ -1,0 +1,101 @@
+/* ===== Google Font Import - Poppins ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+    
+    .container{
+      position: relative;
+      min-height: 50vh;
+      max-width: 1000px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background-color:#d8c4ed;
+    }
+      
+    .form-part {
+      background-color: #f8f9fa;
+      padding: 20px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+      
+    h3 {
+      margin-top: 0;
+    }
+      
+    .form-group {
+      margin-bottom: 15px;
+    }
+      
+    .form-control {
+      display: block;
+      width: 100%;
+      padding: 0.375rem 0.75rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #495057;
+      background-color: #fff;
+      background-clip: padding-box;
+      border: 1px solid #ced4da;
+      border-radius: 0.25rem;
+      transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+      
+    .form-control:focus {
+      color: #495057;
+      background-color: #fff;
+      border-color: #80bdff;
+      outline: 0;
+      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+      
+    textarea.form-control {
+      height: auto;
+    }
+      
+    @media (max-width: 767px) {
+      .form-part {
+        margin-bottom: 30px;
+      }
+    }
+
+
+    button {
+      background-color: #4CAF50; /* Green */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 12px;
+    }
+      
+    button:hover {
+      background-color: #3e8e41;
+    }
+      
+    button:disabled {
+      background-color: #cccccc;
+      color: #666666;
+      cursor: not-allowed;
+    }
+      
+    button:focus {
+      outline: none;
+    }
+      
+    .next {
+      text-align: center;
+    }

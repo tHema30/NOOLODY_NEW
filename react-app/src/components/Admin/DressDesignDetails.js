@@ -70,9 +70,9 @@ const DressDesignDetails = ({ onEdit, onDelete }) => {
 </Button>
 <Button
   variant="contained"
-  color="secondary"
+  color="error"
   style={buttonStyle}
-  sx={{ backgroundColor: 'purple' }} // add this line
+  // sx={{ backgroundColor: 'purple' }} // add this line
   onClick={() => this.handleDelete(params.row._id)} // use arrow function to bind component method
 >
   Delete
@@ -80,9 +80,9 @@ const DressDesignDetails = ({ onEdit, onDelete }) => {
 {!params.row.verified && (
   <Button
     variant="contained"
-    color="secondary"
+    color="success"
     style={buttonStyle}
-    sx={{ backgroundColor: 'purple' }} // add this line
+    // sx={{ backgroundColor: 'purple' }} // add this line
     onClick={() => this.handleVerify(params.row._id)} // use arrow function to bind component method
   >
     Verify

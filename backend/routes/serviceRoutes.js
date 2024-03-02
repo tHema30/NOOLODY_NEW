@@ -20,7 +20,7 @@ router.post('/ServicesDetails',upload.single('image'),Createservice);
 router.get('/ServicesDetails',getservicesdetail);
 router.get('/ServicesDetails/:id', getservicedetailId);
 router.get('/ServicesDetails/name/:name', getservicedetailName);
-router.delete('/ServicesDetails/:id',isAdmin,deleteserviesdetailId);
+router.delete('/ServicesDetails/:id',deleteserviesdetailId);
 router.patch('/ServicesDetails/:id',isAdmin,updateserviesdetail);
 
 

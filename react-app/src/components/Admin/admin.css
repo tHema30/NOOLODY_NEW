@@ -1,11 +1,11 @@
 .nav-item a{
-   color: #160813 !important;
+   color: #160813 ;
     font-weight: 800;
 } 
 
 
 a.navbar-brand{
-  color: #160813!important;
+  color: #160813;
   font-weight: 800;
 
 }
@@ -78,4 +78,20 @@ a.navbar-brand{
   width: 10%;
   margin-left: 1610px;
 
+}
+
+
+.dashnavbtn {
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  background-color: #492E87; /* You can change the color as needed */
+  color: #ffffff !important; /*Text color*/
+  border: none;
+  cursor: pointer;
+}
+
+/* Optional: Add hover effect */
+.dashnavbtn:hover {
+  background-color:#492E87; /* Hover color */
 }

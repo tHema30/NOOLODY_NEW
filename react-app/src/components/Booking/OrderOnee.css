@@ -1,0 +1,187 @@
+.container-tail{
+    position: relative;
+    min-height: 50vh;
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background-color:#d8c4ed;
+    margin-top: 10vh;
+    margin-bottom: 50px;
+  }
+  .container-tail .form-part {
+    background-color: #F8F9FA;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  .container-tail h3 {
+    margin-top: 0;
+  }
+  .container-tail .form-group {
+    margin-bottom: 15px;
+  }
+  .container-tail .form-control {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #CED4DA;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  .container-tail .form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80BDFF;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  @media (max-width: 767px) {
+    .form-part {
+      margin-bottom: 30px;
+    }
+  }
+  .container-tail .tailor {
+    background-color: #A271B8; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+  }
+  .container-tail .tailor:hover {
+    background-color: #3E8E41;
+  }
+  .container-tail .tailor:disabled {
+    background-color: #CCCCCC;
+    color: #666666;
+    cursor: not-allowed;
+  }
+  .container-tail .tailor:focus {
+    outline: none;
+  }
+  .container-tail .next {
+    text-align: center;
+  }
+  .container-pay {
+    width: 100%;
+    padding: 0 15px;
+    margin: 10vh auto 0;
+    margin-bottom: 50px;
+  }
+  @media (min-width: 1200px) {
+    .container-pay {
+      max-width: 1140px;
+    }
+  }
+  .container-pay .d-flex {
+    display: flex;
+    flex-direction: row;
+    background: #F6F6F6;
+    border-radius: 0 0 5px 5px;
+    padding: 25px;
+  }
+  .container-pay form {
+    flex: 4;
+  }
+  .container-pay .Yorder {
+    flex: 2;
+  }
+  .container-pay .title {
+    background-color: #492E87;
+    border-radius: 5px 5px 0 0;
+    padding: 20px;
+    color: #F6F6F6;
+  }
+  .container-pay h2 {
+    margin: 0;
+    padding-left: 15px;
+  }
+  .container-pay .required {
+    color: red;
+  }
+  .container-pay label {
+    display: inline-block;
+    width: 100%; /* Ensure labels take full width */
+  }
+  .container-pay label>span {
+    float: left;
+    width: 50%;
+    margin-top: 12px;
+    padding-right: 10px;
+  }
+  .container-pay input[type="text"],
+  .container-pay input[type="tel"],
+  .container-pay input[type="email"],
+  .container-pay select {
+    width: calc(100% - 45px); /* Adjusted width */
+    height: 30px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    border: 1px solid #DADADA;
+    color: #888;
+  }
+  .container-pay select {
+    height: 45px;
+  }
+  .container-pay .Yorder {
+    margin-top: 15px;
+    height: 600px;
+    padding: 20px;
+    border: 1px solid #DADADA;
+  }
+  .container-pay table {
+    margin: 0;
+    padding: 0;
+  }
+  .container-pay th {
+    border-bottom: 1px solid #DADADA;
+    padding: 10px 0;
+  }
+  .container-pay tr>td:nth-child(1) {
+    text-align: left;
+    color: #2D2D2A;
+  }
+  .container-pay tr>td:nth-child(2) {
+    text-align: right;
+    color: #DE77CD;
+  }
+  .container-pay td {
+    border-bottom: 1px solid #DADADA;
+    padding: 15px 25px; /* Adjusted padding */
+  }
+  .container-pay p {
+    display: block;
+    color: #888;
+    margin: 0;
+    padding-left: 25px;
+  }
+  .container-pay .Yorder>div {
+    padding: 15px 0;
+  }
+  .container-pay button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 30px;
+    background: #492E87;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+  }
+  .container-pay button:hover {
+    cursor: pointer;
+    background: #492E87;
+  }
+  

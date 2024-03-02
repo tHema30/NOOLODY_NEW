@@ -24,10 +24,10 @@ const Payment = () => {
         body: JSON.stringify(body),
         headers
       });
-
-      if (!response.ok) {
-        throw new Error('Response failed');
-      }
+      console.log(response);
+      // if (!response.ok) {
+      //   throw new Error('Response failed');
+      // }
 
       const data = await response.json();
       console.log(data);
@@ -44,8 +44,10 @@ const Payment = () => {
         currency="inr"
         token={makePayment}
         stripeKey="pk_test_51OmVkmHGq8hdLEpwCUx8jtkSfhHTkjEM8ASGiTub7o9ntjdjdEOv2MdPSCTwX0No44HmIOx7tf3E7LWb28119hkj004yCpy0HC"
+
+
       >
-        <button class="payment-button">Payment</button>
+        <button class="payment-button"></button>
       </StripeCheckout>
     </div>
   );

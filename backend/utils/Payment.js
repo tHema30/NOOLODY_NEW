@@ -5,8 +5,9 @@ import stripe from "stripe";
 
 
 import { v4 as uuidv4 } from "uuid";
-
 const stripeClient = stripe("sk_test_51OmVkmHGq8hdLEpwAmp2gzWQsoHAPexCum5ZYvMU2CuwuQpRyBcip5dw7WQdswnO6bRTlmioH6K69IUbDIKRmvYY00DDCebak3");
+
+
 
 router.post("", (req, res) => {
     const { product, token } = req.body;

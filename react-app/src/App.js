@@ -21,7 +21,6 @@ import AdminHome from '../src/components/Admin/AdminHome';
 import './assets/css/bootstrap.min.css';
 
 import './App.css';
-import FormBook from "./components/FormBook";
 import TailorRegister from "./components/TailorRegister";
 import DressDesign from "./components/DressDesign";
 import DressDesignList from "./components/DressDesignList";
@@ -31,6 +30,8 @@ import ServiceDetails from './components/ServiceDetails'
 import AdminRoutes from "./components/Admin/AdminRoutes";
 import Payment from "./components/Payment/Payment";
 import TailorProfile from "./components/TailorProfile";
+import OrderOne from "./components/Booking/OrderOne";
+import OrderTwo from "./components/Booking/OrderTwo";
 
 
 function App() {
@@ -46,17 +47,21 @@ function App() {
     <Route path="/contact" element={<Contact />} />
     <Route path="/features" element={<Features/>} />
 
-    <Route path="/formbook" element={<FormBook/>} />
+  
     <Route path="/home" element={<Home/>} />
     <Route path="/tailorregister" element={<TailorRegister/>} />
     <Route path="/dress" element={<DressDesign/>} />
     <Route path="/admin/*" element={<AdminRoutes><AdminHome/></AdminRoutes>} />
-    <Route path="/dresscard" element={<DressDesignList />} />
+    <Route path="/dresscard/:category" element={<DressDesignList />} />
 
     <Route path="/booking" element={<BookForm />} />
     <Route path="/service" element={<ServiceDetails />} />
     <Route path="/payment" element={<Payment />} />
     <Route path="/tailorprofile" element={<TailorProfile />} />
+    <Route path="/orderone" element={<OrderOne />} />
+    <Route path="/ordertwo" element={<OrderTwo />} />
+
+
 
 
 

@@ -14,7 +14,7 @@ const DressDesignCard = ({ dressDesign }) => {
       <Card.Body>
         {/* <Card.Title>{dressDesign.category}</Card.Title> */}
         {/* <Card.Text>{dressDesign.description}</Card.Text> */}
-        <Button variant="primary">View Details</Button>
+        <Button variant="primary">Order Now</Button>
       </Card.Body>
     </Card>
   );

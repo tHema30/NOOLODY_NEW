@@ -17,6 +17,7 @@ const tableStyle = {
 
 const buttonStyle = {
   marginRight: '5px',
+  
 };
 
 const TailorsDetails = () => {
@@ -107,7 +108,7 @@ const columns = [
         </Button>
         <Button
           variant="contained"
-          color="secondary"
+          color="error"
           style={buttonStyle}
           onClick={() => handleDelete(params.row._id)} // use arrow function to bind component method
         >
@@ -116,7 +117,7 @@ const columns = [
         {!params.row.verified && (
           <Button
             variant="contained"
-            color="secondary"
+            color="success"
             style={buttonStyle}
             onClick={() =>handleVerify(params.row._id)} // use arrow function to bind component method
           >

@@ -12,7 +12,7 @@ const router = express.Router();
 router.post('/upload', upload.single('designImage'), uploadDressDesign);
 
 router.get('/dress-designs', getAllDressDesigns);
-router.get('/dress-designs/cat',getDressDesignByCat);
+router.get('/dress-designs/cat/:category',getDressDesignByCat);
 router.put('/dress-designs/edit',editDesign);
 router.delete('/dress-designs/delete', deleteDesign);
 

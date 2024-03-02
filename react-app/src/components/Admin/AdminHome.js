@@ -5,8 +5,8 @@ import AdminNavbar from '../Admin/AdminNavbar';
 import User from '../Admin/User';
 import TailorsDetails from './TailorDetails';
 import DressDesignDetails from './DressDesignDetails';
-import Logout from './Logout';
 import Service from './Service';
+import CreateService from './CreateService';
 
 function AdminHome (){
   return (
@@ -17,8 +17,10 @@ function AdminHome (){
       <Route path="/users" element={<User />} />
       <Route path="/tailors" element={<TailorsDetails />} />
       <Route path="/designs" element={<DressDesignDetails />} />
-      <Route path="/logout" element={<Logout />} />
       <Route path="/service" element={<Service />} />
+      <Route path="/createservice" element={<CreateService />} />
+
+
 
 
 
