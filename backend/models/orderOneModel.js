@@ -4,12 +4,13 @@ const orderSchema = new mongoose.Schema({
   
   measurements: {
     chest: String,
+    
     waist: String,
     hips: String,
   },
   orderDetails: {
-    preferredAppointmentDate: Date,
-    preferredAppointmentTime: String,
+    preferredDate: String,
+    preferredTime: String,
     material: String,
     orderDetails: String,
   },

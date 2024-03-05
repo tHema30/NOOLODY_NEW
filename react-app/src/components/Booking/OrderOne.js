@@ -55,7 +55,8 @@ function OrderOne() {
   };
 
   const handlePreviewButtonClick = () => {
-    // Implement logic for handling preview
+      setCurrentContainer(currentContainer - 1);
+  
   };
 
   const handleImageChange = (e) => {
@@ -73,12 +74,12 @@ function OrderOne() {
       }
 
       // Send form data to the backend
-      const response = await fetch('http://localhost:7300/orders/create', formData);
+      const response = await axios.post('http://localhost:7300/orders/create', formData);
 
-      if (response.status === 200) {
+      if (response.status === 201) {
         console.log('Form data submitted successfully');
       } else {
-        console.error('Failed to submit form data');
+        console.log(response);
       }
     } catch (error) {
       console.error('Error while submitting form data', error);
@@ -110,7 +111,6 @@ function OrderOne() {
                     <label htmlFor="hips">Hips:</label>
                     <input type="text" className="form-control" id="hips" name="hips" placeholder="Enter hips size" value={measurements.hips} onChange={handleMeasurementsChange} />
                   </div>
-                 
                 </form>
               </div>
             </div>
@@ -140,7 +140,7 @@ function OrderOne() {
           <hr/>
           <div className="row">
             <div className="col-md-12 next">
-              <button className="btn btn-primary tailor" onClick={handleNextButtonClick}>Next</button>
+              <button className="btn btn-success tailor" onClick={handleNextButtonClick}>Next</button>
             </div>
           </div>
         </div>
@@ -196,7 +196,8 @@ function OrderOne() {
                   <img src="https://www.logolynx.com/images/logolynx/c3/c36093ca9fb6c250f74d319550acac4d.jpeg" alt="" width="50" />
                 </span></Link>
               </div>
-              <button type="button"onClick= {handlePlaceOrder}>Place Order</button>
+              <Link to='/orderone'>
+              <button type="button"onClick= {handlePlaceOrder}>Place Order</button></Link>
               <button type="button" onClick={handlePreviewButtonClick}>Preview</button>
             </div>
           </div>

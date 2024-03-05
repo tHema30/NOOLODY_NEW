@@ -5,10 +5,13 @@ import cloudinary from '../utils/imagecloudinary.js';
 // Controller to handle creating a new order
 const createOrder = async (req, res) => {
   try {
+  let {measurements,orderDetails,stitchingDetails} = req.body;
+    measurements=JSON.parse(measurements);
+    orderDetails=JSON.parse(orderDetails);
+     stitchingDetails=JSON.parse(stitchingDetails)       
+    // let {measurements,orderDetails,stitchingDetails} = req.body;
+    console.log(req.body)
     
-    let {measurements,orderDetails,stitchingDetails} = req.body;
-    
-  
     const result = await cloudinary.uploader.upload(req.file.path, {
       folder: 'Order-details',
   });

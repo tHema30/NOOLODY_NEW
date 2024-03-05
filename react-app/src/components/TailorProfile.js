@@ -8,7 +8,7 @@ const TailorProfile = () => {
 
   useEffect(() => {
     // Fetch tailor data based on tailorId from the backend
-    fetch(`http://localhost:7300/api/users/tailors/${tailorId}`)
+    fetch(`http://localhost:7300/api/users/tailorsProfile/${tailorId}`)
       .then((response) => response.json())
       .then((data) => {
         setTailorData(data);

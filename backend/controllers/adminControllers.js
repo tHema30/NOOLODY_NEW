@@ -105,7 +105,7 @@ const gettailorById = asyncHandler(async (req, res) => {
 
 const updateTailor = asyncHandler(async (req, res, next) => {
   try {
-    const { verified } = req.body;
+   
     const tailor = await tailorsProfile.findById(req.params.id);
 
     if (!tailor) {
@@ -113,11 +113,11 @@ const updateTailor = asyncHandler(async (req, res, next) => {
       throw new Error('Tailor not found');
     }
 
-    tailor.verified = verified || tailor.verified;
+    tailor.verified = true
     const updatedTailor = await tailor.save();
 
     // Check if the tailor is now verified and send email if true
-    if (verified) {
+    if (updatedTailor.verified) {
       const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {

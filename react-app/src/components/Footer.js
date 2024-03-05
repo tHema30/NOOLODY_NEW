@@ -1,7 +1,7 @@
 function Footer() {
     return (
       <div>
-       <div className="container-fluid bg-dark footer mt-3 pt-3 wow fadeIn" data-wow-delay="0.1s">
+       <div className="container-fluid bg-dark footer mt-3 pt-3 wow fadeIn" data-wow-delay="0.1s footer">
         <div className="container">
             <div className="row g-5">
                 <div className="col-lg-3 col-md-6">
@@ -24,7 +24,7 @@ function Footer() {
                     <h4 className="text-light mb-4">Quick Links</h4>
                     <a className="btn btn-link" href="/about">About Us</a>
                     <a className="btn btn-link" href="/contact">Contact Us</a>
-                    <a className="btn btn-link" href="1">Our Services</a>
+                    <a className="btn btn-link" href="/service">Our Services</a>
                     <a className="btn btn-link" href="1">Terms & Condition</a>
                     <a className="btn btn-link" href="1">Support</a>
                 </div>

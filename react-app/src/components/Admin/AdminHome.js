@@ -7,6 +7,8 @@ import TailorsDetails from './TailorDetails';
 import DressDesignDetails from './DressDesignDetails';
 import Service from './Service';
 import CreateService from './CreateService';
+import OrderDetails from './OrderDetails';
+import Dashboard from './Dashboard.js';
 
 function AdminHome (){
   return (
@@ -19,6 +21,12 @@ function AdminHome (){
       <Route path="/designs" element={<DressDesignDetails />} />
       <Route path="/service" element={<Service />} />
       <Route path="/createservice" element={<CreateService />} />
+      <Route path="/orders" element={<OrderDetails />} />
+      <Route path="/Dashbord" element={<Dashboard/>} />
+
+
+
+
 
 
 

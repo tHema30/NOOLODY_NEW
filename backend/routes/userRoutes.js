@@ -40,7 +40,7 @@ router.post('/orders',Order );
 
 
 //tailors profile details
-router.post('/tailors', tailors );
+router.post('/tailors',protect, tailors );
 
 
 

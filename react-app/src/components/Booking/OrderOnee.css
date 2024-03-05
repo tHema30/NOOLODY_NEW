@@ -1,18 +1,18 @@
 .container-tail{
     position: relative;
-    min-height: 50vh;
+    min-height: 60vh;
     max-width: 1000px;
     width: 100%;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 30px 20px;
     background-color:#d8c4ed;
     margin-top: 10vh;
     margin-bottom: 50px;
   }
   .container-tail .form-part {
     background-color: #F8F9FA;
-    padding: 20px;
-    border-radius: 5px;
+    padding: 40px;
+    border-radius: 10px;
     margin-bottom: 20px;
   }
   .container-tail h3 {
@@ -47,7 +47,7 @@
     }
   }
   .container-tail .tailor {
-    background-color: #A271B8; /* Green */
+    background-color:#492E87;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -60,7 +60,7 @@
     border-radius: 12px;
   }
   .container-tail .tailor:hover {
-    background-color: #3E8E41;
+    background-color: #492E87;
   }
   .container-tail .tailor:disabled {
     background-color: #CCCCCC;
@@ -117,7 +117,7 @@
   .container-pay label>span {
     float: left;
     width: 50%;
-    margin-top: 12px;
+    margin-top: 10px;
     padding-right: 10px;
   }
   .container-pay input[type="text"],
@@ -136,7 +136,7 @@
   }
   .container-pay .Yorder {
     margin-top: 15px;
-    height: 600px;
+    height: 500px;
     padding: 20px;
     border: 1px solid #DADADA;
   }
@@ -167,10 +167,10 @@
     padding-left: 25px;
   }
   .container-pay .Yorder>div {
-    padding: 15px 0;
+    padding: 15px 5;
   }
   .container-pay button {
-    width: 100%;
+    width: 40%;
     margin-top: 10px;
     padding: 10px;
     border: none;

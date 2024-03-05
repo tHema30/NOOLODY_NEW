@@ -28,21 +28,21 @@ function Header() {
             Ladies
           </Link>
           <Link
-            to={`/dresscard/${"ladies"}`}
+            to={`/dresscard/${"Gents"}`}
             className="dropdown-item"
             
           >
             Gents
           </Link>
           <Link
-            to={`/dresscard/${"ladies"}`}
+            to={`/dresscard/${"kids"}`}
             className="dropdown-item"
             
           >
             Kids
           </Link>
           <Link
-           to={`/dresscard/${"kids"}`}
+           to={`/dresscard/${"altering"}`}
             className="dropdown-item"
             
           >
@@ -105,7 +105,7 @@ function Header() {
               className="btn  ml-4 "
               
               style={{ color: "#fff" ,backgroundColor:"#492E87"}}
-            >{info.name}</Link>
+            ><i class="fa fa-user" aria-hidden="true"></i>  {info.name}</Link>
           ) : (
             <Link
               to="/login"
@@ -114,8 +114,11 @@ function Header() {
              className="btn  ml-4 "
               id="login_btn"
               style={{ color: "#fff" ,backgroundColor:"#492E87"}}
+              
             >
-              Login
+              Login <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+
+
               </button>
             </Link>
           )}

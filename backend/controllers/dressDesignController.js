@@ -5,7 +5,7 @@ import upload from '../utils/multer.js';
 
 const uploadDressDesign = async (req, res) => {
   try {
-    const { category, description } = req.body;
+    const { category, description,price } = req.body;
     // Use the original filename (if available) or generate a unique identifier
     const publicId = req.file.originalname || `dress_${Date.now()}`;
     // Upload image to Cloudinary
@@ -17,6 +17,7 @@ const uploadDressDesign = async (req, res) => {
     const dressDesign = new DressDesign({
       category,
       description,
+      price,
       designImage: {
         public_id: result.public_id,
         url: result.secure_url,

@@ -22,6 +22,7 @@ const buttonStyle = {
 
 const TailorsDetails = () => {
   const [tailors, setTailors,] = useState([]);
+  
 
   const handleEdit = (Id) => {
     console.log(`Edit tailor with ID: ${Id}`);
@@ -69,19 +70,20 @@ const TailorsDetails = () => {
       .catch(error => {
         console.error('Error fetching tailor details:', error);
       });
-  }, []);
+  }, [tailors]);
 
 
 const columns = [
-  { field: 'name', headerName: 'Name', width: 150 },
-  { field: 'email', headerName: 'Email', width: 200 },
-  { field: 'experience', headerName: 'Experience', width: 150 },
-  { field: 'contact', headerName: 'Contact', width: 150 },
+  { field: 'name', headerName: 'Name', width: 200 },
+  { field: 'email', headerName: 'Email', width: 250 },
+  { field: 'contact', headerName: 'Contact No', width: 150 },
   { field: 'occupation', headerName: 'Occupation', width: 150 },
-  { field: 'idnumber', headerName: 'ID Number', width: 150 },
+  { field: 'idnumber', headerName: 'NIC Number', width: 150 },
+  { field: 'experience', headerName: 'Experience', width: 100 },
+
   {
     field: 'dob',
-    headerName: 'DOB',
+    headerName: 'Date of Birth',
     width: 150,
     valueFormatter: ({ value }) => new Date(value).toLocaleDateString(),
   },
@@ -89,7 +91,7 @@ const columns = [
   {
     field: 'verified',
     headerName: 'Verified',
-    width: 150,
+    width: 100,
     valueFormatter: ({ value }) => (value ? 'Yes' : 'No'),
   },
   {

@@ -73,9 +73,9 @@ const User = () => {
   };
 
   const columns = [
-    { field: 'id', headerName: 'ID', width: 100 },
-    { field: 'name', headerName: 'Name', width: 200 },
-    { field: 'email', headerName: 'Email', width: 300 },
+    { field: 'id', headerName: 'ID', width: 300 },
+    { field: 'name', headerName: 'Name', width: 250 },
+    { field: 'email', headerName: 'Email', width: 350 },
     {
       field: 'actions',
       headerName: 'Actions',

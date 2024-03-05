@@ -28,7 +28,7 @@ const DressDesignDetails = ({ onEdit, onDelete }) => {
 
   useEffect(() => {
     // Fetch dress designs from the server
-    axios.get('http://localhost:7300/api/designs/dress-designs/cat', { category: 'ladies' }) // Update the URL with your actual API endpoint
+    axios.get('http://localhost:7300/api/designs/dress-designs/', { category: 'ladies' }) // Update the URL with your actual API endpoint
       .then(response => {
         setDressDesigns(response.data);
       })
@@ -38,8 +38,10 @@ const DressDesignDetails = ({ onEdit, onDelete }) => {
   }, []);
 
   const columns = [
-    { field: '_id', headerName: 'ID', width: 100 },
+    { field: '_id', headerName: 'ID', width: 250 },
     { field: 'category', headerName: 'Category', width: 150 },
+    { field: 'price', headerName: 'Price', width: 150 },
+
     { field: 'description', headerName: 'Description', flex: 1, minWidth: 200 },
     {
       field: 'designImage',

@@ -5,7 +5,7 @@ const Payment = () => {
   const [product, setProduct] = useState({
     name: "Order payment",
     price: 3000 * 100, // convert price to cents as required by Stripe
-    productBy: "DirectHire"
+    productBy: "Noolody"
   });
 
   const makePayment = async (token) => {

@@ -5,6 +5,7 @@ import  '../Admin/admin.css'
 import '../Admin/User.js'
 import '../Admin/TailorDetails.js'
 import '../Admin/DressDesignDetails.js'
+import '../Admin/Dashboard.js'
 import logo from '../../assets/img/Noolody2.png'
 
 const AdminNavbar = () => {
@@ -64,7 +65,7 @@ const AdminNavbar = () => {
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav md-auto " style={{marginLeft:"450px"}}>
         <li className="nav-item"  style={{marginLeft: "10px", marginRight:"10px"}}>
-            <Link to="/admin">
+            <Link to="/admin/Dashboard">
              Admin DashBoard
             </Link>
           </li>
@@ -96,7 +97,7 @@ const AdminNavbar = () => {
           <li className="dashnavbtn"style={{marginLeft: "450px", marginRight:"10px",}}>
            <Link to="/home">
             <button onClick={handleLogout} className="dashnavbtn">
-              Logout
+              Back to Home
            </button></Link>
           </li>
         </ul>

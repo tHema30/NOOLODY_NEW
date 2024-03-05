@@ -32,12 +32,16 @@ import Payment from "./components/Payment/Payment";
 import TailorProfile from "./components/TailorProfile";
 import OrderOne from "./components/Booking/OrderOne";
 import OrderTwo from "./components/Booking/OrderTwo";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 function App() {
   return (
      <div>
       {/* <Header/> */}
+      <ToastContainer/>
     <Routes>
     <Route path="/" element={<Home/>} />
     <Route path="/login" element={<Login />} />
@@ -61,6 +65,7 @@ function App() {
     <Route path="/orderone" element={<OrderOne />} />
     <Route path="/ordertwo" element={<OrderTwo />} />
 
+    <Route path="/tailorprofile/:tailorId" element={TailorProfile} />
 
 
 

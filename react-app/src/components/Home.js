@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router-dom';
 import Header from "./Header";
 import Footer from "./Footer";
 
@@ -89,13 +90,21 @@ We understand how important authentic clothing with intricate details is for our
 </div>
 <section class="section6">
   <p style={{"padding-top": "30px;"}}>Here this is yours</p>
-  <h2>Best designs Upload</h2>
-  <hr class="line"/>
-  {/* <div class="grid-container2"> */}
-  {/* <img src={require('..src/assets/img/designpage.webp')} alt="logo" width="350" /> */}
+  <h2>Best Tailors for</h2>
+  {/* <hr class="line"/> */}
+  <div class="row">
+    <div className="col-lg-6">
 
- 
-   {/* </div> */}
+  <img src={require('../assets/img/tailorregis.avif')} alt="logo" className="saw"  />
+  </div>
+  <div className="col-lg-6 mt-5">
+    <p>Tailor Near Me – Let Us Stitch!
+       We understand how important authentic clothing with intricate details is for our clients. Our online tailor will carefully listen to all your amazing ideas and tailor outfits that meet all your expectations. Whether it’s traditional wear, casual wear, or formal wear, our online tailoring for will be a blissful experience for you. Choosing NOOLODY tailor shop near me service is the best choice, as we provide #DoorStep service</p>
+<Link to='/tailorregister'>
+<button className="tailorreg">Register Now</button></Link>
+  </div>
+
+   </div>
 </section>
 
  

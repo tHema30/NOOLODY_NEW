@@ -29,7 +29,7 @@ function ServiceDetails(){
       <>
         <Fragment>
           <Header/>
-             <div className="container-xxl py-5">
+             <div className="container-xxl py-5"  >
         <div className="container">
             <div className="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style={{maxwidth: '500px'}}>
                 <p className="fs-5 fw-bold  name">Our Services</p>
@@ -70,7 +70,7 @@ function ServiceDetails(){
                   {/* <h5 className="card-title">{serivce.category}</h5> */}
                   <p className="card-text">{serivce.description}</p>
                  
-                 <Link to='/dresscard'> <Button intent="primary"> Explore</Button></Link>
+                 <Link to='/dresscard/ladies'> <Button intent="primary"> Explore</Button></Link>
                 </div>
               </div>
             </div>

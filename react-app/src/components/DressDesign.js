@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 const DressDesign = () => {
   const [category, setCategory] = useState('');
   const [description, setDescription] = useState('');
+  const [price, setPrice] = useState('');
   const [designImage, setDesignImage] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
@@ -16,6 +17,10 @@ const DressDesign = () => {
 
   const handleDescriptionChange = (e) => {
     setDescription(e.target.value);
+  };
+
+  const handlePriceChange = (e) => {
+    setPrice(e.target.value);
   };
 
   const handleImageChange = (e) => {
@@ -32,6 +37,8 @@ const DressDesign = () => {
     formData.append('category', category);
     formData.append('description', description);
     formData.append('designImage', designImage);
+    formData.append('price', price);
+
 
     try {
       const response = await fetch('http://localhost:7300/api/designs/upload', {
@@ -60,6 +67,9 @@ const DressDesign = () => {
 
       <label htmlFor="description">Description:</label>
       <textarea id="description" value={description} onChange={handleDescriptionChange} required />
+
+      <label htmlFor="price">Price:</label>
+      <textarea id="price" value={price} onChange={handlePriceChange} required />
 
       <label htmlFor="designImage">Design Image:</label>
       <input type="file" id="designImage" onChange={handleImageChange} accept="image/*" required />

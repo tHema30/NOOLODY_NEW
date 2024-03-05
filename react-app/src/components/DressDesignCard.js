@@ -1,10 +1,11 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const DressDesignCard = ({ dressDesign }) => {
   return (
     
-    <Card className="card custom-rounded-" style={{ width: '18rem' }} >
+    <Card className="card1 custom-rounded-" style={{ width: '18rem' }} >
       <Card.Img
         variant="top"
         src={dressDesign.designImage.url}
@@ -12,9 +13,11 @@ const DressDesignCard = ({ dressDesign }) => {
         className="custom-rounded-image" // Apply the custom CSS class
       />
       <Card.Body>
-        {/* <Card.Title>{dressDesign.category}</Card.Title> */}
+        <Card.Title>{dressDesign.category}</Card.Title>
         {/* <Card.Text>{dressDesign.description}</Card.Text> */}
-        <Button variant="primary">Order Now</Button>
+       <Card.Text>{dressDesign.price}</Card.Text>
+       <Link to='/orderone'>
+        <Button variant="primary">Order Now</Button></Link>
       </Card.Body>
     </Card>
   );

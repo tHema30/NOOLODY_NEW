@@ -3,6 +3,11 @@ import bcrypt from 'bcryptjs';
 
 
 const tailorsProfileSchema = mongoose.Schema({
+    userId:{
+        type:mongoose.Schema.ObjectId,
+        ref:"User",
+        required:true
+    },
    name: {
         type: String,
         required: true
@@ -10,7 +15,8 @@ const tailorsProfileSchema = mongoose.Schema({
     email: {
         type: String,
         required: true,
-        unique: true
+        unique : true,
+        
     },
     experience: {
         type: String,

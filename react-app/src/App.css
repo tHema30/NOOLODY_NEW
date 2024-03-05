@@ -218,7 +218,7 @@
 }
 
 .home-content{
-    padding-bottom: 150px;
+    padding-bottom: 350px;
 }
 
 
@@ -496,4 +496,14 @@ border-color: #492E87 !important;
   .logout-button{
   width: 10%;
   margin-left: 30px;
+  }
+
+  .saw{
+    width: 60%;
+    height: 100%;
+  }
+
+  .profile-form{
+    padding-top: 90px;
+    margin-right: 20px;
   }

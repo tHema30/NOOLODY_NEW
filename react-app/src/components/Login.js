@@ -79,7 +79,7 @@ const Login = () => {
         { withCredentials: true }
       );
 
-      console.log(data);
+      // console.log(data);
    const { success, message, role } = data;
    localStorage.setItem('userInfo',JSON.stringify(data));
 
@@ -118,11 +118,11 @@ setInputValue({
     navigate("/"); // Redirect to the login page or another route after logout
   };
 
-  const handleLoginClick = () => {
-    // Handle the login logic here
-    // Once the user has successfully logged in, set the state variable to true
-    setIsLoggedIn(true);
-  };
+  // const handleLoginClick = () => {
+  //   // Handle the login logic here
+  //   // Once the user has successfully logged in, set the state variable to true
+  //   setIsLoggedIn(true);
+  // };
 
 
   return (
