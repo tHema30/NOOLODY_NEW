@@ -2,6 +2,7 @@ import asyncHandler from 'express-async-handler';
 import generateToken from '../utils/generateToken.js';
 import User from '../models/userModel.js'
 import nodemailer from 'nodemailer';
+import { tailorsProfile } from '../models/tailorModel.js';
 
 
 
@@ -100,15 +101,26 @@ const authUser = asyncHandler (async (req, res) =>{
 
 
 const getUserProfile = asyncHandler (async (req, res) =>{
-    
-  const user = {
-      _id: req.user._id,
-      name: req.user.name,
-      email: req.user.email
-  }
-      res.status(200).json(user);
-      });
+    try {
+
+      const user =await User.findById(req.user._id);
+      if(user){
+        if(user.role=="Tailor"){
+          const tailor= await tailorsProfile.findOne({userId: user._id} );
+          
+          res.status(200).json({user:user,tailor:tailor});
+        }else{
+          res.status(200).json(user);
+    }
+       }
+      
+    } catch (error) {
+      res.status(500).json(error);
+    }
   
+      
+      });
+      
 
 //@desc   Update User Profile
 //route Put/api/users/profile
@@ -117,7 +129,8 @@ const getUserProfile = asyncHandler (async (req, res) =>{
 
 const updateUserProfile = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id);
-
+  console.log(req.body.active);
+  let updateTailor;
   if (user) {
      user.name = req.body.name || user.name;
      user.email = req.body.email || user.email;
@@ -125,6 +138,25 @@ const updateUserProfile = asyncHandler(async (req, res) => {
      if (req.body.password) {
       user.password = req.body.password;
      }
+     if(user.role=="Tailor"){
+      const tailor= await tailorsProfile.findOne({userId: user._id} );
+         tailor.experience=req.body.tailor.experience||tailor.experience;
+         tailor.contact=req.body.tailor.contact||tailor.contact;
+         tailor.occupation=req.body.tailor.occupation||tailor.occupation;
+         tailor.dob=req.body.tailor.idnumber||tailor.idnumber;
+         tailor.gender=req.body.tailor.gender||tailor.gender;
+         tailor.address=req.body.tailor.address||tailor.address;
+
+         if(req.body.active==true){
+          tailor.active=true
+         }else if(req.body.active==false){
+          tailor.active=false
+          
+         }
+
+         updateTailor=await tailor.save();
+         console.log(updateTailor);
+    }
 
      const updatedUser = await user.save();
 
@@ -133,7 +165,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
        name: updatedUser.name,
        email: updatedUser.email,
        role: updatedUser.role,
-       token: updatedUser.token,
+       updateTailor:updateTailor,
 
        success: true,
      });
@@ -142,7 +174,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
       throw new Error('User not found')
   }
 
-  res.status(200).json({ message:'Update user profile'});
+  
   });
 
 

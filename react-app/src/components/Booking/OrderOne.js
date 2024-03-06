@@ -96,7 +96,7 @@ function OrderOne() {
           <hr />
           <div className="row">
             <div className="col-md-6">
-              <div className="form-part">
+              <div className="form-part form-part2">
                 <h3>Measurements and Sizes</h3>
                 <form>
                   <div className="form-group">
@@ -115,7 +115,7 @@ function OrderOne() {
               </div>
             </div>
             <div className="col-md-6">
-              <div className="form-part">
+              <div className="form-part form">
                 <h3>Order Details</h3>
                 <form>
                   <div className="form-group">
@@ -124,6 +124,9 @@ function OrderOne() {
 
                     <label htmlFor="preferredTime">Preferred Appointment Time:</label>
                     <input type="time" className="form-control" id="preferredTime" name="preferredTime" placeholder="Enter material" value={orderDetails.preferredTime} onChange={handleOrderDetailsChange} />
+                        
+                        
+                        
                           </div>
                   <div className="form-group">
                     <label htmlFor="material">Material:</label>
@@ -197,8 +200,8 @@ function OrderOne() {
                 </span></Link>
               </div>
               <Link to='/orderone'>
-              <button type="button"onClick= {handlePlaceOrder}>Place Order</button></Link>
-              <button type="button" onClick={handlePreviewButtonClick}>Preview</button>
+              <button type="button"onClick= {handlePlaceOrder} className='mt-5'>Place Order</button></Link>
+              <button type="button" onClick={handlePreviewButtonClick} className='mt-3'>Preview</button>
             </div>
           </div>
         </div>

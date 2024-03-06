@@ -12,6 +12,10 @@ const tailorsProfileSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    address: {
+        type: String,
+        required: true
+    },
     email: {
         type: String,
         required: true,
@@ -44,6 +48,7 @@ const tailorsProfileSchema = mongoose.Schema({
 
     
     verified: { type: Boolean, default: false },
+    active: {type:Boolean ,default:false},
 
 }, {
     timestamps: true

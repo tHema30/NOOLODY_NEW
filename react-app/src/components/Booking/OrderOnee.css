@@ -116,7 +116,7 @@
   }
   .container-pay label>span {
     float: left;
-    width: 50%;
+    width: 30%;
     margin-top: 10px;
     padding-right: 10px;
   }
@@ -125,7 +125,7 @@
   .container-pay input[type="email"],
   .container-pay select {
     width: calc(100% - 45px); /* Adjusted width */
-    height: 30px;
+    height: 50px;
     padding: 5px 10px;
     margin-bottom: 10px;
     border: 1px solid #DADADA;
@@ -134,7 +134,7 @@
   .container-pay select {
     height: 45px;
   }
-  .container-pay .Yorder {
+  .container-pay .Yorder{
     margin-top: 15px;
     height: 500px;
     padding: 20px;
@@ -170,7 +170,7 @@
     padding: 15px 5;
   }
   .container-pay button {
-    width: 40%;
+    width: 100%;
     margin-top: 10px;
     padding: 10px;
     border: none;
@@ -179,9 +179,14 @@
     color: #fff;
     font-size: 15px;
     font-weight: bold;
+
   }
   .container-pay button:hover {
     cursor: pointer;
     background: #492E87;
   }
   
+
+  .container-tail .form-part2{
+    height: 52vh !important;
+  }

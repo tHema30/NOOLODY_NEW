@@ -74,12 +74,14 @@ const TailorsDetails = () => {
 
 
 const columns = [
-  { field: 'name', headerName: 'Name', width: 200 },
-  { field: 'email', headerName: 'Email', width: 250 },
+  { field: 'name', headerName: 'Name', width: 100 },
+  { field: 'email', headerName: 'Email', width: 180 },
   { field: 'contact', headerName: 'Contact No', width: 150 },
   { field: 'occupation', headerName: 'Occupation', width: 150 },
   { field: 'idnumber', headerName: 'NIC Number', width: 150 },
   { field: 'experience', headerName: 'Experience', width: 100 },
+  { field: 'address', headerName: 'Address', width: 100 },
+
 
   {
     field: 'dob',
@@ -94,6 +96,13 @@ const columns = [
     width: 100,
     valueFormatter: ({ value }) => (value ? 'Yes' : 'No'),
   },
+  {
+    field: 'active',
+    headerName: 'Active',
+    width: 150,
+    valueFormatter: ({ value }) => (value ? 'Available' : 'Not Available'),
+  },
+
   {
     field: 'actions',
     headerName: 'Actions',
