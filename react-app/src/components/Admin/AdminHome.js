@@ -22,7 +22,7 @@ function AdminHome (){
       <Route path="/service" element={<Service />} />
       <Route path="/createservice" element={<CreateService />} />
       <Route path="/orders" element={<OrderDetails />} />
-      <Route path="/Dashbord" element={<Dashboard/>} />
+      <Route path="/" element={<Dashboard/>} />
 
 
 

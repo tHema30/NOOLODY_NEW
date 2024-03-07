@@ -1,11 +1,10 @@
-
-import DressDesign from '../models/dressDesignModel.js';
-import cloudinary from '../utils/imagecloudinary.js';
-import upload from '../utils/multer.js';
+import DressDesign from "../models/dressDesignModel.js";
+import cloudinary from "../utils/imagecloudinary.js";
+import upload from "../utils/multer.js";
 
 const uploadDressDesign = async (req, res) => {
   try {
-    const { category, description,price } = req.body;
+    const { category, description, price } = req.body;
     // Use the original filename (if available) or generate a unique identifier
     const publicId = req.file.originalname || `dress_${Date.now()}`;
     // Upload image to Cloudinary
@@ -31,10 +30,9 @@ const uploadDressDesign = async (req, res) => {
     });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Internal Server Error' });
+    res.status(500).json({ error: "Internal Server Error" });
   }
 };
-
 
 // Controller to get all dress designs
 const getAllDressDesigns = async (req, res) => {
@@ -43,72 +41,67 @@ const getAllDressDesigns = async (req, res) => {
     res.status(200).json(dressDesigns);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Internal Server Error' });
+    res.status(500).json({ message: "Internal Server Error" });
   }
 };
 
 // Controller to get a specific dress design by ID
 const getDressDesignByCat = async (req, res) => {
-  const {category} = req.params;
+  const { category } = req.params;
   console.log(category);
   try {
-    const dressDesign = await DressDesign.find({category:category});
+    const dressDesign = await DressDesign.find({ category: category });
 
     if (!dressDesign) {
-      return res.status(404).json({ message: 'Dress Design not found' });
+      return res.status(404).json({ message: "Dress Design not found" });
     }
-    
+
     res.status(200).json(dressDesign);
   } catch (error) {
     // console.error(error);
-    res.status(500).json({ message:error});
+    res.status(500).json({ message: error });
   }
 };
 
+// Edit a dress design by ID
+const editDesign = async (req, res) => {
+  try {
+    const { category } = req.params;
+    const updatedDesign = await DressDesign.find(category, req.body, {
+      new: true,
+    });
 
-
-  // Edit a dress design by ID
- const editDesign = async (req, res) => {
-    try {
-      const { category } = req.params;
-      const updatedDesign = await DressDesign.find(category, req.body, { new: true });
-
-      if (!updatedDesign) {
-        return res.status(404).json({ error: 'Design not found' });
-      }
-
-      res.json(updatedDesign);
-    } catch (error) {
-      console.error('Error editing dress design:', error);
-      res.status(500).json({ error: 'Internal server error' });
+    if (!updatedDesign) {
+      return res.status(404).json({ error: "Design not found" });
     }
-  };
 
- const  deleteDesign = async (req, res) => {
-    try {
-      const { category } = req.params;
-      const deletedDesign = await DressDesign.find(category);
+    res.json(updatedDesign);
+  } catch (error) {
+    console.error("Error editing dress design:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
 
-      if (!deletedDesign) {
-        return res.status(404).json({ error: 'Design not found' });
-      }
+const deleteDesign = async (req, res) => {
+  try {
+    const { category } = req.params;
+    const deletedDesign = await DressDesign.find(category);
 
-      res.json({ message: 'Design deleted successfully' });
-    } catch (error) {
-      console.error('Error deleting dress design:', error);
-      res.status(500).json({ error: 'Internal server error' });
+    if (!deletedDesign) {
+      return res.status(404).json({ error: "Design not found" });
     }
-  };
 
-
-
-
+    res.json({ message: "Design deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting dress design:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
 
 export {
-
-       uploadDressDesign,
-       getAllDressDesigns,
-      getDressDesignByCat,
-      editDesign,
-      deleteDesign
-              };
+  uploadDressDesign,
+  getAllDressDesigns,
+  getDressDesignByCat,
+  editDesign,
+  deleteDesign,
+};

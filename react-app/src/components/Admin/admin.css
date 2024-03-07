@@ -95,3 +95,35 @@ a.navbar-brand{
 .dashnavbtn:hover {
   background-color:#492E87; /* Hover color */
 }
+
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  /* grid-gap: 5px; */
+  margin-left: 6vh;
+  margin-top: 30px;
+}
+.card3 {
+  height: 300px;
+  width: 400px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(45deg, rgb(49, 92, 167), rgb(111, 31, 125));
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.card-content3 {
+  padding: 16px;
+}
+.card-content3 h2 {
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+.card-content3 p {
+  font-size: 44px;
+  text-align: center;
+}

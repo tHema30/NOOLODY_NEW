@@ -5,14 +5,12 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "./Footer";
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
-const userInfo=JSON.parse(localStorage.getItem("userInfo"));
-
+const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 
 const TailorRegister = () => {
   const navigate = useNavigate();
-  const tailorId = "someTailorId"; // Replace with actual logic to get tailorId
 
   const [formData, setFormData] = useState({
     name: userInfo.name,
@@ -137,7 +135,6 @@ const TailorRegister = () => {
     }
   };
 
-
   return (
     <>
       <Header />
@@ -156,7 +153,6 @@ const TailorRegister = () => {
                       placeholder="Enter your name"
                       required
                       value={name}
-                      
                       name="name"
                     />
                   </div>
@@ -178,7 +174,6 @@ const TailorRegister = () => {
                       placeholder="Enter your email"
                       required
                       value={email}
-                      
                       name="email"
                     />
                   </div>
@@ -261,16 +256,14 @@ const TailorRegister = () => {
                 <button class="nextBtn">
                   <span class="btnText">Submit</span>
                   <i class="uil uil-navigator"></i>
-
                 </button>
               </div>
-
             </div>
           </form>
         </div>
       </div>
       <ToastContainer />
-      <Footer/>
+      <Footer />
     </>
   );
 };

@@ -1,88 +1,107 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { Card, CardContent, Typography, Grid } from '@mui/material';
+import axios from 'axios'; // Assuming you're using axios for HTTP requests
 
-const Dashboard = () => {
-  const [userCount, setUserCount] = useState(0);
-  const [tailorCount, setTailorCount] = useState(0);
-  const [designCount, setDesignCount] = useState(0);
+function Dashboard() {
+  const [users, setUsers] = useState([null]);
+  const [tailors, setTailors] = useState([null]);
+  const [orders, setOrders] = useState([null]);
+  const [serviceDetails, setServiceDetails] = useState([null]);
+  const [dressDesigns, setDressDesigns] = useState([null]);
+
+
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const usersResponse = await axios.get('http://localhost:7300/api/admin/all-users', { withCredentials: true });
-        setUserCount(usersResponse.data.length);
+    // Fetch user data
+    axios.get('http://localhost:7300/api/admin/all-users',
+    {withCredentials:true})
+      .then(response => {
+        setUsers(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching user data:', error);
+      });
+      
 
-        const tailorsResponse = await axios.get('http://localhost:7300/api/admin/tailorsProfile', { withCredentials: true });
-        setTailorCount(tailorsResponse.data.length);
+      axios.get('http://localhost:7300/api/users/ServicesDetails',
+      {withCredentials:true})
+        .then(response => {
+          setServiceDetails(response.data);
+        })
+        .catch(error => {
+          console.error('Error fetching user data:', error);
+        });
+        
 
-        const designsResponse = await axios.get('http://localhost:7300/api/designs/dress-designs/', { withCredentials: true });
-        setDesignCount(designsResponse.data.length);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
+      
+    // Fetch mechanic data
+    axios.get('http://localhost:7300/api/admin/tailorsProfile', {withCredentials:true})
+      .then(response => {
+        setTailors(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching tailors data:', error);
+      });
 
-    fetchData();
-  }, []);
+      axios.get('http://localhost:7300/api/designs/dress-designs/',
+      {withCredentials:true})
+      .then(response => {
+        setDressDesigns(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching user data:', error);
+      });
 
+
+
+
+    // Fetch order data
+    axios.get('http://localhost:7300/api/admin/all-orders', {withCredentials:true})
+      .then(response => {
+        setOrders(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching order data:', error);
+        
+      });
+  }, []); // Empty dependency array means this effect will run once after the initial render
   return (
-    <div style={dashboardStyle}>
-      <Grid container spacing={3}>
-        <Grid item xs={4}>
-          <Card style={cardStyle}>
-            <CardContent>
-              <Typography variant="h6" component="div">
-                Users
-              </Typography>
-              <Typography variant="h4" color="text.secondary">
-                {userCount}
-              </Typography>
-            </CardContent>
-          </Card>
-        </Grid>
-
-        <Grid item xs={4}>
-          <Card style={cardStyle}>
-            <CardContent>
-              <Typography variant="h6" component="div">
-                Tailors
-              </Typography>
-              <Typography variant="h4" color="text.secondary">
-                {tailorCount}
-              </Typography>
-            </CardContent>
-          </Card>
-        </Grid>
-
-        <Grid item xs={4}>
-          <Card style={cardStyle}>
-            <CardContent>
-              <Typography variant="h6" component="div">
-                Designs
-              </Typography>
-              <Typography variant="h4" color="text.secondary">
-                {designCount}
-              </Typography>
-            </CardContent>
-          </Card>
-        </Grid>
-      </Grid>
+    <div className="footer-container" style={{marginLeft:"30px"}}>
+    <div className="card3">
+        <div className="card-content3">
+          <h1>User Details</h1>
+          <p>{users? users.length : 'Loading...'}</p>
+          <p><i class="bi bi-people-fill "></i></p>
+        </div>
+      </div>
+      {/* <div className="card3">
+        <div className="card-content3">
+          <h1>Tailors Details</h1>
+          <p>{tailors ? tailors.length : 'Loading...'}</p>
+          <p><i class="bi bi-shop"></i></p>
+        </div> */}
+      {/* </div> */}
+      <div className="card3">
+        <div className="card-content3">
+          <h1>service Details</h1>
+          <p>{serviceDetails ? serviceDetails.length : 'Loading...'}</p>
+          <p><i class="bi bi-shop"></i></p>
+        </div>
+      </div>
+      <div className="card3">
+        <div className="card-content3">
+          <h1>Design Details</h1>
+          <p>{dressDesigns ? dressDesigns.length : 'Loading...'}</p>
+          <p><i class="bi bi-shop"></i></p>
+        </div>
+      </div>
+      <div className="card3">
+        <div className="card-content3">
+          <h1>Order Details</h1>
+          <p>{orders ? orders.length : 'Loading...'}</p>
+          <p><i class="bi bi-ui-checks"></i></p>
+        </div>
+      </div>
     </div>
   );
-};
-
-const dashboardStyle = {
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  marginTop: '10%',
-  marginLeft: '25%',
-};
-
-const cardStyle = {
-  minWidth: 275,
-  textAlign: 'center',
-};
-
+}
 export default Dashboard;

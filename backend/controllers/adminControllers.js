@@ -1,10 +1,10 @@
-import asyncHandler from 'express-async-handler';
-import generateToken from '../utils/generateToken.js';
-import User from '../models/userModel.js'
-import nodemailer from 'nodemailer';
-import { tailorsOrder } from '../models/ordermodel.js'
+import asyncHandler from "express-async-handler";
+import generateToken from "../utils/generateToken.js";
+import User from "../models/userModel.js";
+import nodemailer from "nodemailer";
+import { tailorsOrder } from "../models/ordermodel.js";
 
-import { tailorsProfile } from '../models/tailorModel.js';
+import { tailorsProfile } from "../models/tailorModel.js";
 
 //getalluse profiles
 const getallUser = asyncHandler(async (req, res) => {
@@ -22,52 +22,47 @@ const getUserById = asyncHandler(async (req, res) => {
   const { id } = req.params;
   try {
     const UserById = await User.findById(id);
-    res.json(UserById );
+    res.json(UserById);
   } catch (error) {
     throw new Error(error);
   }
 });
 
-
-
-  //@desc   Delete user by ID
+//@desc   Delete user by ID
 //route DELETE/api/admin/users/:id
 //@access Private (only accessible by admin)
 
-
 const deleteUser = asyncHandler(async (req, res) => {
   const user = await User.findById(req.params.id);
-  
+
   if (user) {
     await user.deleteOne();
-    res.json({ message: 'User removed' });
+    res.json({ message: "User removed" });
   } else {
     res.status(404);
-    throw new Error('User not found');
+    throw new Error("User not found");
   }
 });
 
-  
-  
 // all tailors asmin find
 
 const getallTailors = asyncHandler(async (req, res) => {
-    try {
-        const allTailors = await tailorsProfile.find({});
+  try {
+    const allTailors = await tailorsProfile.find({});
 
-        res.status(200).send({
-            message: "Tailors fetched successfully",
-            success: true,
-            data: allTailors,
-        });
-    } catch (error) {
-        console.error(error); // Use console.error for errors
-        res.status(500).send({
-            message: "Error fetching tailors",
-            success: false,
-            error: error.message, // Send only the error message to the client
-        });
-    }
+    res.status(200).send({
+      message: "Tailors fetched successfully",
+      success: true,
+      data: allTailors,
+    });
+  } catch (error) {
+    console.error(error); // Use console.error for errors
+    res.status(500).send({
+      message: "Error fetching tailors",
+      success: false,
+      error: error.message, // Send only the error message to the client
+    });
+  }
 });
 
 //get tailors details by id
@@ -92,7 +87,6 @@ const gettailorById = asyncHandler(async (req, res) => {
 //   if (tailor) {
 //     tailor.verified = verified || tailor.verified;
 
-
 //     const updatedTailor = await tailor.save();
 //     res.json('Successfully updated');
 //   } else {
@@ -105,21 +99,20 @@ const gettailorById = asyncHandler(async (req, res) => {
 
 const updateTailor = asyncHandler(async (req, res, next) => {
   try {
-   
     const tailor = await tailorsProfile.findById(req.params.id);
 
     if (!tailor) {
       res.status(404);
-      throw new Error('Tailor not found');
+      throw new Error("Tailor not found");
     }
 
-    tailor.verified = true
+    tailor.verified = true;
     const updatedTailor = await tailor.save();
 
     // Check if the tailor is now verified and send email if true
     if (updatedTailor.verified) {
       const transporter = nodemailer.createTransport({
-        service: 'gmail',
+        service: "gmail",
         auth: {
           user: process.env.GMAIL,
           pass: process.env.PASS,
@@ -129,24 +122,19 @@ const updateTailor = asyncHandler(async (req, res, next) => {
       const mailOptions = {
         from: process.env.GMAIL,
         to: tailor.email,
-        subject: 'Verification Success',
-        text: 'Congratulations! Your tailor account has been verified.',
+        subject: "Verification Success",
+        text: "Congratulations! Your tailor account has been verified.",
       };
 
       await transporter.sendMail(mailOptions);
     }
 
-    res.json('Successfully updated');
+    res.json("Successfully updated");
   } catch (error) {
     // Pass the error to the error handling middleware
     next(error);
   }
 });
-
-
-
-
-
 
 // all orders admin get
 const getallOrders = asyncHandler(async (req, res) => {
@@ -157,7 +145,6 @@ const getallOrders = asyncHandler(async (req, res) => {
     throw new Error(error);
   }
 });
-
 
 //get tailors details by id
 
@@ -171,8 +158,7 @@ const getallOrdersById = asyncHandler(async (req, res) => {
   }
 });
 
-  
-  //@desc   Delete tailor by ID
+//@desc   Delete tailor by ID
 //route DELETE/api/admin/users/:id
 //@access Private (only accessible by admin)
 
@@ -181,26 +167,21 @@ const deleteTailor = asyncHandler(async (req, res) => {
 
   if (tailor) {
     await tailor.deleteOne(); // or tailor.deleteMany() for deleting multiple documents
-    res.json({ message: 'Tailor removed' });
+    res.json({ message: "Tailor removed" });
   } else {
     res.status(404);
-    throw new Error('Tailor not found');
+    throw new Error("Tailor not found");
   }
 });
 
-
-
-
-
-
-export { 
-        getallUser,
-        getUserById,
-        deleteUser,
-        getallTailors,
-        gettailorById,
-        updateTailor,
-        deleteTailor,
-        getallOrders,
-        getallOrdersById  
-       };
+export {
+  getallUser,
+  getUserById,
+  deleteUser,
+  getallTailors,
+  gettailorById,
+  updateTailor,
+  deleteTailor,
+  getallOrders,
+  getallOrdersById,
+};

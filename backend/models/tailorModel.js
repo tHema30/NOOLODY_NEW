@@ -8,6 +8,7 @@ const tailorsProfileSchema = mongoose.Schema({
         ref:"User",
         required:true
     },
+ 
    name: {
         type: String,
         required: true
@@ -49,6 +50,8 @@ const tailorsProfileSchema = mongoose.Schema({
     
     verified: { type: Boolean, default: false },
     active: {type:Boolean ,default:false},
+
+    orderHistory:Array,
 
 }, {
     timestamps: true

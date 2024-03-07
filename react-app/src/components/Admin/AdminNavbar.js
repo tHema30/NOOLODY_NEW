@@ -65,7 +65,7 @@ const AdminNavbar = () => {
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav md-auto " style={{marginLeft:"450px"}}>
         <li className="nav-item"  style={{marginLeft: "10px", marginRight:"10px"}}>
-            <Link to="/admin/Dashboard">
+            <Link to="/admin/">
              Admin DashBoard
             </Link>
           </li>

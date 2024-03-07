@@ -4,12 +4,11 @@ import DressDesign from "./DressDesign"; // Assuming DressDesign is in the same 
 
 function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const info =JSON.parse(localStorage.getItem("userInfo"));
+  const info = JSON.parse(localStorage.getItem("userInfo"));
 
   const DropdownMenu = () => {
     const [selectedCategory, setSelectedCategory] = useState(null);
-    
-    
+
     return (
       <div className="nav-item dropdown">
         <Link
@@ -20,32 +19,16 @@ function Header() {
           Designs
         </Link>
         <div className="dropdown-menu m-0">
-          <Link
-            to={`/dresscard/${"ladies"}`}
-            className="dropdown-item"
-            
-          >
+          <Link to={`/dresscard/${"ladies"}`} className="dropdown-item">
             Ladies
           </Link>
-          <Link
-            to={`/dresscard/${"Gents"}`}
-            className="dropdown-item"
-            
-          >
+          <Link to={`/dresscard/${"Gents"}`} className="dropdown-item">
             Gents
           </Link>
-          <Link
-            to={`/dresscard/${"kids"}`}
-            className="dropdown-item"
-            
-          >
+          <Link to={`/dresscard/${"kids"}`} className="dropdown-item">
             Kids
           </Link>
-          <Link
-           to={`/dresscard/${"altering"}`}
-            className="dropdown-item"
-            
-          >
+          <Link to={`/dresscard/${"altering"}`} className="dropdown-item">
             Altering
           </Link>
         </div>
@@ -103,22 +86,19 @@ function Header() {
             <Link
               to="/profile"
               className="btn  ml-4 "
-              
-              style={{ color: "#fff" ,backgroundColor:"#492E87"}}
-            ><i class="fa fa-user" aria-hidden="true"></i>  {info.name}</Link>
-          ) : (
-            <Link
-              to="/login"
-              
-            ><button
-             className="btn  ml-4 "
-              id="login_btn"
-              style={{ color: "#fff" ,backgroundColor:"#492E87"}}
-              
+              style={{ color: "#fff", backgroundColor: "#492E87" }}
             >
-              Login <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
-
-
+              <i class="fa fa-user" aria-hidden="true"></i> {info.name}
+            </Link>
+          ) : (
+            <Link to="/login">
+              <button
+                className="btn  ml-4 "
+                id="login_btn"
+                style={{ color: "#fff", backgroundColor: "#492E87" }}
+              >
+                Login{" "}
+                <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
               </button>
             </Link>
           )}
