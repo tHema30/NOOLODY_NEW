@@ -39,7 +39,7 @@ function ServiceDetails() {
             >
               <p className="fs-5 fw-bold  name">Our Services</p>
               <h1 className="display-5 mb-5">
-                Our Online Tailoring Services help you with
+              Clothes that make you smile
               </h1>
             </div>
             <div className="row g-4">

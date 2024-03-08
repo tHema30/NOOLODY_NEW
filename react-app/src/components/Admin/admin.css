@@ -17,6 +17,7 @@ a.navbar-brand{
 
 .userlist {
   margin: 20px;
+  
 }
 .table {
   width: 100%;
@@ -101,11 +102,11 @@ a.navbar-brand{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   /* grid-gap: 5px; */
-  margin-left: 6vh;
+  margin-left: 10vh;
   margin-top: 30px;
 }
 .card3 {
-  height: 300px;
+  height: 150px;
   width: 400px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -121,9 +122,16 @@ a.navbar-brand{
 }
 .card-content3 h2 {
   margin-bottom: 8px;
-  font-size: 18px;
+  font-size: 28px;
+  color: #ddd !important;
 }
 .card-content3 p {
-  font-size: 44px;
+  font-size: 20px;
   text-align: center;
+}
+
+.card-content3 h1{
+  color: #e3dfdf !important;
+  margin-top: 15px;
+
 }

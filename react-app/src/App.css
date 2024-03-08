@@ -171,26 +171,6 @@
     z-index: 1;
 }
 
-.carousel-control-prev,
-.carousel-control-next {
-    width: 13%;
-    height: 3rem;
-    align-items: center;
-    padding-top: 500px;
-}
-.carousel-control-next:hover,
-.carousel-control-prev:hover{
-    background-color:#b8b6c4;
-}
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    width: 3rem;
-    height: 3rem;
-    background-color: var(--primary);
-    border: 10px solid var(--primary);
-    border-radius: 3rem;
-    
-}
 
 @media (max-width: 68px) {
     #header-carousel .carousel-item {
@@ -219,6 +199,7 @@
 
 .home-content{
     padding-bottom: 350px;
+    margin-left:0!important;
 }
 
 

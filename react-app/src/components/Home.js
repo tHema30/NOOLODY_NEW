@@ -37,13 +37,12 @@ function Home() {
                     </div>
                 </div>
                 <div className="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                    <h1 className="display-5 mb-4">Best Tailoring Services</h1>
-                    <p className="mb-4"> Tailor Near Me – Let Us Stitch!
-We understand how important authentic clothing with intricate details is for our clients. Our online tailor will carefully listen to all your amazing ideas and tailor outfits that meet all your expectations. Whether it’s traditional wear, casual wear, or formal wear, our online tailoring for will be a blissful experience for you. Choosing NOOLODY tailor shop near me service is the best choice, as we provide #DoorStep service.</p>
+                    <h1 className="display-5 mb-4">Tailor Near Me – Let Us Stitch! </h1>
+                    <p className="mb-4">We understand how important authentic clothing with intricate details is for our clients. Our online tailor will carefully listen to all your amazing ideas and tailor outfits that meet all your expectations.  Choosing NOOLODY tailor shop near me service is the best choice, as we provide #DoorStep service.</p>
                     <p><i className="fa fa-check  me-3"></i>Tempor erat elitr rebum at clita</p>
                     <p><i className="fa fa-check  me-3"></i>Aliqu diam amet diam et eos</p>
                     <p><i className="fa fa-check  me-3"></i>Clita duo justo magna dolore erat amet</p>
-                    <a className="btn btn-primary rounded-pill py-3 px-5 mt-3" href="1">Read More</a>
+                    {/* <a className="btn btn-primary rounded-pill py-3 px-5 mt-3" href="1">Read More</a> */}
                 </div>
             </div>
         </div>

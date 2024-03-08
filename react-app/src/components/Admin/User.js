@@ -5,6 +5,10 @@ import { DataGrid } from '@mui/x-data-grid';
 
 
 
+const buttonStyle = {
+  marginRight: "8px",
+
+};
 
 const User = () => {
   const [users, setUsers] = useState([]);
@@ -73,20 +77,20 @@ const User = () => {
   };
 
   const columns = [
-    { field: 'id', headerName: 'ID', width: 300 },
-    { field: 'name', headerName: 'Name', width: 250 },
+    { field: 'id', headerName: 'ID', width: 350 },
+    { field: 'name', headerName: 'Name', width: 300 },
     { field: 'email', headerName: 'Email', width: 350 },
     {
       field: 'actions',
       headerName: 'Actions',
-      width: 200,
+      width: 300,
       renderCell: (params) => (
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <button onClick={() => handleEdit(params.row)}>Edit</button>
-          <Button variant="danger" onClick={() => handleDelete(params.row.id)}>
+        <div>
+          <button  style={buttonStyle} onClick={() => handleEdit(params.row)}>Edit</button>
+          <Button  style={buttonStyle}  variant="danger"   onClick={() => handleDelete(params.row.id)}>
             Delete
           </Button>
-        </div>
+       </div>
       ),
     },
   ];
@@ -103,7 +107,7 @@ const User = () => {
     <div className='userlist'>
       <h1>User Details</h1>
       <button  className='create-user'   onClick={() => setIsCreateMode(true)}>Create User</button>
-      <div style={{ height: 400, width: '100%' }}>
+      <div style={{ height: 800, width: '100%' }}>
         <DataGrid
           rows={rows}
           columns={columns}

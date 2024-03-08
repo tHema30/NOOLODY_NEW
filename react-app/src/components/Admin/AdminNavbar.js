@@ -42,13 +42,13 @@ const AdminNavbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navadmin " >
       {/* <Link className="navbar-brand" to="/admin"> */}
-      {/* <Link to="/"> */}
+      <Link to="/">
         <img
           src={logo}
           alt="logo"
-          height="50"
+          height="60"
         />
-      {/* </Link> */}
+      </Link>
         {/* Admin Dashboard */}
       {/* </Link> */}
       <button
@@ -66,7 +66,7 @@ const AdminNavbar = () => {
         <ul className="navbar-nav md-auto " style={{marginLeft:"450px"}}>
         <li className="nav-item"  style={{marginLeft: "10px", marginRight:"10px"}}>
             <Link to="/admin/">
-             Admin DashBoard
+             DashBoard
             </Link>
           </li>
           <li className="nav-item"  style={{marginLeft: "10px", marginRight:"10px"}}>

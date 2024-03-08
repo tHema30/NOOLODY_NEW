@@ -4,7 +4,7 @@ import axios from 'axios'; // Assuming you're using axios for HTTP requests
 function Dashboard() {
   const [users, setUsers] = useState([null]);
   const [tailors, setTailors] = useState([null]);
-  const [orders, setOrders] = useState([null]);
+  const [orders, setOrders] = useState([null]); 
   const [serviceDetails, setServiceDetails] = useState([null]);
   const [dressDesigns, setDressDesigns] = useState([null]);
 
@@ -91,14 +91,14 @@ function Dashboard() {
         <div className="card-content3">
           <h1>Design Details</h1>
           <p>{dressDesigns ? dressDesigns.length : 'Loading...'}</p>
-          <p><i class="bi bi-shop"></i></p>
+          <p><i class="bi bi-palette-fill"></i></p>
         </div>
       </div>
       <div className="card3">
         <div className="card-content3">
           <h1>Order Details</h1>
           <p>{orders ? orders.length : 'Loading...'}</p>
-          <p><i class="bi bi-ui-checks"></i></p>
+          <p><i class="bi bi-cart-check"></i></p>
         </div>
       </div>
     </div>

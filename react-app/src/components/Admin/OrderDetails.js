@@ -86,7 +86,7 @@ function OrderDetails() {
               </td>
               <td>
                 <button className="btn btn-primary btn-sm mr-2" onClick={handleEdit}>Edit</button>
-                <button className="btn btn-primary btn-sm mr-2" onClick={handleDelete}>Assign</button>
+                {/* <button className="btn btn-primary btn-sm mr-2" onClick={handleDelete}>Assign</button> */}
                 <button className="btn btn-success btn-sm" onClick={handleVerify}>Verify</button>
               </td>
             </tr>
