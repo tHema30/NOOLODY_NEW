@@ -1,6 +1,6 @@
 import express from 'express';
 const router = express.Router();
-import {service,getservices,getserviceId,deleteserviesId ,UpdateService } from '../controllers/serviceController.js';
+// import {service,getservices,getserviceId,deleteserviesId ,UpdateService } from '../controllers/serviceController.js';
 import {Createservice,getservicesdetail,getservicedetailId,deleteserviesdetailId,updateserviesdetail,getservicedetailName } from '../controllers/serviceDetailsController.js'
 
 import {isAdmin } from '../middleware/authMiddleware.js';
@@ -8,11 +8,11 @@ import {isAdmin } from '../middleware/authMiddleware.js';
 import upload from '../utils/multer.js';
 
 
-router.post('/Services',upload.single('image'),service);
-router.get('/Services',getservices);
-router.get('/Services/:id',getserviceId);
-router.delete('/Services/:id',deleteserviesId);
-router.patch('/Services/:id',UpdateService);
+// router.post('/Services',upload.single('image'),service);
+// router.get('/Services',getservices);
+// router.get('/Services/:id',getserviceId);
+// router.delete('/Services/:id',deleteserviesId);
+// router.patch('/Services/:id',UpdateService);
 
 
 

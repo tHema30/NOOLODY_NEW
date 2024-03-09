@@ -16,6 +16,7 @@ import  {Order} from '../controllers/orderController.js';
 import { tailors ,order,orderbyId  } from '../controllers/tailorsControllers.js';
 import nodemailer from 'nodemailer';
 // import upload from '../utils/multer.js';
+import payment from '../controllers/orderPayment.js';
 
 
 
@@ -44,8 +45,9 @@ router.post('/tailors',protect, tailors );
 router.post('/orderhistory', order );
 router.get('/orderhistory/id', protect, orderbyId );   
 
+//payment details
 
-
+router.post('/payment', payment.processPayment);
 
 
 

@@ -38,7 +38,8 @@ const User = () => {
         id: updateData.id,
       };
 
-      axios.post('http://localhost:7300/api/admin/all-users', newUser)
+   axios.post('http://localhost:7300/api/users/', newUser , { withCredentials: true }
+   )
         .then(response => {
           const updatedUsers = [...users, response.data.user];
           setUsers(updatedUsers);
@@ -56,7 +57,7 @@ const User = () => {
       email: updateData.email,
     };
 
-    axios.put(`http://localhost:7300/api/admin/profile/${selectedUser._id}`, updatedFields)
+    axios.put(`http://localhost:7300/api/all-users"${selectedUser._id}`, updatedFields)
       .then(response => {
         const updatedUsers = users.map(u => (u._id === selectedUser._id ? response.data.user : u));
         setUsers(updatedUsers);

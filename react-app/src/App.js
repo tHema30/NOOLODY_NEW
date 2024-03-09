@@ -34,6 +34,8 @@ import OrderOne from "./components/Booking/OrderOne";
 import OrderTwo from "./components/Booking/OrderTwo";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import OrderHistory from "./components/OrderHistory";
+import PaymentForm from "./components/Payment/paymentForm";
 
 
 
@@ -67,6 +69,10 @@ function App() {
     <Route path="/ordertwo" element={<OrderTwo />} />
 
     <Route path="/tailorprofile/:tailorId" element={TailorProfile} />
+    <Route path="/orderhistory" element={<OrderHistory/>} />
+    <Route path="/payform" element={<PaymentForm/>} />
+
+
 
 
 

@@ -160,11 +160,11 @@ const ProfileUpdate = () => {
       </label>
       <br/>
       <button className="update-button" onClick={()=>handleUpdateProfile()}>
-        Update Profile
+        Update 
       </button>
        
       <button className="logout-button" onClick={handleFetchOrderHistory}>
-        Order History
+        OrderHistory
       </button>
 
       <button className="logout-button" onClick={handleLogout}>
