@@ -25,20 +25,35 @@ const buttonStyle = {
 const TailorsDetails = () => {
   const [tailors, setTailors] = useState([]);
   const [showModal, setShowModal] = useState(false);
+  const [orderId, setOrderId] = useState("");
+  const [tailorId, setTailorId] = useState("");
 
-  const handleModal = () => setShowModal(!showModal);
-  const handleSubmit = (e) => {
+  console.log(orderId)
+
+  const handleModal = (tailorId) =>{ setShowModal(!showModal); setTailorId(tailorId);};
+ 
+
+
+  const handleSubmit = (e)=> {
     e.preventDefault();
-    // Add your form submission logic here
-    // For example, you can send the form data to the server
-    // and handle the response accordingly.
-    // You might want to close the modal after successful submission.
+    axios
+    .post("http://localhost:7300/api/users/orderhistory",{tailorId:tailorId,orderId:orderId})
+    .then((response) => {
+      console.log("Tailor deleted successfully:", response.data);
+      // Update the state or fetch data again to reflect the changes
+    })
+    .catch((error) => {
+      console.error("Error deleting tailor:", error);
+    });
+
     handleModal();
   };
 
+
+
   const handleEdit = (Id) => {
     console.log(`Edit tailor with ID: ${Id}`);
-    // Add logic for navigation or editing
+    //setOrderId(Id);
   };
 
   const handleDelete = (Id) => {
@@ -146,7 +161,7 @@ const TailorsDetails = () => {
             variant="contained"
             color="success"
             style={buttonStyle}
-            onClick={handleModal} // use arrow function to bind component method
+            onClick={() => handleModal(params.row._id)} // use arrow function to bind component method
           >
             Asign
           </Button>
@@ -172,10 +187,12 @@ const TailorsDetails = () => {
                   <Form.Label>ID</Form.Label>
                   <Form.Control
                     type="text"
-                    // Add value and onChange props as needed
+                    name=""
+                    value={orderId}
+                    onChange={(e)=>setOrderId(e.target.value)}
+                
                   />
                 </Form.Group>
-
                 <Button
                   variant="contained"
                   color="success"
@@ -195,6 +212,7 @@ const TailorsDetails = () => {
         </>
       ),
     },
+  
   ];
 
   return (
@@ -212,5 +230,6 @@ const TailorsDetails = () => {
     </div>
   );
 };
+
 
 export default TailorsDetails;

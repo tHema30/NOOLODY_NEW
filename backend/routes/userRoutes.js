@@ -41,8 +41,8 @@ router.post('/orders',Order );
 
 //tailors profile details
 router.post('/tailors',protect, tailors );
-router.post('/orderhistory',protect, order );
-router.get('/orderhistory', protect, orderbyId );   
+router.post('/orderhistory', order );
+router.get('/orderhistory/id', protect, orderbyId );   
 
 
 

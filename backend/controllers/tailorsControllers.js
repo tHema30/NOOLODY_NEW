@@ -50,14 +50,14 @@ const order = asyncHandler(async (req, res) => {
     const {
      tailorId,orderId
     } = req.body;
-  
+  console.log(req.body)
     const tailor = await tailorsProfile.findById(tailorId)
     console.log(tailor);
     let orderHistory={orderId:orderId}
     tailor.orderHistory.push(orderHistory) 
         let updated = await tailor.save();
         if (updated) {
-          res.status(201).json(data);
+          res.status(201).json(updated);
         
     
     } else {
@@ -69,23 +69,23 @@ const order = asyncHandler(async (req, res) => {
   const orderbyId = async (req,res)=>{
     
     try {
-        const orderHistory = await tailorsProfile.findOne(req.user.user._id).populate({ path: 'orderHistory',populate:[ {path: 'orderId', model: 'Order',select:' -contact '}, ] })
+      console.log(req.user._id)
+        const orderHistory = await tailorsProfile.findOne({userId:req.user._id}).populate({ path: 'orderHistory',populate:[ {path: 'orderId', model: 'Order',select:'-contact'}, ] })
+        console.log(orderHistory)
         if(orderHistory){
             res.status(200).json({
                 success: true,
                 orderHistory
             })
+         
         }else{
             res.status(404).json({message:"order history Not found"});
         }
-        
+      
     } catch (error) {
         res.status(500).json({message:error.message});
     }
     
 }
-
-
-
 
 export { tailors ,order ,orderbyId };

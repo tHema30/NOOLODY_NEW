@@ -85,6 +85,24 @@ const ProfileUpdate = () => {
     });
   };
 
+  const handleFetchOrderHistory = async () => {
+    try {
+      const response = await axios.get('http://localhost:7300/api/users/orderhistory/id', {
+        withCredentials: true,
+      });
+
+      // Assuming the backend route to fetch order details by user ID is '/api/orders/byUserId'
+      // Adjust the route based on your actual backend setup
+
+      console.log('Order History:', response.data.orderHistory);
+      // Handle the order details as needed, e.g., display them to the user
+    } catch (error) {
+      console.error('Error fetching order history:', error);
+      toast.error('Error fetching order history');
+    }
+  };
+
+
   return (
     <>
     <Header/>
@@ -144,6 +162,11 @@ const ProfileUpdate = () => {
       <button className="update-button" onClick={()=>handleUpdateProfile()}>
         Update Profile
       </button>
+       
+      <button className="logout-button" onClick={handleFetchOrderHistory}>
+        Order History
+      </button>
+
       <button className="logout-button" onClick={handleLogout}>
         Logout
       </button>
