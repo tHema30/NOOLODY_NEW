@@ -66,6 +66,26 @@ const order = asyncHandler(async (req, res) => {
     }
   });
 
+  const orderbyId = async (req,res)=>{
+    
+    try {
+        const orderHistory = await tailorsProfile.findOne(req.user.user._id).populate({ path: 'orderHistory',populate:[ {path: 'orderId', model: 'Order',select:' -contact '}, ] })
+        if(orderHistory){
+            res.status(200).json({
+                success: true,
+                orderHistory
+            })
+        }else{
+            res.status(404).json({message:"order history Not found"});
+        }
+        
+    } catch (error) {
+        res.status(500).json({message:error.message});
+    }
+    
+}
 
 
-export { tailors };
+
+
+export { tailors ,order ,orderbyId };

@@ -13,7 +13,7 @@ from '../controllers/userController.js';
 // import {service,getservices,getserviceId,deleteserviesId ,UpdateService } from '../controllers/serviceController.js'
 import { protect ,isAdmin } from '../middleware/authMiddleware.js';
 import  {Order} from '../controllers/orderController.js';
-import { tailors } from '../controllers/tailorsControllers.js';
+import { tailors ,order,orderbyId  } from '../controllers/tailorsControllers.js';
 import nodemailer from 'nodemailer';
 // import upload from '../utils/multer.js';
 
@@ -41,6 +41,10 @@ router.post('/orders',Order );
 
 //tailors profile details
 router.post('/tailors',protect, tailors );
+router.post('/orderhistory',protect, order );
+router.get('/orderhistory', protect, orderbyId );   
+
+
 
 
 

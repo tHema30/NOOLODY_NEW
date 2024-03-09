@@ -14,6 +14,7 @@ import adminRoute from './routes/adminRoute.js'
 import serviceRoutes from '../backend/routes/serviceRoutes.js'
 import Payment from '../backend/utils/Payment.js';
 import orderRoutes from '../backend/routes/orderRoutes.js'
+import addtoCartRoutes from './routes/addtoCartRoutes.js';
 
 
 
@@ -41,6 +42,8 @@ app.use('/api/admin', adminRoute );
 app.use ('/api/users', serviceRoutes)
 app.use('/payment',Payment)
 app.use('/orders',orderRoutes)
+app.use('/api/cart', addtoCartRoutes);
+
 
 
 app.get('/', (req, res) => res.send('Server is ready'));
