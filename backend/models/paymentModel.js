@@ -1,23 +1,32 @@
 import mongoose from 'mongoose';
 
 const transactionSchema = new mongoose.Schema({
-  transactionKey: {
-    type: String,
-    required: true,
-  },
-  product: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Product',
-    required: true,
-  },
-  customerEmail: {
-    type: String,
-    required: true,
-  },
-  chargeId: {
-    type: String,
-    required: true,
-  },
+
+
+  // transactionKey: {
+  //   type: String,
+  //   required: true,
+  // },
+  // product: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: 'Product',
+  //   required: true,
+  // },
+  // customerEmail: {
+  //   type: String,
+  //   required: true,
+  // },
+  // chargeId: {
+  //   type: String,
+  //   required: true,
+  // },
+  
+
+
+  amount:{type:String},
+  currency:{type:String},
+
+ 
   createdAt: {
     type: Date,
     default: Date.now,

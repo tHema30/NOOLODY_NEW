@@ -15,6 +15,8 @@ import serviceRoutes from '../backend/routes/serviceRoutes.js'
 import Payment from '../backend/utils/Payment.js';
 import orderRoutes from '../backend/routes/orderRoutes.js'
 import addtoCartRoutes from './routes/addtoCartRoutes.js';
+// import stripeOrder from "../backend/routes/stripeOrder.js";
+// import stripe from "../backend/routes/stripe.js";
 
 
 
@@ -43,6 +45,8 @@ app.use ('/api/users', serviceRoutes)
 app.use('/payment',Payment)
 app.use('/orders',orderRoutes)
 app.use('/api/cart', addtoCartRoutes);
+// app.use("/api/orders", stripeOrder);
+// app.use("/api/stripe", stripe);
 
 
 
