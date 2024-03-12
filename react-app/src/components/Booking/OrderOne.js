@@ -191,12 +191,12 @@ function OrderOne() {
                 Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.
               </p>
               <div>
-                <input type="radio" name="paymentMethod" value="cd" checked={stitchingDetails.paymentMethod === "cd"} onChange={handleStitchingDetailsChange} /> Cash on Delivery
+                <input type="radio" name="paymentMethod" value="cd"  checked={stitchingDetails.paymentMethod === "cd"} onChange={handleStitchingDetailsChange} /> Cash on Delivery
               </div>
               <div>
                 <Link to='/payment'>
                 <input type="radio" name="paymentMethod" value="stripe" checked={stitchingDetails.paymentMethod === "stripe"} onChange={handleStitchingDetailsChange} /> Stripe <span>
-                  <img src="https://www.logolynx.com/images/logolynx/c3/c36093ca9fb6c250f74d319550acac4d.jpeg" alt="" width="50" />
+                  <img src="https://www.logolynx.com/images/logolynx/c3/c36093ca9fb6c250f74d319550acac4d.jpeg" alt="" width="100" />
                 </span></Link>
               </div>
               <Link to='/orderone'>

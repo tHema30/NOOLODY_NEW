@@ -6,7 +6,8 @@ import { DataGrid } from '@mui/x-data-grid';
 
 
 const buttonStyle = {
-  marginRight: "8px",
+  marginRight: "5px",
+
 
 };
 
@@ -87,7 +88,7 @@ const User = () => {
       width: 300,
       renderCell: (params) => (
         <div>
-          <button  style={buttonStyle} onClick={() => handleEdit(params.row)}>Edit</button>
+          <button  style={buttonStyle} onClick={() => handleEdit(params.row.id)}>Edit</button>
           <Button  style={buttonStyle}  variant="danger"   onClick={() => handleDelete(params.row.id)}>
             Delete
           </Button>

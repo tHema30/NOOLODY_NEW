@@ -24,14 +24,14 @@ import './App.css';
 import TailorRegister from "./components/TailorRegister";
 import DressDesign from "./components/DressDesign";
 import DressDesignList from "./components/DressDesignList";
-import BookForm from "./components/Booking/BookForm";
+// import BookForm from "./components/Booking/BookForm";
 
 import ServiceDetails from './components/ServiceDetails'
 import AdminRoutes from "./components/Admin/AdminRoutes";
 import Payment from "./components/Payment/Payment";
-import TailorProfile from "./components/TailorProfile";
+// import TailorProfile from "./components/TailorProfile";
 import OrderOne from "./components/Booking/OrderOne";
-import OrderTwo from "./components/Booking/OrderTwo";
+// import OrderTwo from "./components/Booking/OrderTwo";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import OrderHistory from "./components/OrderHistory";
@@ -61,14 +61,12 @@ function App() {
     <Route path="/admin/*" element={<AdminRoutes><AdminHome/></AdminRoutes>} />
     <Route path="/dresscard/:category" element={<DressDesignList />} />
 
-    <Route path="/booking" element={<BookForm />} />
+    {/* <Route path="/booking" element={<BookForm />} /> */}
     <Route path="/service" element={<ServiceDetails />} />
     <Route path="/payment" element={<Payment />} />
-    <Route path="/tailorprofile" element={<TailorProfile />} />
     <Route path="/orderone" element={<OrderOne />} />
-    <Route path="/ordertwo" element={<OrderTwo />} />
-
-    <Route path="/tailorprofile/:tailorId" element={TailorProfile} />
+    {/* <Route path="/ordertwo" element={<OrderTwo />} /> */}
+    
     <Route path="/orderhistory" element={<OrderHistory/>} />
     <Route path="/payform" element={<PaymentForm/>} />
 

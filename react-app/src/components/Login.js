@@ -4,9 +4,9 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Profile from "./Profile";
-// import { useForm } from "react-hook-form";
 import Header from "./Header";
 import Footer from "./Footer";
+import { FiEye, FiEyeOff } from "react-icons/fi"; // Import icons as per your preference
 
 const Login = () => {
   const navigate = useNavigate();
@@ -18,6 +18,7 @@ const Login = () => {
     email: "",
     password: "",
   });
+  const [showPassword, setShowPassword] = useState(false);
 
   const { email, password } = inputValue;
 
@@ -27,7 +28,7 @@ const Login = () => {
       ...inputValue,
       [name]: value,
     });
-    // Clear the corresponding error when user starts typing
+    // Clear the corresponding error when the user starts typing
     setErrors({
       ...errors,
       [name]: "",
@@ -54,19 +55,19 @@ const Login = () => {
 
   const handleError = (err) =>
     toast.error(err, {
-      position: "bottom-left",
+      position: "top-right",
     });
 
   const handleSuccess = (msg) =>
     toast.success(msg, {
-      position: "bottom-left",
+      position: "top-right",
     });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!validateForm()) {
-      // If form is not valid, return early
+      // If the form is not valid, return early
       return;
     }
 
@@ -79,36 +80,37 @@ const Login = () => {
         { withCredentials: true }
       );
 
-      // console.log(data);
-   const { success, message, role } = data;
-   localStorage.setItem('userInfo',JSON.stringify(data));
+      const { success, message, role } = data;
+      localStorage.setItem("userInfo", JSON.stringify(data));
 
-
-  if (success) {
-    handleSuccess(message);
-    setTimeout(() => {
-      if (role === "admin") {
-        // Redirect to the admin panel
-        navigate("/admin");
+      if (success) {
+        handleSuccess(message);
+        setTimeout(() => {
+          if (role === "admin") {
+            // Redirect to the admin panel
+            navigate("/home");
+          } else {
+            // Redirect to the normal user landing page
+            navigate("/login");
+          }
+        }, 1000);
       } else {
-        // Redirect to the normal user landing page
-        navigate("/home");
+        handleError(message);
       }
-    }, 1000);
-  } else {
-    handleError(message);
-  }
-} catch (error) {
-  handleError("Invalid email or password."); // Display error message if there's an exception 
+    } catch (error) {
+      handleError("Invalid email or password."); // Display an error message if there's an exception
+    }
 
-}
+    setInputValue({
+      ...inputValue,
+      email: "",
+      password: "",
+    });
+  };
 
-setInputValue({
-  ...inputValue,
-  email: "",
-  password: "",
-});
-};
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -118,59 +120,66 @@ setInputValue({
     navigate("/"); // Redirect to the login page or another route after logout
   };
 
-  // const handleLoginClick = () => {
-  //   // Handle the login logic here
-  //   // Once the user has successfully logged in, set the state variable to true
-  //   setIsLoggedIn(true);
-  // };
-
-
   return (
     <>
-    <Header/>
-    <div className="form_container">
-
-      {isLoggedIn ? <Profile handleLogout={handleLogout} /> : (
-        <>
-          <h2>Login Account</h2>
-          <form onSubmit={handleSubmit} id="form">
-            <div>
-              <label htmlFor="email">Email</label>
-              <input
-                type="email"
-                name="email"
-                value={email}
-                placeholder="Enter your email"
-                onChange={handleOnChange}
-              />
-              {errors.email && <span className="error" style={{"color":"red"}}>{errors.email}</span>}
-            </div>
-            <div>
-              <label htmlFor="password">Password</label>
-              <input
-                type="password"
-                name="password"
-                value={password}
-                placeholder="Enter your password"
-                onChange={handleOnChange}
-              />
-              {errors.password && <span className="error"  style={{"color":"red"}}>{errors.password}</span>}
-            </div>
-            <button type="submit">Submit</button>
-            {/* <button onClick={handleLoginClick}>
-      {isLoggedIn ? "home" : "Login"}
-    </button> */}
-            <span>
-              Already don't have an account? <a href="/signup">Register Now</a>
-            </span>
-          </form>
-          <ToastContainer />
-        </>
-      )}
-    </div>
-    <Footer/>
+      <Header />
+      <div className="form_container">
+        {isLoggedIn ? (
+          <Profile handleLogout={handleLogout} />
+        ) : (
+          <>
+            <h2>Login Account</h2>
+            <form onSubmit={handleSubmit} id="form">
+              <div>
+                <label htmlFor="email">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={email}
+                  placeholder="Enter your email"
+                  onChange={handleOnChange}
+                />
+                {errors.email && (
+                  <span className="error" style={{ color: "red" }}>
+                    {errors.email}
+                  </span>
+                )}
+              </div>
+              <div>
+                <label htmlFor="password">Password</label>
+                <div className="password-input-container">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    name="password"
+                    value={password}
+                    placeholder="Enter your password"
+                    onChange={handleOnChange}
+                    onClick={togglePasswordVisibility}
+                    
+                  />
+                  <span onClick={togglePasswordVisibility}>
+                    {showPassword ? <FiEyeOff /> : <FiEye />}
+                  </span>
+                </div>
+                {errors.password && (
+                  <span className="error" style={{ color: "red" }}>
+                    {errors.password}
+                  </span>
+                )}
+              </div>
+              <button type="submit">Submit</button>
+              <span>
+                Already don't have an account? <a href="/signup">Register Now</a>
+              </span>
+            </form>
+            <ToastContainer />
+          </>
+        )}
+      </div>
+      <Footer />
     </>
   );
-      };
+};
 
-  export default Login;
+export default Login;
+

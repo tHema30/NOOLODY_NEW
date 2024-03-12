@@ -3,6 +3,7 @@ import { Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const DressDesignCard = ({ dressDesign }) => {
+  
   return (
     
     <Card className="card1 custom-rounded-" style={{ width: '18rem' }} >

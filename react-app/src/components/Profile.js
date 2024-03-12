@@ -12,7 +12,7 @@ const ProfileUpdate = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [tailor, setTailor] = useState({});
+  const [tailor, setTailor] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,12 +20,14 @@ const ProfileUpdate = () => {
     const fetchUserProfile = async () => {
       try {
         const response = await axios.get('http://localhost:7300/api/users/profile', { withCredentials: true });
-
-        const { name, email } = response.data.user;
+         const { name, email } = response.data.user;
         
         setName(name);
         setEmail(email);
-        setTailor(response.data.tailor);
+        if(response.data.tailor){
+          setTailor(response.data.tailor);
+        }
+        
         
       } catch (error) {
         console.error('Error fetching user profile:', error);
@@ -102,7 +104,7 @@ const ProfileUpdate = () => {
     }
   };
 
-
+console.log(tailor);
   return (
     <>
     <Header/>
@@ -123,7 +125,9 @@ const ProfileUpdate = () => {
         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
       </label> */}
       <br />
-      <h2>Tailor details</h2>
+      {tailor==""?null:
+         <>
+         <h2>Tailor details</h2>
       <label>
       experience:
         <input type="text" name='experience' value={tailor.experience} onChange={(e) => handleTailor(e)} />
@@ -158,19 +162,28 @@ const ProfileUpdate = () => {
       Address:
         <input type="text" name='address' value={tailor.address} onChange={(e) => handleTailor(e)} />
       </label>
+         </>
+      
+      }
+      
       <br/>
       <button className="update-button" onClick={()=>handleUpdateProfile()}>
         Update 
       </button>
        
-      <button className="logout-button" onClick={handleFetchOrderHistory}>
+      {/* <button className="logout-button" onClick={handleFetchOrderHistory}>
         OrderHistory
-      </button>
+      </button> */}
 
       <button className="logout-button" onClick={handleLogout}>
         Logout
       </button>
-      {tailor.active?<button className='btn btn-danger update-button' onClick={()=>handleUpdateProfile(false)}>busy</button>:<button onClick={()=>handleUpdateProfile(true)} className='btn btn-success update-button'>active</button>}
+      {tailor==""?null:
+      
+      tailor.active?<button className='btn btn-danger update-button' onClick={()=>handleUpdateProfile(false)}>busy</button>:<button onClick={()=>handleUpdateProfile(true)} className='btn btn-success update-button'>active</button>
+
+      
+      }
      <ToastContainer/>
     </div>
 

@@ -3,11 +3,11 @@ import { Link } from "react-router-dom"; // Make sure to import Link from react-
 import DressDesign from "./DressDesign"; // Assuming DressDesign is in the same directory
 
 function Header() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [isLoggedIn] = useState(false);
   const info = JSON.parse(localStorage.getItem("userInfo"));
 
   const DropdownMenu = () => {
-    const [selectedCategory, setSelectedCategory] = useState(null);
+    const [selectedCategory] = useState(null);
 
     return (
       <div className="nav-item dropdown">
@@ -37,10 +37,10 @@ function Header() {
     );
   };
 
-  const handleLoginClick = () => {
-    // Handle the login logic here
-    // Once the user has successfully logged in, set the state variable to true
-  };
+  // const handleLoginClick = () => {
+  //   // Handle the login logic here
+  //   // Once the user has successfully logged in, set the state variable to true
+  // };
 
   return (
     <nav
@@ -73,6 +73,7 @@ function Header() {
           <Link to="/features" className="nav-item nav-link">
             How It's work
           </Link>
+          
           <Link to="/service" className="nav-item nav-link">
             Services
           </Link>
@@ -80,6 +81,17 @@ function Header() {
           <Link to="/contact" className="nav-item nav-link">
             Contact Us
           </Link>
+          {info&&info.role==="admin"? 
+           <Link to="/admin" className="nav-item nav-link">
+            Dashboard
+          </Link>
+          :info&&info.role=="Tailor"?
+          <Link to="/orderhistory" className="nav-item nav-link">
+          Order History
+          </Link>:null
+
+           }
+          
         </div>
         <div className="d-none d-lg-flex ms-2">
           {info ? (

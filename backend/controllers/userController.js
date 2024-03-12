@@ -110,7 +110,7 @@ const getUserProfile = asyncHandler (async (req, res) =>{
           
           res.status(200).json({user:user,tailor:tailor});
         }else{
-          res.status(200).json(user);
+          res.status(200).json({user:user});
     }
        }
       

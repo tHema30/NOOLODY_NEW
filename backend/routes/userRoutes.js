@@ -12,7 +12,7 @@ from '../controllers/userController.js';
 
 // import {service,getservices,getserviceId,deleteserviesId ,UpdateService } from '../controllers/serviceController.js'
 import { protect ,isAdmin } from '../middleware/authMiddleware.js';
-import  {Order} from '../controllers/orderController.js';
+// import  {Order} from '../controllers/orderController.js';
 import { tailors ,order,orderbyId  } from '../controllers/tailorsControllers.js';
 import nodemailer from 'nodemailer';
 // import upload from '../utils/multer.js';
@@ -36,7 +36,7 @@ router.post('/createuser',createUser)
 
 
 //tailors order booking
-router.post('/orders',Order );
+// router.post('/orders',Order );
 
 
 

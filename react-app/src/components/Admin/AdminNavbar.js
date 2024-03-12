@@ -64,37 +64,37 @@ const AdminNavbar = () => {
       </button>
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav md-auto " style={{marginLeft:"450px"}}>
-        <li className="nav-item"  style={{marginLeft: "10px", marginRight:"10px"}}>
+        <li className="nav-item"  style={{marginLeft: "10px", marginRight:"10px" ,marginTop:'15px'}}>
             <Link to="/admin/">
              DashBoard
             </Link>
           </li>
-          <li className="nav-item"  style={{marginLeft: "10px", marginRight:"10px"}}>
+          <li className="nav-item"  style={{marginLeft: "10px", marginRight:"10px" ,marginTop:'15px'}}>
             <Link to="/admin/users">
               Users
             </Link>
           </li>
-          <li className="nav-item"style={{marginLeft: "10px", marginRight:"10px"}}>
+          <li className="nav-item"style={{marginLeft: "10px", marginRight:"10px" ,marginTop:'15px'}}>
             <Link to="/admin/tailors" >
               Tailors
             </Link>
           </li>
-          <li className="nav-item"style={{marginLeft: "10px", marginRight:"10px"}}>
+          <li className="nav-item"style={{marginLeft: "10px", marginRight:"10px" ,marginTop:'15px'}}>
             <Link to="/admin/orders" >
               Orders
             </Link>
           </li>
-          <li className="nav-item"style={{marginLeft: "10px", marginRight:"10px"}}>
+          <li className="nav-item"style={{marginLeft: "10px", marginRight:"10px",marginTop:'15px'}}>
             <Link to="/admin/designs" >
               Designs
             </Link>
           </li>
-          <li className="nav-item"style={{marginLeft: "10px", marginRight:"10px"}}>
+          <li className="nav-item"style={{marginLeft: "10px", marginRight:"10px" ,marginTop:'15px'}}>
             <Link to="/admin/service" >
               Services
             </Link>
           </li>
-          <li className="dashnavbtn"style={{marginLeft: "450px", marginRight:"10px",}}>
+          <li className="dashnavbtnback"style={{marginLeft: "450px", marginRight:"10px",marginTop:'5px'}}>
            <Link to="/home">
             <button onClick={handleLogout} className="dashnavbtn">
               Back to Home

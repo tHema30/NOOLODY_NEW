@@ -1,21 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Modal, Button } from 'react-bootstrap';
+import Header from "./Header";
+import Footer from "./Footer";
 
 const OrderHistory = () => {
-  const [showModal, setShowModal] = useState(false);
+ 
   const [orderHistory, setOrderHistory] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const openModal = () => {
-    setShowModal(true);
-    fetchOrderHistory();
-  };
+ 
 
-  const closeModal = () => {
-    setShowModal(false);
-    setOrderHistory([]);
-  };
+  useEffect(()=>{
+    fetchOrderHistory();
+  },[])
+
+
+  
 
   const fetchOrderHistory = async () => {
   
@@ -26,7 +27,7 @@ const OrderHistory = () => {
       });
 
       const userOrderHistory = response.data.orderHistory || [];
-      setOrderHistory(userOrderHistory);
+      setOrderHistory(userOrderHistory.orderHistory);
       console.log(response.data)
     } catch (error) {
       console.error('Error fetching order history:', error);
@@ -35,48 +36,42 @@ const OrderHistory = () => {
       setLoading(false);
     }
   };
+  console.log(orderHistory);
 
   return (
+    <>
+       <Header/>
     <div>
-      <Button variant="primary" onClick={openModal}>
-        Open Order History
-      </Button>
-
-      <Modal show={showModal} onHide={closeModal} animation={false}>
-        <Modal.Header closeButton>
-          <Modal.Title>User and Order History Details</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
+        <div>
           {loading ? (
             <p>Loading...</p>
             
           ) : (
-            <div>
-              <h3>User Details</h3>
-              <p>Name: {orderHistory.name}</p>
-              <p>Email: {orderHistory.email}</p> 
+            <div style={{marginTop:"90px"}}>
+             
 
               <h3>Order History</h3>
               {Array.isArray(orderHistory) && orderHistory.map((order, index)  => (
                
-                <div key={index}>
+                <div key={order.orderId._id} >
                   <p>Order ID: {order.orderId._id}</p>
                   <p>Preferred Date: {order.orderId.orderDetails.preferredDate}</p>
                   <p>Material: {order.orderId.orderDetails.material}</p>
+                  <p>Order Details:{order.orderId.orderDetails.orderDetails}</p>
+                  <p>Chest:{order.orderId.measurements.chest}</p>
+                  <p>Hips:{order.orderId.measurements.hips}</p>
+                  <p>Waist:{order.orderId.measurements.waist}</p>
+                  {/* <p>Style:{order.orderId.stitchingDetails}</p> */}
              
                   <hr />
                 </div>
               ))}
             </div>
           )}
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={closeModal}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
+        </div>  
     </div>
+    <Footer/>
+    </>
   );
 };
 
