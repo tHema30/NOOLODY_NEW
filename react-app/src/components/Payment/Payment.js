@@ -9,25 +9,30 @@ const buttonStyle = {
 };
 
 const Payment = () => {
-  const [product, setProduct] = useState({
-    name: "Order payment",
-    price: 0, // Initial price set to 0
-    productBy: "Noolody"
-  });
+  const info = JSON.parse(localStorage.getItem("userInfo"));
+  const design =JSON.parse(localStorage.getItem('order'));
 
-  const [customAmount, setCustomAmount] = useState(""); // State to store custom amount input
+  // const [product, setProduct] = useState({
+  //   name: "Order payment",
+  //   price: 0, // Initial price set to 0
+  //   productBy: "Noolody"
+  // });
 
-  const handleAmountChange = (e) => {
-    const amount = parseFloat(e.target.value) * 100; // Convert to cents
-    setProduct({ ...product, price: amount });
-    setCustomAmount(e.target.value);
-  };
+  // const [customAmount, setCustomAmount] = useState(""); // State to store custom amount input
+
+  // const handleAmountChange = (e) => {
+  //   const amount = parseFloat(e.target.value) * 100; // Convert to cents
+  //   setProduct({ ...product, price: amount });
+  //   setCustomAmount(e.target.value);
+  // };
 
   const makePayment = async (token) => {
-    setProduct({ ...product, token });
+
     const body = {
       token,
-      product
+      design,
+      info
+
     };
     const headers = {
       'Content-Type': "application/json"
@@ -53,7 +58,7 @@ const Payment = () => {
 
   return (
     <div>
-      <label style={buttonStyle}>
+      {/* <label style={buttonStyle}>
         Enter custom amount:
         <input
           type="number"
@@ -62,16 +67,18 @@ const Payment = () => {
           
        
         />
-      </label>
+      </label> */}
 
       <StripeCheckout
-        name={product.name}
-        amount={product.price}
-        currency="inr"
+        name={design.name}
+        amount={design.price * 100
+        }
+        currency="lkr"
         token={makePayment}
         stripeKey="pk_test_51OmVkmHGq8hdLEpwCUx8jtkSfhHTkjEM8ASGiTub7o9ntjdjdEOv2MdPSCTwX0No44HmIOx7tf3E7LWb28119hkj004yCpy0HC"
       >
-        <button style={{width:'20%'}}>Pay {product.price / 100} INR</button>
+        <button style={{width:'20%'}}>Pay {design.price } LKR</button>
+        
       </StripeCheckout>
     </div>
   );

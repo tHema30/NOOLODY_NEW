@@ -61,6 +61,8 @@ const Login = () => {
   const handleSuccess = (msg) =>
     toast.success(msg, {
       position: "top-right",
+      theme:'dark'
+
     });
 
   const handleSubmit = async (e) => {

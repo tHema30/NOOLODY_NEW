@@ -15,6 +15,7 @@ const stripeOrderSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+
 const stripeOrder = mongoose.model("stripeOrder", stripeOrderSchema);
 
 export default stripeOrder;

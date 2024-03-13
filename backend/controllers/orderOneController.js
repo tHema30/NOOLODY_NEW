@@ -24,7 +24,7 @@ const createOrder = async (req, res) => {
   
 
   const data =await Order.create({
-      measurements,orderDetails, stitchingDetails :{...stitchingDetails,style:style}
+    userId: req.user._id,  measurements,orderDetails, stitchingDetails :{...stitchingDetails,style:style}
     })
     
   

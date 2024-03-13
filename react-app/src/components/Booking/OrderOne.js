@@ -74,7 +74,7 @@ function OrderOne() {
       }
 
       // Send form data to the backend
-      const response = await axios.post('http://localhost:7300/orders/create', formData);
+      const response = await axios.post('http://localhost:7300/orders/create', formData ,     { withCredentials: true } );
 
       if (response.status === 201) {
         console.log('Form data submitted successfully');
@@ -88,7 +88,7 @@ function OrderOne() {
   
   return (
     <>
-    <Header/>
+    <Header/> ,
     <div>
       {currentContainer === 1 && (
         <div className="container-tail">

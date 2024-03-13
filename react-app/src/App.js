@@ -32,7 +32,7 @@ import Payment from "./components/Payment/Payment";
 // import TailorProfile from "./components/TailorProfile";
 import OrderOne from "./components/Booking/OrderOne";
 // import OrderTwo from "./components/Booking/OrderTwo";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer,toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import OrderHistory from "./components/OrderHistory";
 import PaymentForm from "./components/Payment/paymentForm";
@@ -41,6 +41,7 @@ import PaymentForm from "./components/Payment/paymentForm";
 
 
 function App() {
+
   return (
      <div>
       {/* <Header/> */}

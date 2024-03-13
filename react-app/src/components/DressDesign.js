@@ -69,7 +69,7 @@ const DressDesign = () => {
       <textarea id="description" value={description} onChange={handleDescriptionChange} required />
 
       <label htmlFor="price">Price:</label>
-      <textarea id="price" value={price} onChange={handlePriceChange} required />
+      <input  type="number"id="price" value={price} onChange={handlePriceChange} required />
 
       <label htmlFor="designImage">Design Image:</label>
       <input type="file" id="designImage" onChange={handleImageChange} accept="image/*" required />
