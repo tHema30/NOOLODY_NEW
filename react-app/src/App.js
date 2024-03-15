@@ -8,34 +8,24 @@ import Signup from "./components/SignUp";
 // import Header from "./components/Header";
 // import Footer from "./components/Footer" 
 
-// import Text from './components/Text';
 import Contact from './components/Contact';
 import About from "./components/About";
 import Features from "./components/Features";
 import Home from "./components/Home";
 import Profile from "./components/Profile";
 import AdminHome from '../src/components/Admin/AdminHome';
-
-
-
 import './assets/css/bootstrap.min.css';
-
 import './App.css';
 import TailorRegister from "./components/TailorRegister";
 import DressDesign from "./components/DressDesign";
 import DressDesignList from "./components/DressDesignList";
-// import BookForm from "./components/Booking/BookForm";
-
 import ServiceDetails from './components/ServiceDetails'
 import AdminRoutes from "./components/Admin/AdminRoutes";
 import Payment from "./components/Payment/Payment";
-// import TailorProfile from "./components/TailorProfile";
 import OrderOne from "./components/Booking/OrderOne";
-// import OrderTwo from "./components/Booking/OrderTwo";
 import { ToastContainer,toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import OrderHistory from "./components/OrderHistory";
-import PaymentForm from "./components/Payment/paymentForm";
 import Success from "./components/Payment/Success";
 
 
@@ -55,41 +45,19 @@ function App() {
     <Route path="/about" element={<About />} />
     <Route path="/contact" element={<Contact />} />
     <Route path="/features" element={<Features/>} />
-
-  
     <Route path="/home" element={<Home/>} />
     <Route path="/tailorregister" element={<TailorRegister/>} />
     <Route path="/dress" element={<DressDesign/>} />
     <Route path="/admin/*" element={<AdminRoutes><AdminHome/></AdminRoutes>} />
     <Route path="/dresscard/:category" element={<DressDesignList />} />
-
     <Route path="/service" element={<ServiceDetails />} />
     <Route path="/payment" element={<Payment />} />
-    <Route path="/orderone" element={<OrderOne />} />
-    
+    <Route path="/orderone" element={<OrderOne />} /> 
     <Route path="/orderhistory" element={<OrderHistory/>} />
-    <Route path="/payform" element={<PaymentForm/>} />
     <Route path="/success" element={<Success/>} />
 
 
-
-
-
-
-
-
-
-
-
-    
-
-    
-
-
-
-
-
-    </Routes>
+  </Routes>
     {/* <Footer/> */}
 
   </div>

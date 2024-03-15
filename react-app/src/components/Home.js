@@ -38,7 +38,7 @@ function myFunction() {
                             <div className="row justify-content-start">
                                 <div className="col-lg-7 home-content">
                                     <h1 className="display-2 mb-5 animated slideInDown hometext">We Stitch Design <br/>FIT YOU PERFECTLY</h1>
-                                    <a href="./service" onClick={myFunction} className="btn btn-secondary rounded-pill py-sm-3 px-sm-5 ms-3">view more</a>
+                                    <a href="./service" onClick={myFunction} className="btn btn-secondary rounded-pill py-sm-3 px-sm-5 ms-3">services</a>
                                     <a  onClick={myFunction} className="btn btn-secondary rounded-pill py-sm-3 px-sm-5 ms-3">Add Tailor</a>
                                 </div>
                             </div>

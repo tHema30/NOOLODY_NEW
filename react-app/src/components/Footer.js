@@ -5,7 +5,7 @@ function Footer() {
         className="container-fluid bg-dark footer mt-3 pt-3 wow fadeIn" 
         data-wow-delay="0.1s footer"
       >
-        <div className="container6">
+        <div className="container">
           <div className="row g-5">
             <div className="col-lg-3 col-md-6">
               <h1 className="fw-bold text-primary mb-4">
