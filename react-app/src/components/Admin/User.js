@@ -18,6 +18,7 @@ const User = () => {
   const [isEditMode, setIsEditMode] = useState(false);
   const [isCreateMode, setIsCreateMode] = useState(false);
 
+
   useEffect(() => {
     // Fetch all users when the component mounts
     axios.get('http://localhost:7300/api/admin/all-users', { withCredentials: true })
@@ -58,7 +59,7 @@ const User = () => {
       email: updateData.email,
     };
 
-    axios.put(`http://localhost:7300/api/all-users"${selectedUser._id}`, updatedFields)
+    axios.put(`http://localhost:7300/api/admin/all-users/${selectedUser.id}`, updatedFields,{withCredentials:true})
       .then(response => {
         const updatedUsers = users.map(u => (u._id === selectedUser._id ? response.data.user : u));
         setUsers(updatedUsers);
@@ -88,7 +89,7 @@ const User = () => {
       width: 300,
       renderCell: (params) => (
         <div>
-          <button  style={buttonStyle} onClick={() => handleEdit(params.row.id)}>Edit</button>
+          <button  style={buttonStyle} onClick={() => handleEdit(params.row)}>Edit</button>
           <Button  style={buttonStyle}  variant="danger"   onClick={() => handleDelete(params.row.id)}>
             Delete
           </Button>

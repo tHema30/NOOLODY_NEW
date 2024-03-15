@@ -26,12 +26,22 @@ function ServiceDetails() {
       console.error("Error fetching data:", error);
     }
   };
+
+ 
+    let list=(text)=>{
+        let l=text.split(" ")
+        return l.map((l)=>(<p className="card-text">{l}</p>))
+        
+    }
+  
+
+
   return (
     <>
       <Fragment>
         <Header />
         <div className="container-xxl py-5">
-          <div className="container">
+          <div className="container1">
             <div
               className="text-center mx-auto wow fadeInUp"
               data-wow-delay="0.1s"
@@ -44,7 +54,7 @@ function ServiceDetails() {
             </div>
             <div className="row g-4">
               <div
-                className="container"
+                className="container1"
                 style={{
                   marginTop: "8%",
                   textAlign: "start",
@@ -92,11 +102,11 @@ function ServiceDetails() {
                           <div className="card-body">
                             <h5 className="card-title">{serivce.name}</h5>
                             {/* <h5 className="card-title">{serivce.category}</h5> */}
-                            <p className="card-text">{serivce.description}</p>
+                            {list(serivce.description)}
 
                             <Link to="/dresscard/ladies">
                               {" "}
-                              <Button intent="primary"> Explore</Button>
+                              <Button intent="primary" className="explore"> Explore</Button>
                             </Link>
                           </div>
                         </div>

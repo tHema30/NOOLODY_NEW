@@ -3,7 +3,7 @@ const router = express.Router();
 // import {service,getservices,getserviceId,deleteserviesId ,UpdateService } from '../controllers/serviceController.js';
 import {Createservice,getservicesdetail,getservicedetailId,deleteserviesdetailId,updateserviesdetail,getservicedetailName } from '../controllers/serviceDetailsController.js'
 
-import {isAdmin } from '../middleware/authMiddleware.js';
+import {isAdmin,protect } from '../middleware/authMiddleware.js';
 
 import upload from '../utils/multer.js';
 
@@ -21,7 +21,7 @@ router.get('/ServicesDetails',getservicesdetail);
 router.get('/ServicesDetails/:id', getservicedetailId);
 router.get('/ServicesDetails/name/:name', getservicedetailName);
 router.delete('/ServicesDetails/:id',deleteserviesdetailId);
-router.patch('/ServicesDetails/:id',isAdmin,updateserviesdetail);
+router.put('/ServicesDetails/:id',protect,isAdmin,updateserviesdetail);
 
 
 

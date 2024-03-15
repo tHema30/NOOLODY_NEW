@@ -74,9 +74,9 @@ function Header() {
             How It's work
           </Link>
           
-          <Link to="/service" className="nav-item nav-link">
+          {/* <Link to="/service" className="nav-item nav-link">
             Services
-          </Link>
+          </Link> */}
           <DropdownMenu />
           <Link to="/contact" className="nav-item nav-link">
             Contact Us
@@ -85,7 +85,7 @@ function Header() {
            <Link to="/admin" className="nav-item nav-link">
             Dashboard
           </Link>
-          :info&&info.role=="Tailor"?
+          :info&&info.role==="Tailor"?
           <Link to="/orderhistory" className="nav-item nav-link">
           Order History
           </Link>:null

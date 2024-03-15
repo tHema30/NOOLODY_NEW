@@ -125,7 +125,7 @@ const deleteserviesdetailId = asyncHandler(async (req, res) => {
         const image = await Servicedetail.findByIdAndUpdate(
             id, name,type,category,description,image
         )
-        res.send(result)
+        res.json(result)
     }
     catch (error) {
         res.status(400);

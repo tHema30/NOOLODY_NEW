@@ -66,14 +66,16 @@ const getDressDesignByCat = async (req, res) => {
 // Edit a dress design by ID
 const editDesign = async (req, res) => {
   try {
-    const { category } = req.params;
-    const updatedDesign = await DressDesign.find(category, req.body, {
+    const { id } = req.params;
+    console.log(id);
+    const updatedDesign = await DressDesign.findByIdAndUpdate(id, req.body, {
       new: true,
     });
 
     if (!updatedDesign) {
       return res.status(404).json({ error: "Design not found" });
     }
+    console.log(updatedDesign);
 
     res.json(updatedDesign);
   } catch (error) {

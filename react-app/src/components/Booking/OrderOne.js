@@ -1,11 +1,21 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import '../Booking/OrderOnee.css';
 import Header from '../Header';
 import Footer from '../Footer';
 import axios from 'axios';
+import StripeCheckout from 'react-stripe-checkout';
+
+
+
 
 function OrderOne() {
+  const navigator =useNavigate()
+
+  const info = JSON.parse(localStorage.getItem("userInfo"));
+  const design =JSON.parse(localStorage.getItem('order'));
+
+ 
   const [currentContainer, setCurrentContainer] = useState(1);
   const [measurements, setMeasurements] = useState({
     chest: '',
@@ -28,6 +38,45 @@ function OrderOne() {
     paymentMethod: '',
   });
   const [image, setImage] = useState(null);
+
+
+  const makePayment = async (token) => {
+
+   
+
+  const info = JSON.parse(localStorage.getItem("userInfo"));
+  const design =JSON.parse(localStorage.getItem('order'));
+
+    console.log(info)
+    const body = {
+      token,
+      design,
+      info
+
+    };
+    const headers = {
+      'Content-Type': "application/json"
+    };
+
+    try {
+      const response = await fetch('http://localhost:7300/payment', {
+        method: 'POST',
+        body: JSON.stringify(body),
+        headers
+      });
+      console.log(response);
+      // if (!response.ok) {
+      //   throw new Error('Response failed');
+      // }
+
+      const data = await response.json();
+      console.log(data);
+      navigator("/success")
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
 
   const handleMeasurementsChange = (e) => {
     setMeasurements({
@@ -194,13 +243,26 @@ function OrderOne() {
                 <input type="radio" name="paymentMethod" value="cd"  checked={stitchingDetails.paymentMethod === "cd"} onChange={handleStitchingDetailsChange} /> Cash on Delivery
               </div>
               <div>
-                <Link to='/payment'>
+                {/* <Link to='/payment'>
                 <input type="radio" name="paymentMethod" value="stripe" checked={stitchingDetails.paymentMethod === "stripe"} onChange={handleStitchingDetailsChange} /> Stripe <span>
                   <img src="https://www.logolynx.com/images/logolynx/c3/c36093ca9fb6c250f74d319550acac4d.jpeg" alt="" width="100" />
-                </span></Link>
+                </span></Link> */}
+
+
+      <StripeCheckout
+        name={design.name}
+        amount={design.price * 100
+        }
+        currency="lkr"
+        token={makePayment}
+        stripeKey="pk_test_51OmVkmHGq8hdLEpwCUx8jtkSfhHTkjEM8ASGiTub7o9ntjdjdEOv2MdPSCTwX0No44HmIOx7tf3E7LWb28119hkj004yCpy0HC"
+      >
+        <button  type="button"onClick= {handlePlaceOrder} >Pay {design.price } LKR</button>
+        
+      </StripeCheckout>
               </div>
-              <Link to='/orderone'>
-              <button type="button"onClick= {handlePlaceOrder} className='mt-5'>Place Order</button></Link>
+              {/* <Link to='/orderone'>
+              <button className='mt-5' >Place Order</button></Link> */}
               <button type="button" onClick={handlePreviewButtonClick} className='mt-3'>Preview</button>
             </div>
           </div>

@@ -240,7 +240,7 @@ const logoutUser = asyncHandler (async (req, res) =>{
         getUserProfile,
         updateUserProfile,
         logoutUser,
-      createUser
+        createUser
 
     };
 

@@ -36,6 +36,7 @@ import { ToastContainer,toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import OrderHistory from "./components/OrderHistory";
 import PaymentForm from "./components/Payment/paymentForm";
+import Success from "./components/Payment/Success";
 
 
 
@@ -62,14 +63,14 @@ function App() {
     <Route path="/admin/*" element={<AdminRoutes><AdminHome/></AdminRoutes>} />
     <Route path="/dresscard/:category" element={<DressDesignList />} />
 
-    {/* <Route path="/booking" element={<BookForm />} /> */}
     <Route path="/service" element={<ServiceDetails />} />
     <Route path="/payment" element={<Payment />} />
     <Route path="/orderone" element={<OrderOne />} />
-    {/* <Route path="/ordertwo" element={<OrderTwo />} /> */}
     
     <Route path="/orderhistory" element={<OrderHistory/>} />
     <Route path="/payform" element={<PaymentForm/>} />
+    <Route path="/success" element={<Success/>} />
+
 
 
 

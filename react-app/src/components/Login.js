@@ -10,6 +10,7 @@ import { FiEye, FiEyeOff } from "react-icons/fi"; // Import icons as per your pr
 
 const Login = () => {
   const navigate = useNavigate();
+  
   const [inputValue, setInputValue] = useState({
     email: "",
     password: "",
@@ -90,8 +91,15 @@ const Login = () => {
         setTimeout(() => {
           if (role === "admin") {
             // Redirect to the admin panel
-            navigate("/home");
-          } else {
+            navigate("/");
+          } 
+          else if(role==="user"){
+          navigate("/")
+          }
+          // else if(role==="Tailor"){
+          //   navigate("/")
+          // }
+          else  {
             // Redirect to the normal user landing page
             navigate("/login");
           }

@@ -2,10 +2,10 @@ function Footer() {
   return (
     <div>
       <div
-        className="container-fluid bg-dark footer mt-3 pt-3 wow fadeIn"
+        className="container-fluid bg-dark footer mt-3 pt-3 wow fadeIn" 
         data-wow-delay="0.1s footer"
       >
-        <div className="container">
+        <div className="container6">
           <div className="row g-5">
             <div className="col-lg-3 col-md-6">
               <h1 className="fw-bold text-primary mb-4">
@@ -51,7 +51,7 @@ function Footer() {
                 <i className="fa fa-phone-alt me-3"></i> 345 67890
               </p>
               <p>
-                <i className="fa fa-envelope me-3"></i>info@example.com
+                <i className="fa fa-envelope me-3"></i>Noolodyofficial@gmail.com
               </p>
             </div>
             <div className="col-lg-3 col-md-6">
@@ -64,12 +64,6 @@ function Footer() {
               </a>
               <a className="btn btn-link" href="/service">
                 Our Services
-              </a>
-              <a className="btn btn-link" href="1">
-                Terms & Condition
-              </a>
-              <a className="btn btn-link" href="1">
-                Support
               </a>
             </div>
             <div className="col-lg-3 col-md-6">
@@ -87,12 +81,12 @@ function Footer() {
                   type="text"
                   placeholder="Your email"
                 />
-                <a
-                  href="/signup"
-                  className="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2"
+                {/* <a
+                  href="/signup"  style={{marginLeft:'197px'}}
+                  className="btn btn-primary"
                 >
                   SignUp
-                </a>
+                </a> */}
               </div>
             </div>
           </div>

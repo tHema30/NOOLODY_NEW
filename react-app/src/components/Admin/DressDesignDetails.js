@@ -95,11 +95,12 @@ const DressDesignDetails = () => {
         });
     }
   };
-
+ 
   const handleEditSave = () => {
+    console.log(selectedDesign._id);
     axios
       .put(
-        `http://localhost:7300/api/dress-designs/edit${selectedDesign._id}`,
+        `http://localhost:7300/api/designs/dress-designs/edit/${selectedDesign._id}`,
         editedData,
         {
           withCredentials: true,

@@ -44,6 +44,8 @@ function OrderDetails() {
       <table className='table table-striped'>
         <thead>
             <th>Order ID</th>
+            <th>UserID</th>
+            <th>paid</th>   
               <th>Chest</th>
               <th>Waist</th>
               <th>Hips</th>
@@ -58,15 +60,21 @@ function OrderDetails() {
               <th>Postcode</th>
               <th>address</th>
               <th>Photo</th>    
-              <th>Action</th>    
+              <th>Action</th>  
+           
 
               
         </thead>
         <tbody>
           {orders.map((order) => (
             <tr key={order._id}>
-                <td>{order._id}</td>
+               <td>{order._id}</td>
+               <td>{order.userId}</td>
+               {
+                order.isPaid ?(<td> paid</td>):(<td>not paid</td>)
+               }
                 <td>{order.measurements.chest}</td>
+               
                 <td>{order.measurements.waist}</td>
                 <td>{order.measurements.hips}</td>
                 <td>{order.orderDetails.orderDetails}</td>
@@ -79,6 +87,7 @@ function OrderDetails() {
                 <td>{order.stitchingDetails.phone}</td> 
                 <td>{order.stitchingDetails.postcode}</td>
                 <td>{order.stitchingDetails.streetAddress}</td> 
+              
                 <td>
                 {order.stitchingDetails.style && (
                   <img src={order.stitchingDetails.style.url} alt="Style" style={{ width: '100px', height: 'auto' }} />

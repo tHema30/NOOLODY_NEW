@@ -58,12 +58,12 @@ const Service = ({ match }) => {
 
 
   const handleSaveEdit = async (id) => {
-    
+    console.log(selectedService.id);
     try {
       // Implement the logic to update the service on the server
       const response = await axios.put(
         `http://localhost:7300/api/users/ServicesDetails/${selectedService.id}`,
-        selectedService
+        selectedService,{withCredentials:true}
       );
   
       console.log('Service updated successfully:', response.data);

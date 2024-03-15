@@ -22,9 +22,9 @@ const DressDesignCard = ({ dressDesign }) => {
       <Card.Body>
         <Card.Title>{dressDesign.category}</Card.Title>
         {/* <Card.Text>{dressDesign.description}</Card.Text> */}
-       <Card.Text>{dressDesign.price}</Card.Text>
+       <Card.Title>{dressDesign.price} LKR</Card.Title>
        <Link to='/orderone'>
-        <Button variant="primary" onClick={orderLocalChange} >Order Now</Button></Link>
+        <Button variant="primary" onClick={orderLocalChange} className='ordernow'>Order Now</Button></Link>
       </Card.Body>
     </Card>
   );

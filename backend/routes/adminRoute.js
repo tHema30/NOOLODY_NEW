@@ -21,7 +21,7 @@ import {
 
 //admin 
 router.get('/all-users' ,protect,isAdmin,getallUser );
-router.get('/all-users/:id' ,protect,isAdmin, getUserById);
+router.put('/all-users/:id' ,protect,isAdmin, getUserById);
 
 router.get("/tailorsProfile",protect,isAdmin,getallTailors);
 router.get("/tailorsProfile/:id" ,gettailorById);

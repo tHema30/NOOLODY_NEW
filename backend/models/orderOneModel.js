@@ -7,6 +7,11 @@ const orderSchema = new mongoose.Schema({
     required:true
 },
   
+  amount:{type:Number},
+  isPaid:{type:Boolean , default: false},
+  paidAt:{type:Date} ,
+  currency:{type:String},
+
   measurements: {
     chest: String,
     
