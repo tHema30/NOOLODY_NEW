@@ -46,13 +46,13 @@ const OrderHistory = () => {
             <p>Loading...</p>
             
           ) : (
-            <div style={{marginTop:"90px"}}>
+            <div style={{marginTop:"120px"}} className='oo1'>
              
 
               <h3>Order History</h3>
               {Array.isArray(orderHistory) && orderHistory.map((order, index)  => (
               
-                <div key={order.orderId._id} >
+                <div key={order.orderId._id}  className='oo2 smallcard'>
                   <p>Order ID: {order.orderId._id}</p>
                   <p>Preferred Date: {order.orderId.orderDetails.preferredDate}</p>
                   <p>Material: {order.orderId.orderDetails.material}</p>
@@ -62,7 +62,7 @@ const OrderHistory = () => {
                   <p>Waist:{order.orderId.measurements.waist}</p>
                   {/* <p>Style:{order.orderId.stitchingDetails}</p> */}
              
-                  <hr />
+                  
                 </div>
               ))}
             </div>

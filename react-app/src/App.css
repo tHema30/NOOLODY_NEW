@@ -353,7 +353,7 @@ border-color: #492E87 !important;
 
 .twocon{
     background-color: #492E87 !important;
-    height: 62vh !important;
+    height: 55vh !important;
 }
 
 /* .update{
@@ -603,3 +603,37 @@ border-color: #492E87 !important;
     border-radius: 100px !important;
 }
 
+
+
+
+.smallcard {
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  margin-bottom: 10px;
+  display: inline-block;
+  text-align: left; /* Resetting text alignment to left */
+  margin-left: 5vh !important;
+  background-color: #e7ddfc;
+  color: black;
+ 
+}
+
+.smallcard p {
+  margin: 0;
+  padding: 3px 0;
+}
+
+.smallcard hr {
+  margin: 10px 0;
+  border: none;
+  border-top: 1px solid #ccc;
+}
+
+.oo1 h3{
+  text-align: center;
+}
+.oo1{
+  height: 40vh;
+}

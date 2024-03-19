@@ -186,7 +186,7 @@ console.log(tailor);
       }
      <ToastContainer/>
     </div>
-
+    <Footer/>
     </>
         
 

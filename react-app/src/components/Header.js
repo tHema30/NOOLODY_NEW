@@ -5,6 +5,7 @@ import DressDesign from "./DressDesign"; // Assuming DressDesign is in the same 
 function Header() {
   // const [isLoggedIn] = useState(false);
   const info = JSON.parse(localStorage.getItem("userInfo"));
+  
 
   const DropdownMenu = () => {
     const [selectedCategory] = useState(null);

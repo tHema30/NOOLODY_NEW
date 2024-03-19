@@ -12,59 +12,64 @@ const Signup = () => {
     email: "",
     password: "",
     name: "",
-    
+    contact: ""
   });
-  ////error red color handling
-  const { email, password, name } = inputValue;
+
+  const { email, password, name, contact } = inputValue;
   const [errors, setErrors] = useState({
     email: "",
     name: "",
     password: "",
+    contact: ""
   });
-
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     setInputValue({
       ...inputValue,
-      [name]: value,
-      
+      [name]: value
     });
     setErrors({
       ...errors,
-      [name]: "",
+      [name]: ""
     });
-
   };
-  
 
   const handleError = (err) =>
     toast.error(err, {
-      position: "bottom-left",
+      position: "bottom-left"
     });
+
   const handleSuccess = (msg) =>
     toast.success(msg, {
-      position: "bottom-right",
+      position: "bottom-right"
     });
 
   const validateForm = () => {
     let isValid = true;
-    // Basic email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       handleError("Please enter a valid email address");
       isValid = false;
     }
 
-    // Basic username validation (non-empty)
     if (!name.trim()) {
       handleError("Please enter a username");
       isValid = false;
     }
 
-    // Password validation (at least 6 characters)
     if (password.length < 6) {
       handleError("Password must be at least 6 characters");
+      isValid = false;
+    }
+
+    const contactIsValid = (contact) => {
+      const phoneRegex = /^\d{10}$/;
+      return phoneRegex.test(contact);
+    };
+
+    if (!contactIsValid(contact)) {
+      handleError("Please enter a valid contact number");
       isValid = false;
     }
 
@@ -74,7 +79,6 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validate the form before submitting
     if (!validateForm()) {
       return;
     }
@@ -83,7 +87,7 @@ const Signup = () => {
       const { data } = await axios.post(
         "http://localhost:7300/api/users/",
         {
-          ...inputValue,
+          ...inputValue
         },
         { withCredentials: true }
       );
@@ -106,57 +110,84 @@ const Signup = () => {
       email: "",
       password: "",
       name: "",
-     
+      contact: ""
     });
   };
 
   return (
     <>
-    <Header/>
-    <div className="form_container">
-      <h2>Register Account</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            name="email"
-            value={email}
-            placeholder="Enter your email"
-            onChange={handleOnChange}
-          />
-        {errors.email && <span className="error" style={{"color":"red"}}>{errors.email}</span>}
-
-        </div>
-        <div>
-          <label htmlFor="name">Username</label>
-          <input
-            type="text"
-            name="name"
-            value={name}
-            placeholder="Enter your name"
-            onChange={handleOnChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            name="password"
-            value={password}
-            placeholder="Enter your password"
-            onChange={handleOnChange}
-            
-          />
-        </div>
-        <button type="submit">Submit</button>
-        <span>
-          Already have an account? <Link to={"/login"}>Login</Link>
-        </span>
-      </form>
-      <ToastContainer />
-    </div>
-    <Footer/>
+      <Header />
+      <div className="form_container">
+        <h2>Register Account</h2>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              value={email}
+              placeholder="Enter your email"
+              onChange={handleOnChange}
+            />
+            {errors.email && (
+              <span className="error" style={{ color: "red" }}>
+                {errors.email}
+              </span>
+            )}
+          </div>
+          <div>
+            <label htmlFor="name">Username</label>
+            <input
+              type="text"
+              name="name"
+              value={name}
+              placeholder="Enter your name"
+              onChange={handleOnChange}
+            />
+            {errors.name && (
+              <span className="error" style={{ color: "red" }}>
+                {errors.name}
+              </span>
+            )}
+          </div>
+          <div>
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              value={password}
+              placeholder="Enter your password"
+              onChange={handleOnChange}
+            />
+            {errors.password && (
+              <span className="error" style={{ color: "red" }}>
+                {errors.password}
+              </span>
+            )}
+          </div>
+          <div>
+            <label htmlFor="contact">Contact</label>
+            <input
+              type="text"
+              name="contact"
+              value={contact}
+              placeholder="Enter your contact"
+              onChange={handleOnChange}
+            />
+            {errors.contact && (
+              <span className="error" style={{ color: "red" }}>
+                {errors.contact}
+              </span>
+            )}
+          </div>
+          <button type="submit">Submit</button>
+          <span>
+            Already have an account? <Link to={"/login"}>Login</Link>
+          </span>
+        </form>
+        <ToastContainer />
+      </div>
+      <Footer />
     </>
   );
 };

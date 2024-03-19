@@ -12,7 +12,7 @@ import { tailorsProfile } from '../models/tailorModel.js';
 
 
 const registerUser = asyncHandler (async (req, res) =>{
-const { name, email, password } = req.body;
+const { name, email, password,contact } = req.body;
 
 const userExists = await User.findOne({ email });
 
@@ -24,6 +24,7 @@ if (userExists) {
 const user = await User.create({
     name,
     email,
+    contact,
     password
 });
 
@@ -33,6 +34,7 @@ if (user) {
         _id: user._id,
         name: user.name,
         email: user.email,
+        contact:user.contact,
         success:true, 
         message :"welcome"
     });

@@ -137,11 +137,11 @@ function OrderOne() {
   
   return (
     <>
-    <Header/> ,
+    <Header/> 
     <div>
       {currentContainer === 1 && (
         <div className="container-tail">
-          <h2 className="text-center">Tailor's Order Form</h2>
+          <h2 className="text-center">Stitching Form</h2>
           <hr />
           <div className="row">
             <div className="col-md-6">

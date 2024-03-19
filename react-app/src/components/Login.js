@@ -91,14 +91,14 @@ const Login = () => {
         setTimeout(() => {
           if (role === "admin") {
             // Redirect to the admin panel
-            navigate("/");
+            navigate("/admin");
           } 
           else if(role==="user"){
           navigate("/")
           }
-          // else if(role==="Tailor"){
-          //   navigate("/")
-          // }
+          else if(role==="Tailor"){
+            navigate("/")
+          }
           else  {
             // Redirect to the normal user landing page
             navigate("/login");

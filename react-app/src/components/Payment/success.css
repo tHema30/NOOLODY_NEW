@@ -1,0 +1,46 @@
+.success-container05 {
+    display: flex;
+    justify-content: center;
+    /* padding-left: 700px; */
+    align-items: center;
+    height: 55vh; /* Adjust this value according to your needs */
+    background-color: #f5f5f5; /* Set your desired background color */
+  }
+  
+  .success-content05 {
+    text-align: center;
+    background-color:#F8F9FA;; /* Set your desired background color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    height: 30vh;
+  }
+  
+  .success-content05 h2 {
+    color: #333; /* Set your desired text color */
+  }
+  
+  .success-content05 p {
+    margin-bottom: 10px;
+  }
+  
+  .success-content05 a {
+    text-decoration: none;
+  }
+  
+  .success-content05 a:hover {
+    text-decoration: underline; /* Add underline on hover */
+  }
+  
+  .dad {
+    padding: 10px 20px;
+    /* margin-bottom: 10px; */
+    background-color:#492E87; /* Set your desired button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+
+  }
+  

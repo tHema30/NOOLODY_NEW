@@ -110,7 +110,7 @@ const User = () => {
     <div className='userlist'>
       <h1>User Details</h1>
       <button  className='create-user'   onClick={() => setIsCreateMode(true)}>Create User</button>
-      <div style={{ height: 800, width: '100%' }}>
+      <div style={{ height: 500, width: '100%' }}>
         <DataGrid
           rows={rows}
           columns={columns}

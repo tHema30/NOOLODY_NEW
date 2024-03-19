@@ -8,7 +8,7 @@ function Features() {
       <Header></Header>
       <div classNameName="App">
         <div className="container-fluid bg-light bg-icon my-5 py-6 onefit">
-          <div className="container5" >
+          <div className="container" >
             <div
               className="section-header text-center mx-auto mb-5 wow fadeInUp"
               data-wow-delay="0.1s"
