@@ -31,7 +31,7 @@ app.use(express.urlencoded({ extended: true}));
 app.use(cookieParser());
 app.use(
     cors({
-      origin: ["http://localhost:3000","https://noolody-new.onrender.com"],
+      origin: ["http://localhost:3000","https://noolody-new.vercel.app"],
       methods: ["GET", "POST", "PUT", "DELETE"],
       credentials: true,
     })
