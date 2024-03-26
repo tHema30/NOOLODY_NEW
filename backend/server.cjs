@@ -11,9 +11,9 @@ import userRoutes from './routes/userRoutes.js';
 import dressDesignRoutes from './routes/dressDesignRoutes.js';
 import adminRoute from './routes/adminRoute.js'
 // import DressDesign from './models/dressDesignModel.js'
-import serviceRoutes from '../backend/routes/serviceRoutes.js'
-import Payment from '../backend/utils/Payment.js';
-import orderRoutes from '../backend/routes/orderRoutes.js'
+import serviceRoutes from './routes/serviceRoutes.js'
+import Payment from './utils/Payment.js';
+import orderRoutes from './routes/orderRoutes.js'
 import addtoCartRoutes from './routes/addtoCartRoutes.js';
 // import stripeOrder from "../backend/routes/stripeOrder.js";
 // import stripe from "../backend/routes/stripe.js";
