@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Profile from "./Profile";
 import Header from "./Header";
 import Footer from "./Footer";
-import { FiEye, FiEyeOff } from "react-icons/fi"; // Import icons as per your preference
+// import { FiEye, FiEyeOff } from "react-icons/fi"; // Import icons as per your preference
 
 const Login = () => {
   const navigate = useNavigate();
@@ -168,7 +168,7 @@ const Login = () => {
                     
                   />
                   <span onClick={togglePasswordVisibility}>
-                    {showPassword ? <FiEyeOff /> : <FiEye />}
+                    {/* {showPassword ? <FiEyeOff /> : <FiEye />} */}
                   </span>
                 </div>
                 {errors.password && (
