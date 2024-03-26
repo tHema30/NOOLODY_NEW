@@ -11,8 +11,7 @@ import {
     gettailorById,
     updateTailor,
     deleteTailor,
-    getallOrders,
-    getallOrdersById 
+ 
   } 
   from '../controllers/adminControllers.js';
 
@@ -26,8 +25,6 @@ router.put('/all-users/:id' ,protect,isAdmin, getUserById);
 router.get("/tailorsProfile",protect,isAdmin,getallTailors);
 router.get("/tailorsProfile/:id" ,gettailorById);
 
-router.get('/all-orders',protect,isAdmin,getallOrders);
-router.get("all-orders/:id",protect,isAdmin,getallOrdersById);
 
 router.put("/tailorsProfile/:id",updateTailor);
 

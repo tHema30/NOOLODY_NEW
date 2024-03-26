@@ -76,7 +76,7 @@ import asyncHandler from "express-async-handler";
 import generateToken from "../utils/generateToken.js";
 import User from "../models/userModel.js";
 import nodemailer from "nodemailer";
-import { tailorsOrder } from "../models/ordermodel.js";
+// import { tailorsOrder } from "../models/ordermodel.js";
 
 import { tailorsProfile } from "../models/tailorModel.js";
 
@@ -212,26 +212,26 @@ const updateTailor = asyncHandler(async (req, res, next) => {
 });
 
 // all orders admin get
-const getallOrders = asyncHandler(async (req, res) => {
-  try {
-    const getOrders = await tailorsOrder.find();
-    res.json(getOrders);
-  } catch (error) {
-    throw new Error(error);
-  }
-});
+// const getallOrders = asyncHandler(async (req, res) => {
+//   try {
+//     const getOrders = await tailorsOrder.find();
+//     res.json(getOrders);
+//   } catch (error) {
+//     throw new Error(error);
+//   }
+// });
 
 //get tailors details by id
 
-const getallOrdersById = asyncHandler(async (req, res) => {
-  const { id } = req.params;
-  try {
-    const findOrders = await tailorsOrder.findById(id);
-    res.json(findOrders);
-  } catch (error) {
-    throw new Error(error);
-  }
-});
+// const getallOrdersById = asyncHandler(async (req, res) => {
+//   const { id } = req.params;
+//   try {
+//     const findOrders = await tailorsOrder.findById(id);
+//     res.json(findOrders);
+//   } catch (error) {
+//     throw new Error(error);
+//   }
+// });
 
 //@desc   Delete tailor by ID
 //route DELETE/api/admin/users/:id
@@ -257,6 +257,6 @@ export {
   gettailorById,
   updateTailor,
   deleteTailor,
-  getallOrders,
-  getallOrdersById,
+  // getallOrders,
+  // getallOrdersById,
 };
