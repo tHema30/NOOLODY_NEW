@@ -21,7 +21,7 @@ const OrderHistory = () => {
   
     try {
       setLoading(true);
-      const response = await axios.get('http://localhost:7300/api/users/orderhistory/id', {
+      const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/users/orderhistory/id`, {
         withCredentials: true,
       });
 

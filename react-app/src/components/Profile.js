@@ -19,7 +19,7 @@ const ProfileUpdate = () => {
     // Fetch user profile data and populate the form
     const fetchUserProfile = async () => {
       try {
-        const response = await axios.get('http://localhost:7300/api/users/profile', { withCredentials: true });
+        const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/users/profile`, { withCredentials: true });
          const { name, email } = response.data.user;
         
         setName(name);
@@ -40,7 +40,7 @@ const ProfileUpdate = () => {
   const handleUpdateProfile = async (active="") => {
     try {
       const response = await axios.put(
-        'http://localhost:7300/api/users/profile',
+        `${process.env.REACT_APP_SERVER_URL}/api/users/profile`,
         { name, email, password,tailor,active },
         { withCredentials: true }
       );
@@ -64,7 +64,7 @@ const ProfileUpdate = () => {
 
   const handleLogout = async () => {
     try {
-      const response = await axios.post('http://localhost:7300/api/users/logout', {}, { withCredentials: true });
+      const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/users/logout`, {}, { withCredentials: true });
 
       localStorage.removeItem('userInfo');
       setTimeout(() => {
@@ -89,7 +89,7 @@ const ProfileUpdate = () => {
 
   const handleFetchOrderHistory = async () => {
     try {
-      const response = await axios.get('http://localhost:7300/api/users/orderhistory/id', {
+      const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/users/orderhistory/id`, {
         withCredentials: true,
       });
 

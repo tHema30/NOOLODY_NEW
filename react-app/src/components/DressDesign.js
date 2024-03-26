@@ -41,7 +41,7 @@ const DressDesign = () => {
 
 
     try {
-      const response = await fetch('http://localhost:7300/api/designs/upload', {
+      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/api/designs/uploa`, {
         method: 'POST',
         body: formData,
       });

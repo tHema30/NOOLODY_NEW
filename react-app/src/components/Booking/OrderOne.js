@@ -59,7 +59,7 @@ function OrderOne() {
     };
 
     try {
-      const response = await fetch('http://localhost:7300/payment', {
+      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/payment`, {
         method: 'POST',
         body: JSON.stringify(body),
         headers
@@ -123,7 +123,7 @@ function OrderOne() {
       }
 
       // Send form data to the backend
-      const response = await axios.post('http://localhost:7300/orders/create', formData ,     { withCredentials: true } );
+      const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/orders/create`, formData ,     { withCredentials: true } );
 
       if (response.status === 201) {
         console.log('Form data submitted successfully');

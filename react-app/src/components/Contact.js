@@ -60,7 +60,7 @@ function Contact() {
     });
 
     // Send a POST request to your backend API
-    fetch("http://localhost:7300/api/users/email", {
+    fetch(`${process.env.REACT_APP_SERVER_URL}/api/users/email`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

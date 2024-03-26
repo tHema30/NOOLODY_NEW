@@ -21,7 +21,7 @@ const User = () => {
 
   useEffect(() => {
     // Fetch all users when the component mounts
-    axios.get('http://localhost:7300/api/admin/all-users', { withCredentials: true })
+    axios.get(`${process.env.REACT_APP_SERVER_URL}/api/admin/all-users`, { withCredentials: true })
       .then(response => setUsers(response.data))
       .catch(error => console.error('Error fetching users:', error));
   }, []);
@@ -40,7 +40,7 @@ const User = () => {
         id: updateData.id,
       };
 
-   axios.post('http://localhost:7300/api/users/', newUser , { withCredentials: true }
+   axios.post(`${process.env.REACT_APP_SERVER_URL}/api/users/`, newUser , { withCredentials: true }
    )
         .then(response => {
           const updatedUsers = [...users, response.data.user];
@@ -59,7 +59,7 @@ const User = () => {
       email: updateData.email,
     };
 
-    axios.put(`http://localhost:7300/api/admin/all-users/${selectedUser.id}`, updatedFields,{withCredentials:true})
+    axios.put(`${process.env.REACT_APP_SERVER_URL}/api/admin/all-users/${selectedUser.id}`, updatedFields,{withCredentials:true})
       .then(response => {
         const updatedUsers = users.map(u => (u._id === selectedUser._id ? response.data.user : u));
         setUsers(updatedUsers);
@@ -71,7 +71,7 @@ const User = () => {
   };
 
   const handleDelete = (userId) => {
-    axios.delete(`http://localhost:7300/api/admin/profile${userId}`)
+    axios.delete(`${process.env.REACT_APP_SERVER_URL}/api/admin/profile${userId}`)
       .then(response => {
         const updatedUsers = users.filter(u => u._id !== userId);
         setUsers(updatedUsers);

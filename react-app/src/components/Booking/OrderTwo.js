@@ -28,7 +28,7 @@ const OrderTwo = () => {
     };
 
     try {
-      const response = await fetch('http://localhost:7300/payment', {
+      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/payment`, {
         method: 'POST',
         body: JSON.stringify(body),
         headers

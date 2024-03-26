@@ -58,7 +58,7 @@ const DressDesignDetails = () => {
     if (isConfirmed) {
       // Perform the delete operation
       axios
-        .delete(`http://localhost:7300/api/dress-designs/delete/${id}`, {
+        .delete(`${process.env.REACT_APP_SERVER_URL}/api/dress-designs/delete/${id}`, {
           withCredentials: true,
         })
         .then((response) => {
@@ -81,7 +81,7 @@ const DressDesignDetails = () => {
       // Perform the verification operation
       axios
         .put(
-          `http://localhost:7300/api/dress-designs/verify/${id}`,
+          `${process.env.REACT_APP_SERVER_URL}/api/dress-designs/verify/${id}`,
           { verified: true },
           { withCredentials: true }
         )
@@ -100,7 +100,7 @@ const DressDesignDetails = () => {
     console.log(selectedDesign._id);
     axios
       .put(
-        `http://localhost:7300/api/designs/dress-designs/edit/${selectedDesign._id}`,
+        `${process.env.REACT_APP_SERVER_URL}/api/designs/dress-designs/edit/${selectedDesign._id}`,
         editedData,
         {
           withCredentials: true,
@@ -139,7 +139,7 @@ const DressDesignDetails = () => {
   useEffect(() => {
     // Fetch dress designs from the server
     axios
-      .get("http://localhost:7300/api/designs/dress-designs/", {
+      .get(`${process.env.REACT_APP_SERVER_URL}/api/designs/dress-designs/`, {
         params: { category: "ladies" },
         withCredentials: true,
       })

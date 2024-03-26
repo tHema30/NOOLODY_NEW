@@ -112,7 +112,7 @@ const TailorRegister = () => {
 
     if (validateForm()) {
       // Send a POST request to your backend API
-      fetch("http://localhost:7300/api/users/tailors", {
+      fetch(`${process.env.REACT_APP_SERVER_URL}/api/users/tailors`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

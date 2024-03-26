@@ -13,7 +13,7 @@ const DressDesignList = () => {
    console.log(category);
   useEffect(() => {
     // Fetch dress designs from the server
-    axios.get(`http://localhost:7300/api/designs/dress-designs/cat/${category}`)
+    axios.get(`${process.env.REACT_APP_SERVER_URL}/api/designs/dress-designs/cat/${category}`)
       .then(response => {
         setDressDesigns(response.data);
       })

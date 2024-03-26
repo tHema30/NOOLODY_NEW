@@ -22,7 +22,7 @@ const  CreateService = () => {
         formData.set('description',description);
         formData.set('image', image);
         try {
-          const response = await axios.post('http://localhost:7300/api/users/ServicesDetails',formData,
+          const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/users/ServicesDetails`,formData,
            { headers: {
               "Content-Type": 'multipart/form-data',
             }

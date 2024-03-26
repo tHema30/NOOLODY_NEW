@@ -222,7 +222,7 @@ const User = () => {
   // useEffect(() => {
   //   const fetchUsers = async () => {
   //     try {
-  //       const response = await axios.get('http://localhost:7300/api/admin/all-users');
+  //       const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/admin/all-users``);
   //       setUsers(response.data);
   //     } catch (error) {
   //       console.error('Error fetching users:', error);
@@ -233,7 +233,7 @@ const User = () => {
   // }, []);
   useEffect(() => {
     // Fetch dress designs from the server
-    axios.get('http://localhost:7300/api/admin/all-users') // Update the URL with your actual API endpoint
+    axios.get('${process.env.REACT_APP_SERVER_URL}/api/admin/all-users') // Update the URL with your actual API endpoint
       .then(response => {
         setUsers(response.data);
       })

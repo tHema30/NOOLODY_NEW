@@ -28,7 +28,7 @@ const Service = ({ match }) => {
 
   const loadService = async () => {
     try {
-      const response = await axios.get("http://localhost:7300/api/users/ServicesDetails",
+      const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/users/ServicesDetails`,
        { withCredentials: true });
       
       // Add a unique 'id' field to each row
@@ -62,7 +62,7 @@ const Service = ({ match }) => {
     try {
       // Implement the logic to update the service on the server
       const response = await axios.put(
-        `http://localhost:7300/api/users/ServicesDetails/${selectedService.id}`,
+        `${process.env.REACT_APP_SERVER_URL}/api/users/ServicesDetails/${selectedService.id}`,
         selectedService,{withCredentials:true}
       );
   

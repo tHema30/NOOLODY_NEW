@@ -12,7 +12,7 @@ function Dashboard() {
 
   useEffect(() => {
     // Fetch user data
-    axios.get('http://localhost:7300/api/admin/all-users',
+    axios.get(`/api/admin/all-users`,
     {withCredentials:true})
       .then(response => {
         setUsers(response.data);
@@ -22,7 +22,7 @@ function Dashboard() {
       });
       
 
-      axios.get('http://localhost:7300/api/users/ServicesDetails',
+      axios.get(`${process.env.REACT_APP_SERVER_URL}/api/users/ServicesDetails`,
       {withCredentials:true})
         .then(response => {
           setServiceDetails(response.data);
@@ -34,7 +34,7 @@ function Dashboard() {
 
       
     // Fetch mechanic data
-    axios.get('http://localhost:7300/api/admin/tailorsProfile', {withCredentials:true})
+    axios.get(`${process.env.REACT_APP_SERVER_URL}/api/admin/tailorsProfile`, {withCredentials:true})
       .then(response => {
         setTailors(response.data);
       })
@@ -42,7 +42,7 @@ function Dashboard() {
         console.error('Error fetching tailors data:', error);
       });
 
-      axios.get('http://localhost:7300/api/designs/dress-designs/',
+      axios.get(`${process.env.REACT_APP_SERVER_URL}/api/designs/dress-designs/`,
       {withCredentials:true})
       .then(response => {
         setDressDesigns(response.data);
@@ -55,7 +55,7 @@ function Dashboard() {
 
 
     // Fetch order data
-    axios.get('http://localhost:7300/api/admin/all-orders', {withCredentials:true})
+    axios.get(`${process.env.REACT_APP_SERVER_URL}/api/admin/all-orders`, {withCredentials:true})
       .then(response => {
         setOrders(response.data);
       })

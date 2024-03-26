@@ -37,7 +37,7 @@ const TailorsDetails = () => {
   const handleSubmit = (e)=> {
     e.preventDefault();
     axios
-    .post("http://localhost:7300/api/users/orderhistory",{tailorId:tailorId,orderId:orderId})
+    .post(`${process.env.REACT_APP_SERVER_URL}/api/users/orderhistory`,{tailorId:tailorId,orderId:orderId})
     .then((response) => {
       console.log("Tailor deleted successfully:", response.data);
       // Update the state or fetch data again to reflect the changes
@@ -58,7 +58,7 @@ const TailorsDetails = () => {
 
   const handleDelete = (Id) => {
     axios
-      .delete(`http://localhost:7300/api/admin/tailorsProfile/${Id}`)
+      .delete(`${process.env.REACT_APP_SERVER_URL}/api/admin/tailorsProfile/${Id}`)
       .then((response) => {
         console.log("Tailor deleted successfully:", response.data);
         // Update the state or fetch data again to reflect the changes
@@ -70,7 +70,7 @@ const TailorsDetails = () => {
 
   const handleVerify = (Id) => {
     axios
-      .put(`http://localhost:7300/api/admin/tailorsProfile/${Id}`)
+      .put(`${process.env.REACT_APP_SERVER_URL}/api/admin/tailorsProfile/${Id}`)
       .then((response) => {
         console.log("Tailor verified successfully:", response.data);
         setTailors((prevTailors) => {
@@ -89,7 +89,7 @@ const TailorsDetails = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:7300/api/admin/tailorsProfile", {
+      .get(`${process.env.REACT_APP_SERVER_URL}/api/admin/tailorsProfile`, {
         withCredentials: true,
       })
       .then((response) => {

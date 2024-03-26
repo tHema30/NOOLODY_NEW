@@ -28,7 +28,7 @@ function OrderDetails() {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get('http://localhost:7300/orders/orders');
+        const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/orders/orders`);
         setOrders(response.data);
       } catch (error) {
         console.error('Error fetching orders', error);
