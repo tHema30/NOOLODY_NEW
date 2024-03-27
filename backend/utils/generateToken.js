@@ -1,3 +1,6 @@
+dotenv.config();
+import dotenv from 'dotenv';
+
 import jwt from 'jsonwebtoken';
 
 

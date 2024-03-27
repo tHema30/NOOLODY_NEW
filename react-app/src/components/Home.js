@@ -32,7 +32,7 @@ function myFunction() {
          {/* <div id="header-carousel" className="carousel slide" data-bs-ride="carousel"> */}
             <div className="carousel-inner">
                 <div className="carousel-item active">
-                    <img className="w-100" src={require("../assets/img/homenew01.jpg")} alt=""/>
+                    <img className="w-100" src={require("../assets/img/homenew01.jpg")} alt="" style={{height:'100vh'}}/>
                     <div className="carousel-caption">
                         <div className="container">
                             <div className="row justify-content-start">

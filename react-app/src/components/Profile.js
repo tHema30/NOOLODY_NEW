@@ -64,7 +64,7 @@ const ProfileUpdate = () => {
 
   const handleLogout = async () => {
     try {
-      const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/users/logout`, {}, { withCredentials: true });
+      const response = await axios.post(` ${process.env.REACT_APP_SERVER_URL}/api/users/logout`, {}, { withCredentials: true });
 
       localStorage.removeItem('userInfo');
       setTimeout(() => {
